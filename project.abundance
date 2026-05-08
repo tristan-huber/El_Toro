@@ -117,16 +117,18 @@
           "uniqueID": "id-1064",
           "ioValues": [
             {
-              "name": "shape",
-              "ioValue": "__GEOMETRY_INPUT__"
+              "name": "interval",
+              "ioValue": 24
             },
             {
-              "name": "count",
-              "ioValue": 1
-            },
-            {
-              "name": "offset",
-              "ioValue": 5
+              "name": "offsets",
+              "ioValue": [
+                8,
+                10,
+                12,
+                11,
+                -4
+              ]
             }
           ],
           "interpreterVersion": 1,
