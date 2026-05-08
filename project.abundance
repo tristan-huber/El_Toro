@@ -580,9 +580,9 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.17513020833333334,
-      "y": 0.2657142857142857,
-      "uniqueID": "id-1206",
+      "x": 0.21809895833333331,
+      "y": 0.6857142857142857,
+      "uniqueID": "id-1334",
       "name": "crv.PolyMove",
       "ioValues": [
         {
@@ -592,19 +592,19 @@
         {
           "name": "offsets",
           "ioValue": [
-            "-47.25",
-            "-24",
-            "0",
-            "24",
-            "47.5"
+            "16.5",
+            "18.825",
+            "21.825",
+            "21",
+            "18.75"
           ]
         },
         {
           "name": "direction",
           "ioValue": [
-            1,
             0,
-            0
+            0,
+            1
           ]
         }
       ],
@@ -614,7 +614,7 @@
           "atomType": "Output",
           "x": 0.98,
           "y": 0.5,
-          "uniqueID": "id-1201",
+          "uniqueID": "id-1325",
           "ioValues": [
             {
               "name": "number or geometry",
@@ -626,7 +626,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.15384615384615385,
-          "uniqueID": "id-1202",
+          "uniqueID": "id-1326",
           "name": "toMove",
           "type": "geometry"
         },
@@ -634,7 +634,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.24615384615384617,
-          "uniqueID": "id-1203",
+          "uniqueID": "id-1327",
           "name": "offsets",
           "type": "array"
         },
@@ -642,7 +642,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.3384615384615385,
-          "uniqueID": "id-1204",
+          "uniqueID": "id-1328",
           "name": "direction",
           "type": "point3d",
           "pointValue": null
@@ -651,7 +651,7 @@
           "atomType": "Code",
           "x": 0.39583333333333337,
           "y": 0.43714285714285717,
-          "uniqueID": "id-1205",
+          "uniqueID": "id-1329",
           "ioValues": [
             {
               "name": "toMove",
@@ -660,47 +660,135 @@
             {
               "name": "offsets",
               "ioValue": [
-                "-47.25",
-                "-24",
-                "0",
-                "24",
-                "47.5"
+                "16.5",
+                "18.825",
+                "21.825",
+                "21",
+                "18.75"
               ]
             },
             {
               "name": "direction",
               "ioValue": [
-                1,
                 0,
-                0
+                0,
+                1
               ]
             }
           ],
           "interpreterVersion": 1,
-          "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({...l, geometry: mvd})\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number,number,number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly|null)[]= []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    return toMove.onLeafs((l) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      index += 1;\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({\n        ...l,\n        geometry: mvd\n      })\n      return res;\n    })\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
-          "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        return toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({\n                ...l,\n                geometry: mvd\n            });\n            return res;\n        });\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+          "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
+          "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+        },
+        {
+          "atomType": "Circle",
+          "x": 0.177734375,
+          "y": 0.6799999999999999,
+          "uniqueID": "id-1330",
+          "ioValues": [
+            {
+              "name": "diameter",
+              "ioValue": 10
+            }
+          ]
+        },
+        {
+          "atomType": "Move",
+          "x": 0.2532552083333333,
+          "y": 0.8514285714285714,
+          "uniqueID": "id-1331",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "xDist",
+              "ioValue": 0
+            },
+            {
+              "name": "yDist",
+              "ioValue": 20
+            },
+            {
+              "name": "zDist",
+              "ioValue": 0
+            }
+          ]
+        },
+        {
+          "atomType": "Assembly",
+          "x": 0.2903645833333333,
+          "y": 0.7171428571428571,
+          "uniqueID": "id-1332",
+          "ioValues": [
+            {
+              "name": "Shape 1",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 2",
+              "ioValue": null
+            }
+          ]
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.36588541666666663,
+          "y": 0.8057142857142858,
+          "uniqueID": "id-1333",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": 10
+            }
+          ]
         }
       ],
       "allConnectors": [
         {
           "ap2Name": "toMove",
-          "ap1ID": "id-1202",
-          "ap2ID": "id-1205"
+          "ap1ID": "id-1326",
+          "ap2ID": "id-1329"
         },
         {
           "ap2Name": "offsets",
-          "ap1ID": "id-1203",
-          "ap2ID": "id-1205"
+          "ap1ID": "id-1327",
+          "ap2ID": "id-1329"
         },
         {
           "ap2Name": "direction",
-          "ap1ID": "id-1204",
-          "ap2ID": "id-1205"
+          "ap1ID": "id-1328",
+          "ap2ID": "id-1329"
         },
         {
           "ap2Name": "number or geometry",
-          "ap1ID": "id-1205",
-          "ap2ID": "id-1201"
+          "ap1ID": "id-1329",
+          "ap2ID": "id-1325"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1330",
+          "ap2ID": "id-1331"
+        },
+        {
+          "ap2Name": "Shape 1",
+          "ap1ID": "id-1330",
+          "ap2ID": "id-1332"
+        },
+        {
+          "ap2Name": "Shape 2",
+          "ap1ID": "id-1331",
+          "ap2ID": "id-1332"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1332",
+          "ap2ID": "id-1333"
         }
       ],
       "parentRepo": {
@@ -728,13 +816,13 @@
       },
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778282307609
+      "lastReloadedFromGithubAt": 1778283692175
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.21809895833333331,
-      "y": 0.6857142857142857,
-      "uniqueID": "id-1221",
+      "x": 0.17513020833333334,
+      "y": 0.2657142857142857,
+      "uniqueID": "id-1373",
       "name": "crv.PolyMove",
       "ioValues": [
         {
@@ -744,18 +832,18 @@
         {
           "name": "offsets",
           "ioValue": [
-            "-47.25",
-            "-24",
-            "0",
+            "47.125",
             "24",
-            "47.5"
+            "0",
+            "-24",
+            "-47.25"
           ]
         },
         {
           "name": "direction",
           "ioValue": [
-            0,
             1,
+            0,
             0
           ]
         }
@@ -766,7 +854,7 @@
           "atomType": "Output",
           "x": 0.98,
           "y": 0.5,
-          "uniqueID": "id-1222",
+          "uniqueID": "id-1364",
           "ioValues": [
             {
               "name": "number or geometry",
@@ -778,7 +866,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.15384615384615385,
-          "uniqueID": "id-1223",
+          "uniqueID": "id-1365",
           "name": "toMove",
           "type": "geometry"
         },
@@ -786,7 +874,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.24615384615384617,
-          "uniqueID": "id-1224",
+          "uniqueID": "id-1366",
           "name": "offsets",
           "type": "array"
         },
@@ -794,7 +882,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.3384615384615385,
-          "uniqueID": "id-1225",
+          "uniqueID": "id-1367",
           "name": "direction",
           "type": "point3d",
           "pointValue": null
@@ -803,7 +891,7 @@
           "atomType": "Code",
           "x": 0.39583333333333337,
           "y": 0.43714285714285717,
-          "uniqueID": "id-1226",
+          "uniqueID": "id-1368",
           "ioValues": [
             {
               "name": "toMove",
@@ -812,47 +900,135 @@
             {
               "name": "offsets",
               "ioValue": [
-                "-47.25",
-                "-24",
-                "0",
+                "47.125",
                 "24",
-                "47.5"
+                "0",
+                "-24",
+                "-47.25"
               ]
             },
             {
               "name": "direction",
               "ioValue": [
-                0,
                 1,
+                0,
                 0
               ]
             }
           ],
           "interpreterVersion": 1,
-          "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({...l, geometry: mvd})\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number,number,number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly|null)[]= []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    return toMove.onLeafs((l) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      index += 1;\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({\n        ...l,\n        geometry: mvd\n      })\n      return res;\n    })\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
-          "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        return toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({\n                ...l,\n                geometry: mvd\n            });\n            return res;\n        });\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+          "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
+          "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+        },
+        {
+          "atomType": "Circle",
+          "x": 0.177734375,
+          "y": 0.6799999999999999,
+          "uniqueID": "id-1369",
+          "ioValues": [
+            {
+              "name": "diameter",
+              "ioValue": 10
+            }
+          ]
+        },
+        {
+          "atomType": "Move",
+          "x": 0.2532552083333333,
+          "y": 0.8514285714285714,
+          "uniqueID": "id-1370",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "xDist",
+              "ioValue": 0
+            },
+            {
+              "name": "yDist",
+              "ioValue": 20
+            },
+            {
+              "name": "zDist",
+              "ioValue": 0
+            }
+          ]
+        },
+        {
+          "atomType": "Assembly",
+          "x": 0.2903645833333333,
+          "y": 0.7171428571428571,
+          "uniqueID": "id-1371",
+          "ioValues": [
+            {
+              "name": "Shape 1",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 2",
+              "ioValue": null
+            }
+          ]
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.36588541666666663,
+          "y": 0.8057142857142858,
+          "uniqueID": "id-1372",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": 10
+            }
+          ]
         }
       ],
       "allConnectors": [
         {
           "ap2Name": "toMove",
-          "ap1ID": "id-1223",
-          "ap2ID": "id-1226"
+          "ap1ID": "id-1365",
+          "ap2ID": "id-1368"
         },
         {
           "ap2Name": "offsets",
-          "ap1ID": "id-1224",
-          "ap2ID": "id-1226"
+          "ap1ID": "id-1366",
+          "ap2ID": "id-1368"
         },
         {
           "ap2Name": "direction",
-          "ap1ID": "id-1225",
-          "ap2ID": "id-1226"
+          "ap1ID": "id-1367",
+          "ap2ID": "id-1368"
         },
         {
           "ap2Name": "number or geometry",
-          "ap1ID": "id-1226",
-          "ap2ID": "id-1222"
+          "ap1ID": "id-1368",
+          "ap2ID": "id-1364"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1369",
+          "ap2ID": "id-1370"
+        },
+        {
+          "ap2Name": "Shape 1",
+          "ap1ID": "id-1369",
+          "ap2ID": "id-1371"
+        },
+        {
+          "ap2Name": "Shape 2",
+          "ap1ID": "id-1370",
+          "ap2ID": "id-1371"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1371",
+          "ap2ID": "id-1372"
         }
       ],
       "parentRepo": {
@@ -880,7 +1056,7 @@
       },
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778282307609
+      "lastReloadedFromGithubAt": 1778283698732
     }
   ],
   "allConnectors": [
@@ -917,12 +1093,12 @@
     {
       "ap2Name": "toMove",
       "ap1ID": "id-1185",
-      "ap2ID": "id-1206"
+      "ap2ID": "id-1373"
     },
     {
       "ap2Name": "toMove",
-      "ap1ID": "id-1206",
-      "ap2ID": "id-1221"
+      "ap1ID": "id-1373",
+      "ap2ID": "id-1334"
     }
   ],
   "unitsKey": "Inches",
