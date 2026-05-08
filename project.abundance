@@ -24,6 +24,12 @@
       "y": 0.5571428571428572,
       "uniqueID": "id-999",
       "name": "Molecule",
+      "ioValues": [
+        {
+          "name": "Input",
+          "ioValue": 10
+        }
+      ],
       "topLevel": false,
       "allAtoms": [
         {
@@ -96,6 +102,13 @@
               "ioValue": null
             }
           ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
+          "uniqueID": "id-1044",
+          "type": "array"
         }
       ],
       "allConnectors": [
@@ -113,6 +126,11 @@
           "ap2Name": "Shape 2",
           "ap1ID": "id-1012",
           "ap2ID": "id-1026"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-1026",
+          "ap2ID": "id-1001"
         }
       ],
       "fileTypeVersion": 1
