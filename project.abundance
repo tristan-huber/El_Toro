@@ -55,8 +55,8 @@
         },
         {
           "atomType": "Code",
-          "x": 0.18294270833333331,
-          "y": 0.48571428571428577,
+          "x": 0.17057291666666666,
+          "y": 0.13999999999999999,
           "uniqueID": "id-1008",
           "ioValues": [
             {
@@ -74,8 +74,8 @@
         },
         {
           "atomType": "Code",
-          "x": 0.34505208333333337,
-          "y": 0.6342857142857142,
+          "x": 0.34765625,
+          "y": 0.47428571428571425,
           "uniqueID": "id-1012",
           "ioValues": [
             {
@@ -109,6 +109,29 @@
           "y": 0.15384615384615385,
           "uniqueID": "id-1044",
           "type": "array"
+        },
+        {
+          "atomType": "Code",
+          "x": 0.255859375,
+          "y": 0.8171428571428572,
+          "uniqueID": "id-1064",
+          "ioValues": [
+            {
+              "name": "shape",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "count",
+              "ioValue": 1
+            },
+            {
+              "name": "offset",
+              "ioValue": 5
+            }
+          ],
+          "interpreterVersion": 1,
+          "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(interval: number, offsets: number[]) {\n  const points: [number, number, number][] = []\n  let x = 0;\n  offsets.forEach((offset) => {\n    points.push([x, offset, 0])\n    x += interval\n  })\n\n  return replicad.assembleWire([replicad.makeBSplineApproximation(points, {\n    degMax: 3,\n    degMin: 3,\n    tolerance: 0.0001,\n  })])\n\n}",
+          "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(interval, offsets) {\n    const points = [];\n    let x = 0;\n    offsets.forEach((offset) => {\n        points.push([x, offset, 0]);\n        x += interval;\n    });\n    return replicad.assembleWire([replicad.makeBSplineApproximation(points, {\n            degMax: 3,\n            degMin: 3,\n            tolerance: 0.0001,\n        })]);\n}\n"
         }
       ],
       "allConnectors": [
