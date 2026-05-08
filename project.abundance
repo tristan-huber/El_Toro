@@ -19,6 +19,176 @@
       ]
     },
     {
+      "atomType": "Circle",
+      "x": 0.291015625,
+      "y": 0.66,
+      "uniqueID": "id-1087",
+      "ioValues": [
+        {
+          "name": "diameter",
+          "ioValue": 10
+        }
+      ]
+    },
+    {
+      "atomType": "Assembly",
+      "x": 0.458984375,
+      "y": 0.3342857142857143,
+      "uniqueID": "id-1090",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": null
+        }
+      ]
+    },
+    {
+      "atomType": "Extrude",
+      "x": 0.4166666666666667,
+      "y": 0.7714285714285715,
+      "uniqueID": "id-1095",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "height",
+          "ioValue": 10
+        }
+      ]
+    },
+    {
+      "atomType": "Fusion",
+      "x": 0.6067708333333334,
+      "y": 0.3914285714285714,
+      "uniqueID": "id-1099",
+      "ioValues": [],
+      "unionType": "Fusion"
+    },
+    {
+      "atomType": "Code",
+      "x": 0.25,
+      "y": 0.18,
+      "uniqueID": "id-1102",
+      "ioValues": [
+        {
+          "name": "frontCamberDeg",
+          "ioValue": 61
+        },
+        {
+          "name": "rearCamberDeg",
+          "ioValue": 80
+        }
+      ],
+      "interpreterVersion": 1,
+      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\n\nconst pointsAndSpline = (points: [number, number, number][]) => {\n  console.log('bah')\n  const result = [];\n  result.push(\n    replicad.makeBSplineApproximation(points, {\n      degMax: 3,\n      degMin: 1,\n      tolerance: 0.01,\n    })\n  );\n\n  const q = replicad.makeSphere(0.5);\n  for (const p of points) {\n    console.log(p);\n    result.push(q.clone().translate(p[0], p[1], p[2]));\n  }\n  return result;\n};\n\nfunction pointsWithCamberedStart(\n  points: [number, number][],\n  stations: number[],\n  frontCamber: number,\n  backCamber: number\n): [number, number, number][] {\n  const result = [];\n  for (let i = 0; i < points.length; i++) {\n    let x = stations[i];\n    let z = points[i][1];\n    if (i == 0) {\n      x = Math.cos(frontCamber) * z; // instead of 0\n      z = Math.sin(frontCamber) * z;\n    }\n    if (i == points.length - 1) {\n      x = x - Math.cos(backCamber) * z;\n      z = Math.sin(backCamber) * z;\n    }\n\n    result.push([x, points[i][0], z]);\n  }\n  //@ts-ignore\n  return result;\n};\n\nfunction run(frontCamberDeg: number, rearCamberDeg: number) {\n  const keel_line: [number, number][] = [\n    [0, 16 + 7 / 16],\n    [0, 18 + 7 / 8],\n    [0, 21 + 7 / 8],\n    [0, 21],\n    [0, 18 + 9 / 16],\n  ];\n\n  const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n\n  const spoints = [0];\n  for (const offset of stationDists) {\n    spoints.push(spoints[spoints.length - 1] + offset);\n  }\n  const frontCamber = frontCamberDeg * Math.PI / 180\n  const rearCamber = rearCamberDeg * Math.PI / 180\n\n  const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n  return t.map(p => replicad.makeVertex(p))\n\n\n\n  const blep = [\n    pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n    pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n    pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n  ];\n\n  console.log(\"blep\")\n  console.log(blep)\n  console.log(blep.length)\n  const wires = []\n  for (const res of blep) {\n    //@ts-ignore\n    wires.push(replicad.assembleWire([res[0]]))\n  }\n  console.log(wires)\n  return replicad.loft(wires)\n}",
+      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nconst pointsAndSpline = (points) => {\n    console.log('bah');\n    const result = [];\n    result.push(replicad.makeBSplineApproximation(points, {\n        degMax: 3,\n        degMin: 1,\n        tolerance: 0.01,\n    }));\n    const q = replicad.makeSphere(0.5);\n    for (const p of points) {\n        console.log(p);\n        result.push(q.clone().translate(p[0], p[1], p[2]));\n    }\n    return result;\n};\nfunction pointsWithCamberedStart(points, stations, frontCamber, backCamber) {\n    const result = [];\n    for (let i = 0; i < points.length; i++) {\n        let x = stations[i];\n        let z = points[i][1];\n        if (i == 0) {\n            x = Math.cos(frontCamber) * z; // instead of 0\n            z = Math.sin(frontCamber) * z;\n        }\n        if (i == points.length - 1) {\n            x = x - Math.cos(backCamber) * z;\n            z = Math.sin(backCamber) * z;\n        }\n        result.push([x, points[i][0], z]);\n    }\n    //@ts-ignore\n    return result;\n}\n;\nfunction run(frontCamberDeg, rearCamberDeg) {\n    const keel_line = [\n        [0, 16 + 7 / 16],\n        [0, 18 + 7 / 8],\n        [0, 21 + 7 / 8],\n        [0, 21],\n        [0, 18 + 9 / 16],\n    ];\n    const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n    const spoints = [0];\n    for (const offset of stationDists) {\n        spoints.push(spoints[spoints.length - 1] + offset);\n    }\n    const frontCamber = frontCamberDeg * Math.PI / 180;\n    const rearCamber = rearCamberDeg * Math.PI / 180;\n    const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n    return t.map(p => replicad.makeVertex(p));\n    const blep = [\n        pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n    ];\n    console.log(\"blep\");\n    console.log(blep);\n    console.log(blep.length);\n    const wires = [];\n    for (const res of blep) {\n        //@ts-ignore\n        wires.push(replicad.assembleWire([res[0]]));\n    }\n    console.log(wires);\n    return replicad.loft(wires);\n}\n"
+    },
+    {
+      "atomType": "Loft",
+      "x": 0.6497395833333334,
+      "y": 0.5942857142857143,
+      "uniqueID": "id-1108",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Shape 3",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Shape 1",
+          "ioValue": {
+            "geometry": "move-circle-5-0-0-0",
+            "dimension": "2D",
+            "tags": [],
+            "plane": {
+              "origin": [
+                0,
+                0,
+                10
+              ],
+              "xDir": [
+                1,
+                0,
+                0
+              ],
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            "color": "#aad7f2",
+            "bom": []
+          }
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": {
+            "geometry": "45494fd8-{\"geometry\":[{\"geometry\":\"e42d01a0-61-80-0\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-1\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-2\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-3\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-4\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"}],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"tags\":[],\"color\":\"#aad7f2\",\"bom\":[],\"dimension\":\"2D\",\"nonReplicadSerialized\":[]}-4-0",
+            "color": "#3c5a6e",
+            "tags": [],
+            "bom": [],
+            "plane": {
+              "origin": [
+                0,
+                0,
+                0
+              ],
+              "xDir": [
+                1,
+                0,
+                0
+              ],
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            "dimension": "Point3D"
+          }
+        },
+        {
+          "name": "Shape 3",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "closedSelection": 0
+    },
+    {
+      "atomType": "Move",
+      "x": 0.5,
+      "y": 0.5,
+      "uniqueID": "id-1111",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": 0
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 10
+        }
+      ]
+    },
+    {
       "atomType": "Molecule",
       "x": 0.26171875,
       "y": 0.40571428571428575,
@@ -170,179 +340,6 @@
       "fileTypeVersion": 1
     },
     {
-      "atomType": "Circle",
-      "x": 0.291015625,
-      "y": 0.66,
-      "uniqueID": "id-1087",
-      "ioValues": [
-        {
-          "name": "diameter",
-          "ioValue": 10
-        }
-      ]
-    },
-    {
-      "atomType": "Assembly",
-      "x": 0.458984375,
-      "y": 0.3342857142857143,
-      "uniqueID": "id-1090",
-      "ioValues": [
-        {
-          "name": "Shape 1",
-          "ioValue": null
-        }
-      ]
-    },
-    {
-      "atomType": "Extrude",
-      "x": 0.4166666666666667,
-      "y": 0.7714285714285715,
-      "uniqueID": "id-1095",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "height",
-          "ioValue": 10
-        }
-      ]
-    },
-    {
-      "atomType": "Fusion",
-      "x": 0.6067708333333334,
-      "y": 0.3914285714285714,
-      "uniqueID": "id-1099",
-      "ioValues": [],
-      "unionType": "Fusion"
-    },
-    {
-      "atomType": "Code",
-      "x": 0.25,
-      "y": 0.18,
-      "uniqueID": "id-1102",
-      "ioValues": [
-        {
-          "name": "frontCamberDeg",
-          "ioValue": 61
-        },
-        {
-          "name": "rearCamberDeg",
-          "ioValue": 80
-        }
-      ],
-      "interpreterVersion": 1,
-      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\n\nconst pointsAndSpline = (points: [number, number, number][]) => {\n  console.log('bah')\n  const result = [];\n  result.push(\n    replicad.makeBSplineApproximation(points, {\n      degMax: 3,\n      degMin: 1,\n      tolerance: 0.01,\n    })\n  );\n\n  const q = replicad.makeSphere(0.5);\n  for (const p of points) {\n    console.log(p);\n    result.push(q.clone().translate(p[0], p[1], p[2]));\n  }\n  return result;\n};\n\nfunction pointsWithCamberedStart(\n  points: [number, number][],\n  stations: number[],\n  frontCamber: number,\n  backCamber: number\n): [number, number, number][] {\n  const result = [];\n  for (let i = 0; i < points.length; i++) {\n    let x = stations[i];\n    let z = points[i][1];\n    if (i == 0) {\n      x = Math.cos(frontCamber) * z; // instead of 0\n      z = Math.sin(frontCamber) * z;\n    }\n    if (i == points.length - 1) {\n      x = x - Math.cos(backCamber) * z;\n      z = Math.sin(backCamber) * z;\n    }\n\n    result.push([x, points[i][0], z]);\n  }\n  //@ts-ignore\n  return result;\n};\n\nfunction run(frontCamberDeg: number, rearCamberDeg: number) {\n  const keel_line: [number, number][] = [\n    [0, 16 + 7 / 16],\n    [0, 18 + 7 / 8],\n    [0, 21 + 7 / 8],\n    [0, 21],\n    [0, 18 + 9 / 16],\n  ];\n\n  const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n\n  const spoints = [0];\n  for (const offset of stationDists) {\n    spoints.push(spoints[spoints.length - 1] + offset);\n  }\n  const frontCamber = frontCamberDeg * Math.PI / 180\n  const rearCamber = rearCamberDeg * Math.PI / 180\n\n  const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n  return t.map(p => replicad.makeVertex(p))\n\n\n\n  const blep = [\n    pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n    pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n    pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n  ];\n\n  console.log(\"blep\")\n  console.log(blep)\n  console.log(blep.length)\n  const wires = []\n  for (const res of blep) {\n    //@ts-ignore\n    wires.push(replicad.assembleWire([res[0]]))\n  }\n  console.log(wires)\n  return replicad.loft(wires)\n}",
-      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nconst pointsAndSpline = (points) => {\n    console.log('bah');\n    const result = [];\n    result.push(replicad.makeBSplineApproximation(points, {\n        degMax: 3,\n        degMin: 1,\n        tolerance: 0.01,\n    }));\n    const q = replicad.makeSphere(0.5);\n    for (const p of points) {\n        console.log(p);\n        result.push(q.clone().translate(p[0], p[1], p[2]));\n    }\n    return result;\n};\nfunction pointsWithCamberedStart(points, stations, frontCamber, backCamber) {\n    const result = [];\n    for (let i = 0; i < points.length; i++) {\n        let x = stations[i];\n        let z = points[i][1];\n        if (i == 0) {\n            x = Math.cos(frontCamber) * z; // instead of 0\n            z = Math.sin(frontCamber) * z;\n        }\n        if (i == points.length - 1) {\n            x = x - Math.cos(backCamber) * z;\n            z = Math.sin(backCamber) * z;\n        }\n        result.push([x, points[i][0], z]);\n    }\n    //@ts-ignore\n    return result;\n}\n;\nfunction run(frontCamberDeg, rearCamberDeg) {\n    const keel_line = [\n        [0, 16 + 7 / 16],\n        [0, 18 + 7 / 8],\n        [0, 21 + 7 / 8],\n        [0, 21],\n        [0, 18 + 9 / 16],\n    ];\n    const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n    const spoints = [0];\n    for (const offset of stationDists) {\n        spoints.push(spoints[spoints.length - 1] + offset);\n    }\n    const frontCamber = frontCamberDeg * Math.PI / 180;\n    const rearCamber = rearCamberDeg * Math.PI / 180;\n    const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n    return t.map(p => replicad.makeVertex(p));\n    const blep = [\n        pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n    ];\n    console.log(\"blep\");\n    console.log(blep);\n    console.log(blep.length);\n    const wires = [];\n    for (const res of blep) {\n        //@ts-ignore\n        wires.push(replicad.assembleWire([res[0]]));\n    }\n    console.log(wires);\n    return replicad.loft(wires);\n}\n"
-    },
-    {
-      "atomType": "Loft",
-      "x": 0.6497395833333334,
-      "y": 0.5942857142857143,
-      "uniqueID": "id-1108",
-      "ioValues": [
-        {
-          "name": "Shape 1",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape 3",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape 1",
-          "ioValue": {
-            "geometry": "move-circle-5-0-0-0",
-            "dimension": "2D",
-            "tags": [],
-            "plane": {
-              "origin": [
-                0,
-                0,
-                10
-              ],
-              "xDir": [
-                1,
-                0,
-                0
-              ],
-              "normal": [
-                0,
-                0,
-                1
-              ]
-            },
-            "color": "#aad7f2",
-            "bom": []
-          }
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": {
-            "geometry": "45494fd8-{\"geometry\":[{\"geometry\":\"e42d01a0-61-80-0\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-1\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-2\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-3\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"},{\"geometry\":\"e42d01a0-61-80-4\",\"color\":\"#3c5a6e\",\"tags\":[],\"bom\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"dimension\":\"Point3D\"}],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"tags\":[],\"color\":\"#aad7f2\",\"bom\":[],\"dimension\":\"2D\",\"nonReplicadSerialized\":[]}-4-0",
-            "color": "#3c5a6e",
-            "tags": [],
-            "bom": [],
-            "plane": {
-              "origin": [
-                0,
-                0,
-                0
-              ],
-              "xDir": [
-                1,
-                0,
-                0
-              ],
-              "normal": [
-                0,
-                0,
-                1
-              ]
-            },
-            "dimension": "Point3D"
-          }
-        },
-        {
-          "name": "Shape 3",
-          "ioValue": null
-        }
-      ],
-      "closedSelection": 0
-    },
-    {
-      "atomType": "Move",
-      "x": 0.5,
-      "y": 0.5,
-      "uniqueID": "id-1111",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "xDist",
-          "ioValue": 0,
-          "currentEquation": "0"
-        },
-        {
-          "name": "yDist",
-          "ioValue": 0,
-          "currentEquation": "0"
-        },
-        {
-          "name": "zDist",
-          "ioValue": 10,
-          "currentEquation": "10"
-        }
-      ]
-    },
-    {
       "atomType": "GitHubMolecule",
       "x": 0.5071614583333333,
       "y": 0.7599999999999999,
@@ -355,8 +352,7 @@
         },
         {
           "name": "i",
-          "ioValue": 4,
-          "currentEquation": "4"
+          "ioValue": 4
         }
       ],
       "topLevel": false,
@@ -457,11 +453,6 @@
   ],
   "allConnectors": [
     {
-      "ap2Name": "Shape 1",
-      "ap1ID": "id-999",
-      "ap2ID": "id-1090"
-    },
-    {
       "ap2Name": "geometry",
       "ap1ID": "id-1087",
       "ap2ID": "id-1095"
@@ -480,6 +471,11 @@
       "ap2Name": "Shape 1",
       "ap1ID": "id-1111",
       "ap2ID": "id-1108"
+    },
+    {
+      "ap2Name": "Shape 1",
+      "ap1ID": "id-999",
+      "ap2ID": "id-1090"
     },
     {
       "ap2Name": "Shape 2",
