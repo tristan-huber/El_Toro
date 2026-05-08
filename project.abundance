@@ -27,7 +27,12 @@
       "ioValues": [
         {
           "name": "Input",
-          "ioValue": 10
+          "ioValue": [
+            "2",
+            "4",
+            "5",
+            "6"
+          ]
         }
       ],
       "topLevel": false,
@@ -123,11 +128,10 @@
             {
               "name": "offsets",
               "ioValue": [
-                8,
-                10,
-                12,
-                11,
-                -4
+                "2",
+                "4",
+                "5",
+                "6"
               ]
             }
           ],
@@ -156,6 +160,11 @@
           "ap2Name": "number or geometry",
           "ap1ID": "id-1026",
           "ap2ID": "id-1001"
+        },
+        {
+          "ap2Name": "offsets",
+          "ap1ID": "id-1044",
+          "ap2ID": "id-1064"
         }
       ],
       "fileTypeVersion": 1
