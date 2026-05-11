@@ -50,6 +50,57 @@
       "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nconst pointsAndSpline = (points) => {\n    console.log('bah');\n    const result = [];\n    result.push(replicad.makeBSplineApproximation(points, {\n        degMax: 3,\n        degMin: 1,\n        tolerance: 0.01,\n    }));\n    const q = replicad.makeSphere(0.5);\n    for (const p of points) {\n        console.log(p);\n        result.push(q.clone().translate(p[0], p[1], p[2]));\n    }\n    return result;\n};\nfunction pointsWithCamberedStart(points, stations, frontCamber, backCamber) {\n    const result = [];\n    for (let i = 0; i < points.length; i++) {\n        let x = stations[i];\n        let z = points[i][1];\n        if (i == 0) {\n            x = Math.cos(frontCamber) * z; // instead of 0\n            z = Math.sin(frontCamber) * z;\n        }\n        if (i == points.length - 1) {\n            x = x - Math.cos(backCamber) * z;\n            z = Math.sin(backCamber) * z;\n        }\n        result.push([x, points[i][0], z]);\n    }\n    //@ts-ignore\n    return result;\n}\n;\nfunction run(frontCamberDeg, rearCamberDeg) {\n    const keel_line = [\n        [0, 16 + 7 / 16],\n        [0, 18 + 7 / 8],\n        [0, 21 + 7 / 8],\n        [0, 21],\n        [0, 18 + 9 / 16],\n    ];\n    const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n    const spoints = [0];\n    for (const offset of stationDists) {\n        spoints.push(spoints[spoints.length - 1] + offset);\n    }\n    const frontCamber = frontCamberDeg * Math.PI / 180;\n    const rearCamber = rearCamberDeg * Math.PI / 180;\n    const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n    return t.map(p => replicad.makeVertex(p));\n    const blep = [\n        pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n    ];\n    console.log(\"blep\");\n    console.log(blep);\n    console.log(blep.length);\n    const wires = [];\n    for (const res of blep) {\n        //@ts-ignore\n        wires.push(replicad.assembleWire([res[0]]));\n    }\n    console.log(wires);\n    return replicad.loft(wires);\n}\n"
     },
     {
+      "atomType": "Assembly",
+      "x": 0.4811197916666667,
+      "y": 0.6028571428571429,
+      "uniqueID": "id-1512",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 3",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 4",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 5",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 6",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 7",
+          "ioValue": null
+        }
+      ]
+    },
+    {
+      "atomType": "Code",
+      "x": 0.7194010416666667,
+      "y": 0.7028571428571428,
+      "uniqueID": "id-1517",
+      "ioValues": [
+        {
+          "name": "wires",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "interpreterVersion": 1,
+      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n  const surf = replicad.loft(wireList, {}, true);\n  const t = []\n  surf.faces.forEach((face) => {\n    t.push(replicad.makeOffset(face, -1))\n    t.push(face)\n  })\n  return t;\n\n  /*.shell(\n    {\n      thickness: 1,\n      filter: new replicad.FaceFinder().when((f) => true)})*/\n  return surf;\n}\n",
+      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const surf = replicad.loft(wireList, {}, true);\n    const t = [];\n    surf.faces.forEach((face) => {\n        t.push(replicad.makeOffset(face, -1));\n        t.push(face);\n    });\n    return t;\n    /*.shell(\n      {\n        thickness: 1,\n        filter: new replicad.FaceFinder().when((f) => true)})*/\n    return surf;\n}\n"
+    },
+    {
       "atomType": "Molecule",
       "x": 0.6569010416666666,
       "y": 0.35714285714285715,
@@ -1000,57 +1051,6 @@
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
       "lastReloadedFromGithubAt": 1778284111941
-    },
-    {
-      "atomType": "Assembly",
-      "x": 0.4811197916666667,
-      "y": 0.6028571428571429,
-      "uniqueID": "id-1512",
-      "ioValues": [
-        {
-          "name": "Shape 1",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 3",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 4",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 5",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 6",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 7",
-          "ioValue": null
-        }
-      ]
-    },
-    {
-      "atomType": "Code",
-      "x": 0.7194010416666667,
-      "y": 0.7028571428571428,
-      "uniqueID": "id-1517",
-      "ioValues": [
-        {
-          "name": "wires",
-          "ioValue": "__GEOMETRY_INPUT__"
-        }
-      ],
-      "interpreterVersion": 1,
-      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n  const surf = replicad.loft(wireList, {}, true).shell(\n    {\n      thickness: 1,\n      filter: new replicad.FaceFinder().when((f) => true)})\n  return surf;\n}\n",
-      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const surf = replicad.loft(wireList, {}, true).shell({\n        thickness: 1,\n        filter: new replicad.FaceFinder().when((f) => true)\n    });\n    return surf;\n}\n"
     },
     {
       "atomType": "GitHubMolecule",
@@ -2184,6 +2184,11 @@
       "ap2ID": "id-1123"
     },
     {
+      "ap2Name": "wires",
+      "ap1ID": "id-1512",
+      "ap2ID": "id-1517"
+    },
+    {
       "ap2Name": "Shape 1",
       "ap1ID": "id-999",
       "ap2ID": "id-1090"
@@ -2222,11 +2227,6 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-1503",
       "ap2ID": "id-1512"
-    },
-    {
-      "ap2Name": "wires",
-      "ap1ID": "id-1512",
-      "ap2ID": "id-1517"
     },
     {
       "ap2Name": "toMove",
