@@ -50,62 +50,6 @@
       "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nconst pointsAndSpline = (points) => {\n    console.log('bah');\n    const result = [];\n    result.push(replicad.makeBSplineApproximation(points, {\n        degMax: 3,\n        degMin: 1,\n        tolerance: 0.01,\n    }));\n    const q = replicad.makeSphere(0.5);\n    for (const p of points) {\n        console.log(p);\n        result.push(q.clone().translate(p[0], p[1], p[2]));\n    }\n    return result;\n};\nfunction pointsWithCamberedStart(points, stations, frontCamber, backCamber) {\n    const result = [];\n    for (let i = 0; i < points.length; i++) {\n        let x = stations[i];\n        let z = points[i][1];\n        if (i == 0) {\n            x = Math.cos(frontCamber) * z; // instead of 0\n            z = Math.sin(frontCamber) * z;\n        }\n        if (i == points.length - 1) {\n            x = x - Math.cos(backCamber) * z;\n            z = Math.sin(backCamber) * z;\n        }\n        result.push([x, points[i][0], z]);\n    }\n    //@ts-ignore\n    return result;\n}\n;\nfunction run(frontCamberDeg, rearCamberDeg) {\n    const keel_line = [\n        [0, 16 + 7 / 16],\n        [0, 18 + 7 / 8],\n        [0, 21 + 7 / 8],\n        [0, 21],\n        [0, 18 + 9 / 16],\n    ];\n    const stationDists = [23 + 1 / 8, 24, 24, 23 + 1 / 8];\n    const spoints = [0];\n    for (const offset of stationDists) {\n        spoints.push(spoints[spoints.length - 1] + offset);\n    }\n    const frontCamber = frontCamberDeg * Math.PI / 180;\n    const rearCamber = rearCamberDeg * Math.PI / 180;\n    const t = pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber);\n    return t.map(p => replicad.makeVertex(p));\n    const blep = [\n        pointsAndSpline(pointsWithCamberedStart(keel_line, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(chine, spoints, frontCamber, rearCamber)),\n        pointsAndSpline(pointsWithCamberedStart(sheer, spoints, frontCamber, rearCamber)),\n    ];\n    console.log(\"blep\");\n    console.log(blep);\n    console.log(blep.length);\n    const wires = [];\n    for (const res of blep) {\n        //@ts-ignore\n        wires.push(replicad.assembleWire([res[0]]));\n    }\n    console.log(wires);\n    return replicad.loft(wires);\n}\n"
     },
     {
-      "atomType": "Assembly",
-      "x": 0.4811197916666667,
-      "y": 0.6028571428571429,
-      "uniqueID": "id-1512",
-      "ioValues": [
-        {
-          "name": "Shape 1",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 3",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 4",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 5",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 6",
-          "ioValue": null
-        },
-        {
-          "name": "Shape 7",
-          "ioValue": null
-        }
-      ]
-    },
-    {
-      "atomType": "Code",
-      "x": 0.7252604166666666,
-      "y": 0.6,
-      "uniqueID": "id-1517",
-      "ioValues": [
-        {
-          "name": "wires",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "thickness",
-          "ioValue": 0.25,
-          "currentEquation": "0.25"
-        }
-      ],
-      "interpreterVersion": 1,
-      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly, thickness: number = 1) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n\n\n  const resultAssembly = []\n  // Loft pairs and return independently\n  for (let i = 0; i < wireList.length - 1; i++) {\n    const surf = replicad.loft(wireList.slice(i, i + 2), {}, true)\n    const faces = [];\n    faces.push(surf.faces[0])\n    faces.push(replicad.makeOffset(faces[0], thickness))\n    // perimeter\n    const p1 = replicad.assembleWire(faces[0].edges)\n    const p2 = replicad.assembleWire(faces[1].edges)\n    faces.push(replicad.loft([p1, p2], {}, true))\n\n    resultAssembly.push(replicad.makeSolid(faces))\n  }\n  return resultAssembly;\n\n}\n",
-      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires, thickness = 1) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const resultAssembly = [];\n    // Loft pairs and return independently\n    for (let i = 0; i < wireList.length - 1; i++) {\n        const surf = replicad.loft(wireList.slice(i, i + 2), {}, true);\n        const faces = [];\n        faces.push(surf.faces[0]);\n        faces.push(replicad.makeOffset(faces[0], thickness));\n        // perimeter\n        const p1 = replicad.assembleWire(faces[0].edges);\n        const p2 = replicad.assembleWire(faces[1].edges);\n        faces.push(replicad.loft([p1, p2], {}, true));\n        resultAssembly.push(replicad.makeSolid(faces));\n    }\n    return resultAssembly;\n}\n"
-    },
-    {
       "atomType": "Molecule",
       "x": 0.6569010416666666,
       "y": 0.35714285714285715,
@@ -1058,9 +1002,60 @@
       "lastReloadedFromGithubAt": 1778284111941
     },
     {
+      "atomType": "Assembly",
+      "x": 0.4811197916666667,
+      "y": 0.6028571428571429,
+      "uniqueID": "id-1512",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 3",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 4",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 5",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 6",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 7",
+          "ioValue": null
+        }
+      ]
+    },
+    {
+      "atomType": "Code",
+      "x": 0.7194010416666667,
+      "y": 0.7028571428571428,
+      "uniqueID": "id-1517",
+      "ioValues": [
+        {
+          "name": "wires",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "interpreterVersion": 1,
+      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n  const surf = replicad.loft(wireList, {}, true).shell(\n    {\n      thickness: 1,\n      filter: new replicad.FaceFinder().when((f) => true)})\n  return surf;\n}\n",
+      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const surf = replicad.loft(wireList, {}, true).shell({\n        thickness: 1,\n        filter: new replicad.FaceFinder().when((f) => true)\n    });\n    return surf;\n}\n"
+    },
+    {
       "atomType": "GitHubMolecule",
-      "x": 0.16276041666666666,
-      "y": 0.5599999999999999,
+      "x": 0.17513020833333334,
+      "y": 0.5114285714285715,
       "uniqueID": "id-1523",
       "name": "crv.PolyMove",
       "ioValues": [
@@ -1299,8 +1294,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.22265625,
-      "y": 0.5542857142857143,
+      "x": 0.24544270833333334,
+      "y": 0.4971428571428571,
       "uniqueID": "id-1561",
       "name": "crv.PolyMove",
       "ioValues": [
@@ -1621,8 +1616,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.16796875,
-      "y": 0.8971428571428571,
+      "x": 0.17643229166666669,
+      "y": 0.7514285714285714,
       "uniqueID": "id-1615",
       "name": "crv.PolyMove",
       "ioValues": [
@@ -1861,8 +1856,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.24674479166666666,
-      "y": 0.8885714285714285,
+      "x": 0.24609375,
+      "y": 0.7628571428571428,
       "uniqueID": "id-1625",
       "name": "crv.PolyMove",
       "ioValues": [
@@ -2180,117 +2175,6 @@
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
       "lastReloadedFromGithubAt": 1778284111941
-    },
-    {
-      "atomType": "GitHubMolecule",
-      "x": 0.78515625,
-      "y": 0.8628571428571429,
-      "uniqueID": "id-1896",
-      "name": "IthFromAssembly",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "i",
-          "ioValue": 0
-        }
-      ],
-      "topLevel": false,
-      "allAtoms": [
-        {
-          "atomType": "Output",
-          "x": 0.98,
-          "y": 0.5,
-          "uniqueID": "id-1897",
-          "ioValues": [
-            {
-              "name": "number or geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
-          "atomType": "Code",
-          "x": 0.5026041666666666,
-          "y": 0.6845238095238095,
-          "uniqueID": "id-1898",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "i",
-              "ioValue": 0
-            }
-          ],
-          "interpreterVersion": 0,
-          "code": "\n      const Inputs = [\n       {inputName: \"geometry\", type: \"geometry\", defaultValue: null},\n      {inputName: \"i\", type: \"number\", defaultValue: 0},\n      ]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n\n      //Gets the shape from the library - no need to clone or access geometry directly\n      let importedShape = library[geometry]\n      let j = 0;\n      console.log(\"foo\")\n      console.log(importedShape)\n      const leafList = await AssemblyAsIterable(importedShape)\n      console.log(leafList)\n      if (i >= leafList.length) {\n        throw new Error(`Assembly only has ${leafList.length} entries. Tried to find index: ${i}.`)\n      }\n      return leafList[i]\n\n\n      /**\n      Built-in Functions Available:\n      - Move(geometry, x, y, z) - Move a shape in 3D space\n      - Rotate(geometry, x, y, z) - Rotate a shape around X, Y, Z axes (degrees)\n      - Scale(geometry, factor) - Scale a shape by a factor\n      - Assembly([shapes]) - Combine multiple shapes into an assembly\n      - Intersect(shape1, shape2) - Boolean intersection of two shapes\n      - GetBounds(geometry) - Get the bounding box of a shape\n      - Fillet(geometry, radius) - Round edges with specified radius\n      - Chamfer(geometry, size) - Bevel edges with specified size\n\n      To Use the Code Atom, enter your inputs to the input list as an object array:\n      const Inputs = [\n        {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n        {inputName: \"dist\", type: \"number\", defaultValue: 5},\n        {inputName: \"height\", type: \"number\", defaultValue: 10}\n      ]\n\n      Access imported geometry using library[inputName] - the built-in functions handle \n      the complexity of accessing geometry arrays and maintaining metadata automatically.\n\n      Simple Example - Move a shape:\n         const Inputs = [\n          {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n          {inputName: \"x\", type: \"number\", defaultValue: 5}\n        ]\n        let movedShape = await Move(library[shape], x, 0, 0)\n        return movedShape\n      */\n      "
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.15384615384615385,
-          "uniqueID": "id-1899",
-          "name": "geometry",
-          "type": "geometry"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.24615384615384617,
-          "uniqueID": "id-1900",
-          "name": "i",
-          "type": "number"
-        }
-      ],
-      "allConnectors": [
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-1898",
-          "ap2ID": "id-1897"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-1899",
-          "ap2ID": "id-1898"
-        },
-        {
-          "ap2Name": "i",
-          "ap1ID": "id-1900",
-          "ap2ID": "id-1898"
-        }
-      ],
-      "parentRepo": {
-        "lastFoundGit": "2026-05-08T18:23:39.228Z",
-        "privateRepo": false,
-        "repoName": "IthFromAssembly",
-        "dateCreated": "2025-11-03T02:49:44Z",
-        "likes": 0,
-        "readMe": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/README.md?sanitize=true",
-        "yyyy": 2025,
-        "topMoleculeID": "id-2718",
-        "githubMoleculesUsed": [],
-        "html_url": "https://github.com/tristan-huber/IthFromAssembly",
-        "topics": [
-          "abundance-tool"
-        ],
-        "parentRepo": null,
-        "forks": 0,
-        "dateModified": "739558",
-        "ranking": 3.9,
-        "searchField": "ithfromassembly tristan-huber get the ith leaf from an assembly abundance-tool",
-        "owner": "tristan-huber",
-        "description": "Get the ith leaf from an assembly",
-        "contentURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.abundance?sanitize=true",
-        "svgURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.svg?sanitize=true",
-        "isLocal": false
-      },
-      "unitsKey": "Unitless",
-      "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778277228196
     }
   ],
   "allConnectors": [
@@ -2298,16 +2182,6 @@
       "ap2Name": "geometry",
       "ap1ID": "id-1102",
       "ap2ID": "id-1123"
-    },
-    {
-      "ap2Name": "wires",
-      "ap1ID": "id-1512",
-      "ap2ID": "id-1517"
-    },
-    {
-      "ap2Name": "geometry",
-      "ap1ID": "id-1517",
-      "ap2ID": "id-1896"
     },
     {
       "ap2Name": "Shape 1",
@@ -2348,6 +2222,11 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-1503",
       "ap2ID": "id-1512"
+    },
+    {
+      "ap2Name": "wires",
+      "ap1ID": "id-1512",
+      "ap2ID": "id-1517"
     },
     {
       "ap2Name": "toMove",
