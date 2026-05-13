@@ -693,8 +693,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.11263020833333334,
-      "y": 0.39428571428571424,
+      "x": 0.09309895833333333,
+      "y": 0.4,
       "uniqueID": "id-1373",
       "name": "crv.PolyMove",
       "ioValues": [
