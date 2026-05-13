@@ -506,88 +506,6 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.31640625,
-      "y": 0.18857142857142858,
-      "uniqueID": "id-2389",
-      "name": "crv.BSpline",
-      "topLevel": false,
-      "allAtoms": [
-        {
-          "atomType": "Output",
-          "x": 0.98,
-          "y": 0.5,
-          "uniqueID": "id-2386",
-          "ioValues": [
-            {
-              "name": "number or geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
-          "atomType": "Code",
-          "x": 0.4296875,
-          "y": 0.6514285714285714,
-          "uniqueID": "id-2387",
-          "ioValues": [
-            {
-              "name": "points",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "interpreterVersion": 1,
-          "code": "\nfunction run(points: Assembly) {\n  if (!points) {\n    throw new Error(\"Missing required input - assembly of Points\")\n  }\n  const p: [number, number, number][] = []\n  points.onLeafs((l) => {\n    if (l.isPoint()) {\n      p.push(l.geometry.asTuple())\n    }\n    else throw new Error(\"Requires an assembly of Points, received: \" + l.geometry.constructor.name)\n    return l;\n  })\n\n  return replicad.assembleWire([replicad.makeBSplineApproximation(p, {\n    degMax: 3,\n    degMin: 3,\n    tolerance: 0.0001,\n  })])\n}",
-          "compiledCode": "\"use strict\";\nfunction run(points) {\n    if (!points) {\n        throw new Error(\"Missing required input - assembly of Points\");\n    }\n    const p = [];\n    points.onLeafs((l) => {\n        if (l.isPoint()) {\n            p.push(l.geometry.asTuple());\n        }\n        else\n            throw new Error(\"Requires an assembly of Points, received: \" + l.geometry.constructor.name);\n        return l;\n    });\n    return replicad.assembleWire([replicad.makeBSplineApproximation(p, {\n            degMax: 3,\n            degMin: 3,\n            tolerance: 0.0001,\n        })]);\n}\n"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.15384615384615385,
-          "uniqueID": "id-2388",
-          "type": "number"
-        }
-      ],
-      "allConnectors": [
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-2387",
-          "ap2ID": "id-2386"
-        },
-        {
-          "ap2Name": "points",
-          "ap1ID": "id-2388",
-          "ap2ID": "id-2387"
-        }
-      ],
-      "parentRepo": {
-        "privateRepo": false,
-        "repoName": "crv.BSpline",
-        "dateCreated": "2026-05-08T23:45:51Z",
-        "readMe": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/README.md?sanitize=true",
-        "yyyy": 2026,
-        "topMoleculeID": "id-1402",
-        "githubMoleculesUsed": [],
-        "html_url": "https://github.com/tristan-huber/crv.BSpline",
-        "topics": [
-          "abundance-tool"
-        ],
-        "parentRepo": null,
-        "forks": 0,
-        "dateModified": "739744",
-        "ranking": 0,
-        "searchField": "crv.bspline tristan-huber makes a bspline from an assembly of points abundance-tool",
-        "owner": "tristan-huber",
-        "description": "Makes a BSpline from an assembly of points",
-        "contentURL": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/project.abundance?sanitize=true",
-        "svgURL": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/project.svg?sanitize=true",
-        "isLocal": false
-      },
-      "unitsKey": "Unitless",
-      "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778695546767
-    },
-    {
-      "atomType": "GitHubMolecule",
       "x": 0.447265625,
       "y": 0.26,
       "uniqueID": "id-2402",
@@ -2399,6 +2317,108 @@
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
       "lastReloadedFromGithubAt": 1778703552243
+    },
+    {
+      "atomType": "GitHubMolecule",
+      "x": 0.31640625,
+      "y": 0.18857142857142858,
+      "uniqueID": "id-3539",
+      "name": "crv.BSpline",
+      "ioValues": [
+        {
+          "name": "Points",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 0.98,
+          "y": 0.5,
+          "uniqueID": "id-3535",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Code",
+          "x": 0.4296875,
+          "y": 0.6514285714285714,
+          "uniqueID": "id-3536",
+          "ioValues": [
+            {
+              "name": "points",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "interpreterVersion": 1,
+          "code": "\nfunction run(points: Assembly, close: boolean = false) {\n  if (!points) {\n    throw new Error(\"Missing required input - assembly of Points\")\n  }\n  const p: [number, number, number][] = []\n  points.onLeafs((l) => {\n    if (l.isPoint()) {\n      p.push(l.geometry.asTuple())\n    }\n    else throw new Error(\"Requires an assembly of Points, received: \" + l.geometry.constructor.name)\n    return l;\n  })\n  if (close) {\n    p.push(p[0])\n  }\n\n  return replicad.assembleWire([replicad.makeBSplineApproximation(p, {\n    degMax: 3,\n    degMin: 3,\n    tolerance: 0.0001,\n  })])\n}",
+          "compiledCode": "\"use strict\";\nfunction run(points, close = false) {\n    if (!points) {\n        throw new Error(\"Missing required input - assembly of Points\");\n    }\n    const p = [];\n    points.onLeafs((l) => {\n        if (l.isPoint()) {\n            p.push(l.geometry.asTuple());\n        }\n        else\n            throw new Error(\"Requires an assembly of Points, received: \" + l.geometry.constructor.name);\n        return l;\n    });\n    if (close) {\n        p.push(p[0]);\n    }\n    return replicad.assembleWire([replicad.makeBSplineApproximation(p, {\n            degMax: 3,\n            degMin: 3,\n            tolerance: 0.0001,\n        })]);\n}\n"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
+          "uniqueID": "id-3537",
+          "name": "Points",
+          "type": "geometry"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
+          "uniqueID": "id-3538",
+          "name": "close",
+          "type": "boolean"
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-3536",
+          "ap2ID": "id-3535"
+        },
+        {
+          "ap2Name": "points",
+          "ap1ID": "id-3537",
+          "ap2ID": "id-3536"
+        },
+        {
+          "ap2Name": "close",
+          "ap1ID": "id-3538",
+          "ap2ID": "id-3536"
+        }
+      ],
+      "parentRepo": {
+        "privateRepo": false,
+        "repoName": "crv.BSpline",
+        "dateCreated": "2026-05-08T23:45:51Z",
+        "readMe": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/README.md?sanitize=true",
+        "yyyy": 2026,
+        "topMoleculeID": "id-1402",
+        "githubMoleculesUsed": [],
+        "html_url": "https://github.com/tristan-huber/crv.BSpline",
+        "topics": [
+          "abundance-tool"
+        ],
+        "parentRepo": null,
+        "forks": 0,
+        "dateModified": "739744",
+        "ranking": 0,
+        "searchField": "crv.bspline tristan-huber makes a bspline from an assembly of points abundance-tool",
+        "owner": "tristan-huber",
+        "description": "Makes a BSpline from an assembly of points",
+        "contentURL": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/project.abundance?sanitize=true",
+        "svgURL": "https://raw.githubusercontent.com/tristan-huber/crv.BSpline/master/project.svg?sanitize=true",
+        "isLocal": false
+      },
+      "unitsKey": "Unitless",
+      "fileTypeVersion": 1,
+      "lastReloadedFromGithubAt": 1778712144665
     }
   ],
   "allConnectors": [
@@ -2426,11 +2446,6 @@
       "ap2Name": "toMove",
       "ap1ID": "id-1185",
       "ap2ID": "id-2971"
-    },
-    {
-      "ap2Name": "Shape 2",
-      "ap1ID": "id-2389",
-      "ap2ID": "id-1512"
     },
     {
       "ap2Name": "Shape 6",
@@ -2468,9 +2483,9 @@
       "ap2ID": "id-1512"
     },
     {
-      "ap2Name": "Input",
+      "ap2Name": "Points",
       "ap1ID": "id-2799",
-      "ap2ID": "id-2389"
+      "ap2ID": "id-3539"
     },
     {
       "ap2Name": "toMove",
@@ -2506,6 +2521,11 @@
       "ap2Name": "toMove",
       "ap1ID": "id-2971",
       "ap2ID": "id-2885"
+    },
+    {
+      "ap2Name": "Shape 2",
+      "ap1ID": "id-3539",
+      "ap2ID": "id-1512"
     }
   ],
   "unitsKey": "Inches",
