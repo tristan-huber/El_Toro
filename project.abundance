@@ -564,8 +564,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.31380208333333337,
-      "y": 0.5457142857142857,
+      "x": 0.447265625,
+      "y": 0.26,
       "uniqueID": "id-2402",
       "name": "crv.BSpline",
       "topLevel": false,
@@ -741,7 +741,7 @@
           "name": "offsets",
           "ioValue": [
             "10.625",
-            "18.6",
+            "18.9",
             "22.25",
             "21.5",
             "19.4"
@@ -809,7 +809,7 @@
               "name": "offsets",
               "ioValue": [
                 "10.625",
-                "18.6",
+                "18.9",
                 "22.25",
                 "21.5",
                 "19.4"
@@ -2375,6 +2375,30 @@
       "unitsKey": "Unitless",
       "fileTypeVersion": 1,
       "lastReloadedFromGithubAt": 1778703552243
+    },
+    {
+      "atomType": "Move",
+      "x": 0.43033854166666663,
+      "y": 0.7828571428571428,
+      "uniqueID": "id-3247",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": 0
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 0
+        }
+      ]
     }
   ],
   "allConnectors": [
@@ -2387,6 +2411,11 @@
       "ap2Name": "wires",
       "ap1ID": "id-1512",
       "ap2ID": "id-1517"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-1512",
+      "ap2ID": "id-997"
     },
     {
       "ap2Name": "Shape 1",
@@ -2427,6 +2456,11 @@
       "ap2Name": "Input",
       "ap1ID": "id-2752",
       "ap2ID": "id-2402"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-2752",
+      "ap2ID": "id-3247"
     },
     {
       "ap2Name": "Shape 1",
