@@ -87,8 +87,8 @@
     },
     {
       "atomType": "Code",
-      "x": 0.7701822916666666,
-      "y": 0.5208333333333334,
+      "x": 0.8268229166666666,
+      "y": 0.36904761904761907,
       "uniqueID": "id-1517",
       "ioValues": [
         {
@@ -2433,8 +2433,7 @@
         },
         {
           "name": "Thickness",
-          "ioValue": 0.5,
-          "currentEquation": "0.5"
+          "ioValue": 0.5
         }
       ],
       "topLevel": false,
@@ -2544,11 +2543,6 @@
       "ap2ID": "id-1517"
     },
     {
-      "ap2Name": "number or geometry",
-      "ap1ID": "id-1512",
-      "ap2ID": "id-997"
-    },
-    {
       "ap2Name": "Wires",
       "ap1ID": "id-1512",
       "ap2ID": "id-3834"
@@ -2642,6 +2636,11 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-3539",
       "ap2ID": "id-1512"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-3834",
+      "ap2ID": "id-997"
     }
   ],
   "unitsKey": "Inches",
