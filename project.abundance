@@ -101,8 +101,8 @@
         }
       ],
       "interpreterVersion": 1,
-      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly, thickness: number = 1) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n  const result = [];\n  for (let i = 0; i < wireList.length - 1; i++) {\n    const surf = replicad.loft(wireList.slice(i, i + 2), {}, true)\n    const offset = replicad.makeOffset(surf.faces[0], thickness);\n    return [surf,offset]\n    const w1 = replicad.assembleWire(surf.edges)\n    const w2 = replicad.assembleWire(offset.edges)\n    const boundary = replicad.loft([w2, w1], {}, true)\n    result.push(replicad.weldShellsAndFaces([surf, offset, boundary], true))\n  }\n  return result;\n}\n",
-      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires, thickness = 1) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const result = [];\n    for (let i = 0; i < wireList.length - 1; i++) {\n        const surf = replicad.loft(wireList.slice(i, i + 2), {}, true);\n        const offset = replicad.makeOffset(surf.faces[0], thickness);\n        return [surf, offset];\n        const w1 = replicad.assembleWire(surf.edges);\n        const w2 = replicad.assembleWire(offset.edges);\n        const boundary = replicad.loft([w2, w1], {}, true);\n        result.push(replicad.weldShellsAndFaces([surf, offset, boundary], true));\n    }\n    return result;\n}\n"
+      "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires: Assembly, thickness: number = 1) {\n  const wireList: replicad.Wire[] = []\n  wires.onLeafs((leaf) => {\n    if (leaf.isWire()) {\n      if (leaf.geometry.isClosed) {\n        throw new Error(\"Only open wires allowed for this loft operation\")\n      }\n      wireList.push(leaf.geometry)\n    }\n    return leaf;\n  })\n\n  const result = [];\n  for (let i = 0; i < wireList.length - 1; i++) {\n    const surf = replicad.loft(wireList.slice(i, i + 2), {}, true)\n    const offset = replicad.makeOffset(surf.faces[0], thickness);\n    const w1 = replicad.assembleWire(surf.edges)\n    const w2 = replicad.assembleWire(offset.edges)\n    const boundary = replicad.loft([w2, w1], {}, true)\n    result.push(replicad.weldShellsAndFaces([surf, offset, boundary], true))\n  }\n  return result;\n}\n",
+      "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires, thickness = 1) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            if (leaf.geometry.isClosed) {\n                throw new Error(\"Only open wires allowed for this loft operation\");\n            }\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const result = [];\n    for (let i = 0; i < wireList.length - 1; i++) {\n        const surf = replicad.loft(wireList.slice(i, i + 2), {}, true);\n        const offset = replicad.makeOffset(surf.faces[0], thickness);\n        const w1 = replicad.assembleWire(surf.edges);\n        const w2 = replicad.assembleWire(offset.edges);\n        const boundary = replicad.loft([w2, w1], {}, true);\n        result.push(replicad.weldShellsAndFaces([surf, offset, boundary], true));\n    }\n    return result;\n}\n"
     },
     {
       "atomType": "Move",
@@ -2328,10 +2328,6 @@
         {
           "name": "Points",
           "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "close",
-          "ioValue": 10
         }
       ],
       "topLevel": false,
@@ -2357,10 +2353,6 @@
             {
               "name": "points",
               "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "close",
-              "ioValue": 10
             }
           ],
           "interpreterVersion": 1,
