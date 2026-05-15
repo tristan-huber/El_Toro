@@ -4,6 +4,17 @@
   "y": 0,
   "uniqueID": "id-996",
   "name": "El_Toro",
+  "ioValues": [
+    {
+      "name": "BowDist",
+      "ioValue": 10,
+      "currentEquation": "10"
+    },
+    {
+      "name": "SternDist",
+      "ioValue": 10
+    }
+  ],
   "topLevel": true,
   "allAtoms": [
     {
@@ -2673,8 +2684,8 @@
     },
     {
       "atomType": "Code",
-      "x": 0.27734375,
-      "y": 0.5982142857142857,
+      "x": 0.2688802083333333,
+      "y": 0.5228571428571429,
       "uniqueID": "id-4673",
       "ioValues": [
         {
@@ -2688,8 +2699,8 @@
     },
     {
       "atomType": "Assembly",
-      "x": 0.39583333333333337,
-      "y": 0.5833333333333334,
+      "x": 0.39713541666666663,
+      "y": 0.47428571428571425,
       "uniqueID": "id-4683",
       "ioValues": [
         {
@@ -2699,6 +2710,63 @@
         {
           "name": "Shape 2",
           "ioValue": null
+        }
+      ]
+    },
+    {
+      "atomType": "Rectangle",
+      "x": 0.1796875,
+      "y": 0.6342857142857142,
+      "uniqueID": "id-4688",
+      "ioValues": [
+        {
+          "name": "x length",
+          "ioValue": 40,
+          "currentEquation": "40"
+        },
+        {
+          "name": "y length",
+          "ioValue": 22,
+          "currentEquation": "22"
+        }
+      ]
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.5514285714285714,
+      "uniqueID": "id-4692",
+      "name": "BowDist"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.6437362637362637,
+      "uniqueID": "id-4695",
+      "name": "SternDist"
+    },
+    {
+      "atomType": "Move",
+      "x": 0.29296875,
+      "y": 0.7942857142857144,
+      "uniqueID": "id-4698",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": -10,
+          "currentEquation": "- 1 * BowDist"
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 0
         }
       ]
     }
@@ -2738,6 +2806,11 @@
       "ap2Name": "Shape 1",
       "ap1ID": "id-4673",
       "ap2ID": "id-4683"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-4688",
+      "ap2ID": "id-4698"
     }
   ],
   "unitsKey": "Inches",
