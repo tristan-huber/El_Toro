@@ -3096,9 +3096,9 @@
       ],
       "allConnectors": [
         {
-          "ap2Name": "Wires",
+          "ap2Name": "number or geometry",
           "ap1ID": "id-4139",
-          "ap2ID": "id-5447"
+          "ap2ID": "id-4137"
         },
         {
           "ap2Name": "Thickness",
@@ -3184,11 +3184,6 @@
           "ap2Name": "Shape 2",
           "ap1ID": "id-4220",
           "ap2ID": "id-4139"
-        },
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-5447",
-          "ap2ID": "id-4137"
         }
       ],
       "fileTypeVersion": 1
@@ -5728,6 +5723,11 @@
           "ap2ID": "id-12254"
         },
         {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-12254",
+          "ap2ID": "id-12249"
+        },
+        {
           "ap2Name": "Shape 3",
           "ap1ID": "id-12255",
           "ap2ID": "id-12253"
@@ -8242,6 +8242,11 @@
       "ap2Name": "Lines",
       "ap1ID": "id-5492",
       "ap2ID": "id-5823"
+    },
+    {
+      "ap2Name": "Lines",
+      "ap1ID": "id-5492",
+      "ap2ID": "id-12247"
     }
   ],
   "unitsKey": "Inches",
