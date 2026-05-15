@@ -6822,8 +6822,8 @@
         },
         {
           "atomType": "Move",
-          "x": 0.8111979166666667,
-          "y": 0.7428571428571428,
+          "x": 0.69921875,
+          "y": 0.23142857142857146,
           "uniqueID": "id-7575",
           "ioValues": [
             {
@@ -6844,6 +6844,54 @@
               "name": "zDist",
               "ioValue": 15,
               "currentEquation": "15"
+            }
+          ]
+        },
+        {
+          "atomType": "Difference",
+          "x": 0.8170572916666667,
+          "y": 0.24571428571428572,
+          "uniqueID": "id-7581",
+          "ioValues": [
+            {
+              "name": "retain",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "remove",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Difference",
+          "x": 0.7669270833333333,
+          "y": 0.7514285714285714,
+          "uniqueID": "id-7585",
+          "ioValues": [
+            {
+              "name": "retain",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "remove",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Difference",
+          "x": 0.8658854166666666,
+          "y": 0.8857142857142857,
+          "uniqueID": "id-7589",
+          "ioValues": [
+            {
+              "name": "retain",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "remove",
+              "ioValue": "__GEOMETRY_INPUT__"
             }
           ]
         }
@@ -6875,14 +6923,14 @@
           "ap2ID": "id-6717"
         },
         {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-6717",
-          "ap2ID": "id-5825"
-        },
-        {
           "ap2Name": "Shape 2",
           "ap1ID": "id-6723",
           "ap2ID": "id-7536"
+        },
+        {
+          "ap2Name": "remove",
+          "ap1ID": "id-5835",
+          "ap2ID": "id-7581"
         },
         {
           "ap2Name": "Geometry",
@@ -6920,6 +6968,16 @@
           "ap2ID": "id-7558"
         },
         {
+          "ap2Name": "remove",
+          "ap1ID": "id-7542",
+          "ap2ID": "id-7589"
+        },
+        {
+          "ap2Name": "remove",
+          "ap1ID": "id-7558",
+          "ap2ID": "id-7585"
+        },
+        {
           "ap2Name": "geometry",
           "ap1ID": "id-7561",
           "ap2ID": "id-7565"
@@ -6933,6 +6991,26 @@
           "ap2Name": "geometry",
           "ap1ID": "id-7569",
           "ap2ID": "id-7575"
+        },
+        {
+          "ap2Name": "retain",
+          "ap1ID": "id-7575",
+          "ap2ID": "id-7581"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-7575",
+          "ap2ID": "id-5825"
+        },
+        {
+          "ap2Name": "retain",
+          "ap1ID": "id-7581",
+          "ap2ID": "id-7585"
+        },
+        {
+          "ap2Name": "retain",
+          "ap1ID": "id-7585",
+          "ap2ID": "id-7589"
         }
       ],
       "fileTypeVersion": 1
