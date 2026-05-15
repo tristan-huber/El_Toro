@@ -525,6 +525,222 @@
       "lastReloadedFromGithubAt": 1778277228196
     },
     {
+      "atomType": "GitHubMolecule",
+      "x": 0.6966145833333334,
+      "y": 0.5971428571428571,
+      "uniqueID": "id-5465",
+      "name": "IthFromAssembly",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "i",
+          "ioValue": 1
+        }
+      ],
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 0.98,
+          "y": 0.5,
+          "uniqueID": "id-5461",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Code",
+          "x": 0.5026041666666666,
+          "y": 0.6845238095238095,
+          "uniqueID": "id-5462",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "i",
+              "ioValue": 1
+            }
+          ],
+          "interpreterVersion": 0,
+          "code": "\n      const Inputs = [\n       {inputName: \"geometry\", type: \"geometry\", defaultValue: null},\n      {inputName: \"i\", type: \"number\", defaultValue: 0},\n      ]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n\n      //Gets the shape from the library - no need to clone or access geometry directly\n      let importedShape = library[geometry]\n      let j = 0;\n      console.log(\"foo\")\n      console.log(importedShape)\n      const leafList = await AssemblyAsIterable(importedShape)\n      console.log(leafList)\n      if (i >= leafList.length) {\n        throw new Error(`Assembly only has ${leafList.length} entries. Tried to find index: ${i}.`)\n      }\n      return leafList[i]\n\n\n      /**\n      Built-in Functions Available:\n      - Move(geometry, x, y, z) - Move a shape in 3D space\n      - Rotate(geometry, x, y, z) - Rotate a shape around X, Y, Z axes (degrees)\n      - Scale(geometry, factor) - Scale a shape by a factor\n      - Assembly([shapes]) - Combine multiple shapes into an assembly\n      - Intersect(shape1, shape2) - Boolean intersection of two shapes\n      - GetBounds(geometry) - Get the bounding box of a shape\n      - Fillet(geometry, radius) - Round edges with specified radius\n      - Chamfer(geometry, size) - Bevel edges with specified size\n\n      To Use the Code Atom, enter your inputs to the input list as an object array:\n      const Inputs = [\n        {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n        {inputName: \"dist\", type: \"number\", defaultValue: 5},\n        {inputName: \"height\", type: \"number\", defaultValue: 10}\n      ]\n\n      Access imported geometry using library[inputName] - the built-in functions handle \n      the complexity of accessing geometry arrays and maintaining metadata automatically.\n\n      Simple Example - Move a shape:\n         const Inputs = [\n          {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n          {inputName: \"x\", type: \"number\", defaultValue: 5}\n        ]\n        let movedShape = await Move(library[shape], x, 0, 0)\n        return movedShape\n      */\n      "
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
+          "uniqueID": "id-5463",
+          "name": "geometry",
+          "type": "geometry"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
+          "uniqueID": "id-5464",
+          "name": "i",
+          "type": "number"
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-5462",
+          "ap2ID": "id-5461"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-5463",
+          "ap2ID": "id-5462"
+        },
+        {
+          "ap2Name": "i",
+          "ap1ID": "id-5464",
+          "ap2ID": "id-5462"
+        }
+      ],
+      "parentRepo": {
+        "lastFoundGit": "2026-05-15T10:23:39.204Z",
+        "privateRepo": false,
+        "repoName": "IthFromAssembly",
+        "dateCreated": "2025-11-03T02:49:44Z",
+        "likes": 0,
+        "readMe": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/README.md?sanitize=true",
+        "yyyy": 2025,
+        "topMoleculeID": "id-2718",
+        "githubMoleculesUsed": [],
+        "html_url": "https://github.com/tristan-huber/IthFromAssembly",
+        "topics": [
+          "abundance-tool"
+        ],
+        "parentRepo": null,
+        "forks": 0,
+        "dateModified": "739558",
+        "ranking": 4.2,
+        "searchField": "ithfromassembly tristan-huber get the ith leaf from an assembly abundance-tool",
+        "owner": "tristan-huber",
+        "description": "Get the ith leaf from an assembly",
+        "contentURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.abundance?sanitize=true",
+        "svgURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.svg?sanitize=true",
+        "isLocal": false
+      },
+      "unitsKey": "Unitless",
+      "fileTypeVersion": 1,
+      "lastReloadedFromGithubAt": 1778868680327
+    },
+    {
+      "atomType": "GitHubMolecule",
+      "x": 0.595703125,
+      "y": 0.7599999999999999,
+      "uniqueID": "id-5482",
+      "name": "ExplodeDisjoint",
+      "ioValues": [
+        {
+          "name": "ShapeToExplode",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 0.98,
+          "y": 0.5,
+          "uniqueID": "id-5478",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Code",
+          "x": 0.3912760416666667,
+          "y": 0.5171428571428571,
+          "uniqueID": "id-5479",
+          "ioValues": [
+            {
+              "name": "shape",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "interpreterVersion": 0,
+          "code": "\n// Example Code\nconst Inputs = [\n  { inputName: \"shape\", type: \"geometry\", defaultValue: null },\n];\n\nlet importedShape = library[shape];\nconst s = importedShape.geometry[0]\nconst resultGeoms = []\nfor (const foo of replicad.iterTopo(s.wrapped, \"solid\")) {\n  resultGeoms.push(foo)\n}\nconsole.log(`extracted ${resultGeoms.length} solids`)\nconsole.log(replicad.cast(resultGeoms[0]))\n\nfor (let i = 0; i < resultGeoms.length; i++) {\n  resultGeoms[i] = {\n    ...importedShape,\n    geometry: [replicad.cast(resultGeoms[i])],\n  }\n}\n/*let cylObj = {\n  geometry: [cyl],\n  dimension: \"3D\",\n  tags: [\"createdCylinder\"],\n  color: \"#A3CE5B\",\n  plane: null,\n  bom: []\n};*/\nconsole.log(resultGeoms)\nlet assembly = await Assembly(resultGeoms);\nreturn assembly;\n"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
+          "uniqueID": "id-5480",
+          "name": "ShapeToExplode",
+          "type": "geometry"
+        },
+        {
+          "atomType": "Readme",
+          "x": 0.203125,
+          "y": 0.6228571428571429,
+          "uniqueID": "id-5481",
+          "name": "README",
+          "ioValues": [
+            {
+              "name": "value",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "readMeText": "Makes an assembly where each leaf is a disjoint (ie not touching) part from the input. Particularly useful for imported entities.",
+          "global": true
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-5479",
+          "ap2ID": "id-5478"
+        },
+        {
+          "ap2Name": "shape",
+          "ap1ID": "id-5480",
+          "ap2ID": "id-5479"
+        }
+      ],
+      "parentRepo": {
+        "lastFoundGit": "2026-05-15T10:23:39.204Z",
+        "privateRepo": false,
+        "repoName": "ExplodeDisjoint",
+        "dateCreated": "2026-01-09T19:43:12Z",
+        "likes": 0,
+        "readMe": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/README.md?sanitize=true",
+        "yyyy": 2026,
+        "topMoleculeID": "id-2775",
+        "githubMoleculesUsed": [],
+        "html_url": "https://github.com/tristan-huber/ExplodeDisjoint",
+        "topics": [
+          "abundance-tool"
+        ],
+        "parentRepo": null,
+        "forks": 0,
+        "dateModified": "739625",
+        "ranking": 0.6,
+        "searchField": "explodedisjoint tristan-huber explodes disjoint 3d shapes into an assembly. abundance-tool",
+        "owner": "tristan-huber",
+        "description": "Explodes disjoint 3d shapes into an assembly.",
+        "contentURL": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/project.abundance?sanitize=true",
+        "svgURL": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/project.svg?sanitize=true",
+        "isLocal": false
+      },
+      "unitsKey": "Unitless",
+      "fileTypeVersion": 1,
+      "lastReloadedFromGithubAt": 1778868736341
+    },
+    {
       "atomType": "Molecule",
       "x": 0.16015625,
       "y": 0.5657142857142857,
@@ -2982,223 +3198,6 @@
       "fileTypeVersion": 1
     },
     {
-      "atomType": "GitHubMolecule",
-      "x": 0.6966145833333334,
-      "y": 0.5971428571428571,
-      "uniqueID": "id-5465",
-      "name": "IthFromAssembly",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "i",
-          "ioValue": 1,
-          "currentEquation": "1"
-        }
-      ],
-      "topLevel": false,
-      "allAtoms": [
-        {
-          "atomType": "Output",
-          "x": 0.98,
-          "y": 0.5,
-          "uniqueID": "id-5461",
-          "ioValues": [
-            {
-              "name": "number or geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
-          "atomType": "Code",
-          "x": 0.5026041666666666,
-          "y": 0.6845238095238095,
-          "uniqueID": "id-5462",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "i",
-              "ioValue": 1
-            }
-          ],
-          "interpreterVersion": 0,
-          "code": "\n      const Inputs = [\n       {inputName: \"geometry\", type: \"geometry\", defaultValue: null},\n      {inputName: \"i\", type: \"number\", defaultValue: 0},\n      ]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n\n      //Gets the shape from the library - no need to clone or access geometry directly\n      let importedShape = library[geometry]\n      let j = 0;\n      console.log(\"foo\")\n      console.log(importedShape)\n      const leafList = await AssemblyAsIterable(importedShape)\n      console.log(leafList)\n      if (i >= leafList.length) {\n        throw new Error(`Assembly only has ${leafList.length} entries. Tried to find index: ${i}.`)\n      }\n      return leafList[i]\n\n\n      /**\n      Built-in Functions Available:\n      - Move(geometry, x, y, z) - Move a shape in 3D space\n      - Rotate(geometry, x, y, z) - Rotate a shape around X, Y, Z axes (degrees)\n      - Scale(geometry, factor) - Scale a shape by a factor\n      - Assembly([shapes]) - Combine multiple shapes into an assembly\n      - Intersect(shape1, shape2) - Boolean intersection of two shapes\n      - GetBounds(geometry) - Get the bounding box of a shape\n      - Fillet(geometry, radius) - Round edges with specified radius\n      - Chamfer(geometry, size) - Bevel edges with specified size\n\n      To Use the Code Atom, enter your inputs to the input list as an object array:\n      const Inputs = [\n        {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n        {inputName: \"dist\", type: \"number\", defaultValue: 5},\n        {inputName: \"height\", type: \"number\", defaultValue: 10}\n      ]\n\n      Access imported geometry using library[inputName] - the built-in functions handle \n      the complexity of accessing geometry arrays and maintaining metadata automatically.\n\n      Simple Example - Move a shape:\n         const Inputs = [\n          {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n          {inputName: \"x\", type: \"number\", defaultValue: 5}\n        ]\n        let movedShape = await Move(library[shape], x, 0, 0)\n        return movedShape\n      */\n      "
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.15384615384615385,
-          "uniqueID": "id-5463",
-          "name": "geometry",
-          "type": "geometry"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.24615384615384617,
-          "uniqueID": "id-5464",
-          "name": "i",
-          "type": "number"
-        }
-      ],
-      "allConnectors": [
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-5462",
-          "ap2ID": "id-5461"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-5463",
-          "ap2ID": "id-5462"
-        },
-        {
-          "ap2Name": "i",
-          "ap1ID": "id-5464",
-          "ap2ID": "id-5462"
-        }
-      ],
-      "parentRepo": {
-        "lastFoundGit": "2026-05-15T10:23:39.204Z",
-        "privateRepo": false,
-        "repoName": "IthFromAssembly",
-        "dateCreated": "2025-11-03T02:49:44Z",
-        "likes": 0,
-        "readMe": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/README.md?sanitize=true",
-        "yyyy": 2025,
-        "topMoleculeID": "id-2718",
-        "githubMoleculesUsed": [],
-        "html_url": "https://github.com/tristan-huber/IthFromAssembly",
-        "topics": [
-          "abundance-tool"
-        ],
-        "parentRepo": null,
-        "forks": 0,
-        "dateModified": "739558",
-        "ranking": 4.2,
-        "searchField": "ithfromassembly tristan-huber get the ith leaf from an assembly abundance-tool",
-        "owner": "tristan-huber",
-        "description": "Get the ith leaf from an assembly",
-        "contentURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.abundance?sanitize=true",
-        "svgURL": "https://raw.githubusercontent.com/tristan-huber/IthFromAssembly/master/project.svg?sanitize=true",
-        "isLocal": false
-      },
-      "unitsKey": "Unitless",
-      "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778868680327
-    },
-    {
-      "atomType": "GitHubMolecule",
-      "x": 0.595703125,
-      "y": 0.7599999999999999,
-      "uniqueID": "id-5482",
-      "name": "ExplodeDisjoint",
-      "ioValues": [
-        {
-          "name": "ShapeToExplode",
-          "ioValue": "__GEOMETRY_INPUT__"
-        }
-      ],
-      "topLevel": false,
-      "allAtoms": [
-        {
-          "atomType": "Output",
-          "x": 0.98,
-          "y": 0.5,
-          "uniqueID": "id-5478",
-          "ioValues": [
-            {
-              "name": "number or geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
-          "atomType": "Code",
-          "x": 0.3912760416666667,
-          "y": 0.5171428571428571,
-          "uniqueID": "id-5479",
-          "ioValues": [
-            {
-              "name": "shape",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "interpreterVersion": 0,
-          "code": "\n// Example Code\nconst Inputs = [\n  { inputName: \"shape\", type: \"geometry\", defaultValue: null },\n];\n\nlet importedShape = library[shape];\nconst s = importedShape.geometry[0]\nconst resultGeoms = []\nfor (const foo of replicad.iterTopo(s.wrapped, \"solid\")) {\n  resultGeoms.push(foo)\n}\nconsole.log(`extracted ${resultGeoms.length} solids`)\nconsole.log(replicad.cast(resultGeoms[0]))\n\nfor (let i = 0; i < resultGeoms.length; i++) {\n  resultGeoms[i] = {\n    ...importedShape,\n    geometry: [replicad.cast(resultGeoms[i])],\n  }\n}\n/*let cylObj = {\n  geometry: [cyl],\n  dimension: \"3D\",\n  tags: [\"createdCylinder\"],\n  color: \"#A3CE5B\",\n  plane: null,\n  bom: []\n};*/\nconsole.log(resultGeoms)\nlet assembly = await Assembly(resultGeoms);\nreturn assembly;\n"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.15384615384615385,
-          "uniqueID": "id-5480",
-          "name": "ShapeToExplode",
-          "type": "geometry"
-        },
-        {
-          "atomType": "Readme",
-          "x": 0.203125,
-          "y": 0.6228571428571429,
-          "uniqueID": "id-5481",
-          "name": "README",
-          "ioValues": [
-            {
-              "name": "value",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "readMeText": "Makes an assembly where each leaf is a disjoint (ie not touching) part from the input. Particularly useful for imported entities.",
-          "global": true
-        }
-      ],
-      "allConnectors": [
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-5479",
-          "ap2ID": "id-5478"
-        },
-        {
-          "ap2Name": "shape",
-          "ap1ID": "id-5480",
-          "ap2ID": "id-5479"
-        }
-      ],
-      "parentRepo": {
-        "lastFoundGit": "2026-05-15T10:23:39.204Z",
-        "privateRepo": false,
-        "repoName": "ExplodeDisjoint",
-        "dateCreated": "2026-01-09T19:43:12Z",
-        "likes": 0,
-        "readMe": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/README.md?sanitize=true",
-        "yyyy": 2026,
-        "topMoleculeID": "id-2775",
-        "githubMoleculesUsed": [],
-        "html_url": "https://github.com/tristan-huber/ExplodeDisjoint",
-        "topics": [
-          "abundance-tool"
-        ],
-        "parentRepo": null,
-        "forks": 0,
-        "dateModified": "739625",
-        "ranking": 0.6,
-        "searchField": "explodedisjoint tristan-huber explodes disjoint 3d shapes into an assembly. abundance-tool",
-        "owner": "tristan-huber",
-        "description": "Explodes disjoint 3d shapes into an assembly.",
-        "contentURL": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/project.abundance?sanitize=true",
-        "svgURL": "https://raw.githubusercontent.com/tristan-huber/ExplodeDisjoint/master/project.svg?sanitize=true",
-        "isLocal": false
-      },
-      "unitsKey": "Unitless",
-      "fileTypeVersion": 1,
-      "lastReloadedFromGithubAt": 1778868736341
-    },
-    {
       "atomType": "Molecule",
       "x": 0.06510416666666667,
       "y": 0.5057142857142857,
@@ -5400,13 +5399,11 @@
         },
         {
           "name": "Length",
-          "ioValue": 92,
-          "currentEquation": "92"
+          "ioValue": 92
         },
         {
           "name": "PlyThickness",
-          "ioValue": 0.75,
-          "currentEquation": "0.75"
+          "ioValue": 0.75
         }
       ],
       "topLevel": false,
@@ -5426,10 +5423,56 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.4971428571428571,
+          "y": 0.15384615384615385,
           "uniqueID": "id-5827",
           "name": "Lines",
           "type": "geometry"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
+          "uniqueID": "id-5869",
+          "name": "Length"
+        },
+        {
+          "atomType": "Rectangle",
+          "x": 0.16341145833333334,
+          "y": 0.6685714285714286,
+          "uniqueID": "id-5872",
+          "ioValues": [
+            {
+              "name": "x length",
+              "ioValue": 92
+            },
+            {
+              "name": "y length",
+              "ioValue": 10
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.3384615384615385,
+          "uniqueID": "id-5876",
+          "name": "PlyThickness"
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.20442708333333334,
+          "y": 0.84,
+          "uniqueID": "id-5879",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": 0.75
+            }
+          ]
         },
         {
           "atomType": "GitHubMolecule",
@@ -5444,8 +5487,7 @@
             },
             {
               "name": "Thickness",
-              "ioValue": -10,
-              "currentEquation": "-10"
+              "ioValue": -10
             }
           ],
           "topLevel": false,
@@ -5544,52 +5586,6 @@
           "lastReloadedFromGithubAt": 1778869398659
         },
         {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.5894505494505494,
-          "uniqueID": "id-5869",
-          "name": "Length"
-        },
-        {
-          "atomType": "Rectangle",
-          "x": 0.16341145833333334,
-          "y": 0.6685714285714286,
-          "uniqueID": "id-5872",
-          "ioValues": [
-            {
-              "name": "x length",
-              "ioValue": 92
-            },
-            {
-              "name": "y length",
-              "ioValue": 10
-            }
-          ]
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.6817582417582417,
-          "uniqueID": "id-5876",
-          "name": "PlyThickness"
-        },
-        {
-          "atomType": "Extrude",
-          "x": 0.20442708333333334,
-          "y": 0.84,
-          "uniqueID": "id-5879",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "height",
-              "ioValue": 0.75
-            }
-          ]
-        },
-        {
           "atomType": "Molecule",
           "x": 0.3307291666666667,
           "y": 0.6571428571428571,
@@ -5626,21 +5622,21 @@
             {
               "atomType": "Input",
               "x": 0.025384615384615384,
-              "y": 0.42,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5887",
               "name": "FootWidth"
             },
             {
               "atomType": "Input",
               "x": 0.025384615384615384,
-              "y": 0.5542857142857143,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5890",
               "name": "Beam"
             },
             {
               "atomType": "Input",
               "x": 0.025384615384615384,
-              "y": 0.6894505494505494,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5893",
               "name": "KeelHeight"
             }
@@ -5711,11 +5707,6 @@
       "ap2ID": "id-4720"
     },
     {
-      "ap2Name": "retain",
-      "ap1ID": "id-4720",
-      "ap2ID": "id-4732"
-    },
-    {
       "ap2Name": "geometry",
       "ap1ID": "id-4726",
       "ap2ID": "id-4716"
@@ -5731,6 +5722,11 @@
       "ap2ID": "id-1090"
     },
     {
+      "ap2Name": "geometry",
+      "ap1ID": "id-5482",
+      "ap2ID": "id-5465"
+    },
+    {
       "ap2Name": "number or geometry",
       "ap1ID": "id-4135",
       "ap2ID": "id-997"
@@ -5744,11 +5740,6 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-4135",
       "ap2ID": "id-4683"
-    },
-    {
-      "ap2Name": "geometry",
-      "ap1ID": "id-5482",
-      "ap2ID": "id-5465"
     },
     {
       "ap2Name": "Lines",
