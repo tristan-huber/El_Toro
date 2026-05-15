@@ -5397,6 +5397,16 @@
         {
           "name": "Lines",
           "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Length",
+          "ioValue": 92,
+          "currentEquation": "92"
+        },
+        {
+          "name": "PlyThickness",
+          "ioValue": 0.75,
+          "currentEquation": "0.75"
         }
       ],
       "topLevel": false,
@@ -5534,15 +5544,69 @@
           "lastReloadedFromGithubAt": 1778869398659
         },
         {
-          "atomType": "GitHubMolecule",
-          "x": 0.2265625,
-          "y": 0.7428571428571428,
-          "uniqueID": "id-5851",
-          "name": "Y_Dimension",
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.5894505494505494,
+          "uniqueID": "id-5869",
+          "name": "Length"
+        },
+        {
+          "atomType": "Rectangle",
+          "x": 0.16341145833333334,
+          "y": 0.6685714285714286,
+          "uniqueID": "id-5872",
           "ioValues": [
             {
-              "name": "Geometry",
+              "name": "x length",
+              "ioValue": 92
+            },
+            {
+              "name": "y length",
+              "ioValue": 10
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.6817582417582417,
+          "uniqueID": "id-5876",
+          "name": "PlyThickness"
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.20442708333333334,
+          "y": 0.84,
+          "uniqueID": "id-5879",
+          "ioValues": [
+            {
+              "name": "geometry",
               "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": 0.75
+            }
+          ]
+        },
+        {
+          "atomType": "Molecule",
+          "x": 0.3307291666666667,
+          "y": 0.6571428571428571,
+          "uniqueID": "id-5883",
+          "name": "Station",
+          "ioValues": [
+            {
+              "name": "FootWidth",
+              "ioValue": 10
+            },
+            {
+              "name": "Beam",
+              "ioValue": 10
+            },
+            {
+              "name": "KeelHeight",
+              "ioValue": 10
             }
           ],
           "topLevel": false,
@@ -5551,7 +5615,7 @@
               "atomType": "Output",
               "x": 0.98,
               "y": 0.5,
-              "uniqueID": "id-5848",
+              "uniqueID": "id-5885",
               "ioValues": [
                 {
                   "name": "number or geometry",
@@ -5560,66 +5624,29 @@
               ]
             },
             {
-              "atomType": "Code",
-              "x": 0.37367993501218516,
-              "y": 0.3983286908077995,
-              "uniqueID": "id-5849",
-              "ioValues": [
-                {
-                  "name": "A",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                }
-              ],
-              "interpreterVersion": 0,
-              "code": "/**\n Inputs for this Code Atom:\n - Takes a single geometry input \"A\" and returns its width (X size) as measured by the bounding box.\n*/\nInputs = [\n  { inputName: \"A\", type: \"geometry\", defaultValue: null }\n]\n\nif (!A) {\n  // No input provided — return null to indicate absence.\n  return null\n}\n\n// Get bounding box of A. boundsA.min and boundsA.max are arrays [x, y, z]\nlet boundsA = await GetBounds(A);\nlet min = boundsA.min;\nlet max = boundsA.max;\n\n// Compute height along Y (maxY - minY)\nlet Y = max[1] - min[1];\n\n// Ensure a non-negative numeric result\nY = typeof Y === 'number' && isFinite(Y) ? Math.max(0, Y) : null;\n\nreturn Y;"
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.42,
+              "uniqueID": "id-5887",
+              "name": "FootWidth"
             },
             {
               "atomType": "Input",
               "x": 0.025384615384615384,
-              "y": 0.15384615384615385,
-              "uniqueID": "id-5850",
-              "name": "Geometry",
-              "type": "geometry"
-            }
-          ],
-          "allConnectors": [
-            {
-              "ap2Name": "number or geometry",
-              "ap1ID": "id-5849",
-              "ap2ID": "id-5848"
+              "y": 0.5542857142857143,
+              "uniqueID": "id-5890",
+              "name": "Beam"
             },
             {
-              "ap2Name": "A",
-              "ap1ID": "id-5850",
-              "ap2ID": "id-5849"
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.6894505494505494,
+              "uniqueID": "id-5893",
+              "name": "KeelHeight"
             }
           ],
-          "parentRepo": {
-            "lastFoundGit": "2026-05-15T10:23:39.204Z",
-            "privateRepo": false,
-            "repoName": "Y_Dimension",
-            "dateCreated": "2025-12-04T21:59:58Z",
-            "likes": 0,
-            "readMe": "https://raw.githubusercontent.com/BarbourSmith/Y_Dimension/master/README.md?sanitize=true",
-            "yyyy": 2025,
-            "topMoleculeID": "id-400",
-            "githubMoleculesUsed": [],
-            "html_url": "https://github.com/BarbourSmith/Y_Dimension",
-            "topics": [],
-            "parentRepo": null,
-            "forks": 0,
-            "dateModified": "739589",
-            "ranking": 0.3,
-            "searchField": "y_dimension barboursmith returns the y dimension of the input shape's bounding box ",
-            "owner": "BarbourSmith",
-            "description": "Returns the Y dimension of the input shape's bounding box",
-            "contentURL": "https://raw.githubusercontent.com/BarbourSmith/Y_Dimension/master/project.abundance?sanitize=true",
-            "svgURL": "https://raw.githubusercontent.com/BarbourSmith/Y_Dimension/master/project.svg?sanitize=true",
-            "isLocal": false
-          },
-          "unitsKey": "MM",
-          "fileTypeVersion": 1,
-          "lastReloadedFromGithubAt": 1778869463969
+          "allConnectors": [],
+          "fileTypeVersion": 1
         }
       ],
       "allConnectors": [
@@ -5629,9 +5656,19 @@
           "ap2ID": "id-5835"
         },
         {
-          "ap2Name": "Geometry",
-          "ap1ID": "id-5827",
-          "ap2ID": "id-5851"
+          "ap2Name": "x length",
+          "ap1ID": "id-5869",
+          "ap2ID": "id-5872"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-5872",
+          "ap2ID": "id-5879"
+        },
+        {
+          "ap2Name": "height",
+          "ap1ID": "id-5876",
+          "ap2ID": "id-5879"
         }
       ],
       "fileTypeVersion": 1
@@ -5712,6 +5749,11 @@
       "ap2Name": "geometry",
       "ap1ID": "id-5482",
       "ap2ID": "id-5465"
+    },
+    {
+      "ap2Name": "Lines",
+      "ap1ID": "id-5492",
+      "ap2ID": "id-5823"
     }
   ],
   "unitsKey": "Inches",
