@@ -5436,43 +5436,11 @@
           "name": "Length"
         },
         {
-          "atomType": "Rectangle",
-          "x": 0.16341145833333334,
-          "y": 0.6685714285714286,
-          "uniqueID": "id-5872",
-          "ioValues": [
-            {
-              "name": "x length",
-              "ioValue": 92
-            },
-            {
-              "name": "y length",
-              "ioValue": 10
-            }
-          ]
-        },
-        {
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.6028571428571429,
           "uniqueID": "id-5876",
           "name": "PlyThickness"
-        },
-        {
-          "atomType": "Extrude",
-          "x": 0.20442708333333334,
-          "y": 0.84,
-          "uniqueID": "id-5879",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "height",
-              "ioValue": 0.75
-            }
-          ]
         },
         {
           "atomType": "GitHubMolecule",
@@ -5888,6 +5856,295 @@
           "uniqueID": "id-6590",
           "name": "FootThickness",
           "value": 7
+        },
+        {
+          "atomType": "Molecule",
+          "x": 0.23391927083333336,
+          "y": 0.7042857142857142,
+          "uniqueID": "id-6592",
+          "name": "Box",
+          "ioValues": [
+            {
+              "name": "BoxHeight",
+              "ioValue": 5,
+              "currentEquation": "5"
+            }
+          ],
+          "topLevel": false,
+          "allAtoms": [
+            {
+              "atomType": "Output",
+              "x": 0.98,
+              "y": 0.5,
+              "uniqueID": "id-6594",
+              "ioValues": [
+                {
+                  "name": "number or geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                }
+              ]
+            },
+            {
+              "atomType": "Rectangle",
+              "x": 0.12109375,
+              "y": 0.84,
+              "uniqueID": "id-6596",
+              "ioValues": [
+                {
+                  "name": "x length",
+                  "ioValue": 92,
+                  "currentEquation": "Length"
+                },
+                {
+                  "name": "y length",
+                  "ioValue": 7,
+                  "currentEquation": "FootThickness"
+                }
+              ]
+            },
+            {
+              "atomType": "Extrude",
+              "x": 0.255859375,
+              "y": 0.7228571428571429,
+              "uniqueID": "id-6597",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "height",
+                  "ioValue": 0.75
+                }
+              ]
+            },
+            {
+              "atomType": "Rectangle",
+              "x": 0.083984375,
+              "y": 0.48571428571428577,
+              "uniqueID": "id-6606",
+              "ioValues": [
+                {
+                  "name": "x length",
+                  "ioValue": 92,
+                  "currentEquation": "Length"
+                },
+                {
+                  "name": "y length",
+                  "ioValue": 0.75,
+                  "currentEquation": "PlyThickness"
+                }
+              ]
+            },
+            {
+              "atomType": "Move",
+              "x": 0.20703125,
+              "y": 0.3142857142857143,
+              "uniqueID": "id-6610",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 0,
+                  "currentEquation": "0"
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": 3.5,
+                  "currentEquation": "FootThickness / 2"
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 0
+                }
+              ]
+            },
+            {
+              "atomType": "Move",
+              "x": 0.20247395833333331,
+              "y": 0.5771428571428572,
+              "uniqueID": "id-6616",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 0
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": -7,
+                  "currentEquation": "-1 * (FootThickness)"
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 0
+                }
+              ]
+            },
+            {
+              "atomType": "Extrude",
+              "x": 0.3483072916666667,
+              "y": 0.4142857142857143,
+              "uniqueID": "id-6622",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "height",
+                  "ioValue": 5,
+                  "currentEquation": "10"
+                }
+              ]
+            },
+            {
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.37714285714285717,
+              "uniqueID": "id-6628",
+              "name": "BoxHeight"
+            },
+            {
+              "atomType": "Extrude",
+              "x": 0.341796875,
+              "y": 0.26857142857142857,
+              "uniqueID": "id-6631",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "height",
+                  "ioValue": 5
+                }
+              ]
+            },
+            {
+              "atomType": "Assembly",
+              "x": 0.49609375,
+              "y": 0.5828571428571429,
+              "uniqueID": "id-6635",
+              "ioValues": [
+                {
+                  "name": "Shape 1",
+                  "ioValue": null
+                },
+                {
+                  "name": "Shape 2",
+                  "ioValue": null
+                },
+                {
+                  "name": "Shape 3",
+                  "ioValue": null
+                },
+                {
+                  "name": "Shape 4",
+                  "ioValue": null
+                }
+              ]
+            },
+            {
+              "atomType": "Move",
+              "x": 0.34440104166666663,
+              "y": 0.8857142857142857,
+              "uniqueID": "id-6641",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 0
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": 0
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 4.25,
+                  "currentEquation": "BoxHeight - PlyThickness"
+                }
+              ]
+            }
+          ],
+          "allConnectors": [
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6596",
+              "ap2ID": "id-6597"
+            },
+            {
+              "ap2Name": "Shape 3",
+              "ap1ID": "id-6597",
+              "ap2ID": "id-6635"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6597",
+              "ap2ID": "id-6641"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6606",
+              "ap2ID": "id-6610"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6610",
+              "ap2ID": "id-6616"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6610",
+              "ap2ID": "id-6631"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-6616",
+              "ap2ID": "id-6622"
+            },
+            {
+              "ap2Name": "Shape 1",
+              "ap1ID": "id-6622",
+              "ap2ID": "id-6635"
+            },
+            {
+              "ap2Name": "height",
+              "ap1ID": "id-6628",
+              "ap2ID": "id-6622"
+            },
+            {
+              "ap2Name": "height",
+              "ap1ID": "id-6628",
+              "ap2ID": "id-6631"
+            },
+            {
+              "ap2Name": "Shape 2",
+              "ap1ID": "id-6631",
+              "ap2ID": "id-6635"
+            },
+            {
+              "ap2Name": "number or geometry",
+              "ap1ID": "id-6635",
+              "ap2ID": "id-6594"
+            },
+            {
+              "ap2Name": "Shape 4",
+              "ap1ID": "id-6641",
+              "ap2ID": "id-6635"
+            }
+          ],
+          "fileTypeVersion": 1
         }
       ],
       "allConnectors": [
@@ -5895,21 +6152,6 @@
           "ap2Name": "Wires",
           "ap1ID": "id-5827",
           "ap2ID": "id-5835"
-        },
-        {
-          "ap2Name": "x length",
-          "ap1ID": "id-5869",
-          "ap2ID": "id-5872"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-5872",
-          "ap2ID": "id-5879"
-        },
-        {
-          "ap2Name": "height",
-          "ap1ID": "id-5876",
-          "ap2ID": "id-5879"
         }
       ],
       "fileTypeVersion": 1
