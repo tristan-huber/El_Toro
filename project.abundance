@@ -6133,7 +6133,7 @@
                 {
                   "name": "Shape 1",
                   "ioValue": {
-                    "geometry": "0a1a33c0",
+                    "geometry": "move-rectangle-10-7-5-0-0",
                     "dimension": "2D",
                     "plane": {
                       "origin": [
@@ -6160,7 +6160,7 @@
                 {
                   "name": "Shape 2",
                   "ioValue": {
-                    "geometry": "95b09ae0",
+                    "geometry": "move-rectangle-30-48-25-0-0",
                     "dimension": "2D",
                     "plane": {
                       "origin": [
