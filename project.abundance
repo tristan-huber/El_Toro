@@ -2328,6 +2328,10 @@
         {
           "name": "Points",
           "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "close",
+          "ioValue": 10
         }
       ],
       "topLevel": false,
@@ -2353,6 +2357,10 @@
             {
               "name": "points",
               "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "close",
+              "ioValue": 10
             }
           ],
           "interpreterVersion": 1,
