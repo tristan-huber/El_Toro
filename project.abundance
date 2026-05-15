@@ -5597,7 +5597,7 @@
             },
             {
               "name": "y length",
-              "ioValue": 10
+              "ioValue": 49
             }
           ]
         },
@@ -5667,25 +5667,9 @@
           ]
         },
         {
-          "atomType": "Difference",
-          "x": 0.8834635416666666,
-          "y": 0.18285714285714286,
-          "uniqueID": "id-7581",
-          "ioValues": [
-            {
-              "name": "retain",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "remove",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
           "atomType": "Code",
-          "x": 0.5234375,
-          "y": 0.45142857142857146,
+          "x": 0.46158854166666663,
+          "y": 0.43999999999999995,
           "uniqueID": "id-8403",
           "ioValues": [
             {
@@ -6878,11 +6862,11 @@
           "uniqueID": "id-9227",
           "ioValues": [
             {
-              "name": "Shape 1",
+              "name": "Shape 2",
               "ioValue": null
             },
             {
-              "name": "Shape 2",
+              "name": "Shape 3",
               "ioValue": null
             }
           ]
@@ -7110,6 +7094,22 @@
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1778877318646
+        },
+        {
+          "atomType": "Intersection",
+          "x": 0.6471354166666667,
+          "y": 0.47428571428571425,
+          "uniqueID": "id-9267",
+          "ioValues": [
+            {
+              "name": "geometry1",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "geometry2",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
         }
       ],
       "allConnectors": [
@@ -7179,14 +7179,19 @@
           "ap2ID": "id-7575"
         },
         {
-          "ap2Name": "retain",
-          "ap1ID": "id-7575",
-          "ap2ID": "id-7581"
-        },
-        {
           "ap2Name": "number or geometry",
           "ap1ID": "id-7575",
           "ap2ID": "id-5825"
+        },
+        {
+          "ap2Name": "geometry1",
+          "ap1ID": "id-7575",
+          "ap2ID": "id-9267"
+        },
+        {
+          "ap2Name": "geometry2",
+          "ap1ID": "id-8403",
+          "ap2ID": "id-9267"
         },
         {
           "ap2Name": "Geometry",
@@ -7214,7 +7219,7 @@
           "ap2ID": "id-7536"
         },
         {
-          "ap2Name": "Shape 1",
+          "ap2Name": "Shape 3",
           "ap1ID": "id-9236",
           "ap2ID": "id-9227"
         },
