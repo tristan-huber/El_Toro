@@ -3938,8 +3938,8 @@
             },
             {
               "name": "Beam",
-              "ioValue": 48,
-              "currentEquation": "48"
+              "ioValue": 47,
+              "currentEquation": "47"
             },
             {
               "name": "KeelHeight",
@@ -3973,7 +3973,7 @@
                 },
                 {
                   "name": "y length",
-                  "ioValue": 48
+                  "ioValue": 47
                 }
               ]
             },
