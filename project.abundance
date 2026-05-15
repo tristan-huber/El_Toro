@@ -2538,11 +2538,6 @@
       "ap2ID": "id-1123"
     },
     {
-      "ap2Name": "wires",
-      "ap1ID": "id-1512",
-      "ap2ID": "id-1517"
-    },
-    {
       "ap2Name": "Wires",
       "ap1ID": "id-1512",
       "ap2ID": "id-3834"
