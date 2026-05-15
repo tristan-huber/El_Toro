@@ -7,7 +7,7 @@
 ## Inputs
 
 - **BowDist** (number)
-- **SternDist** (undefined)
+- **SternDist** (number)
 
 
 
