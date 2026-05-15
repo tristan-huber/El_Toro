@@ -1232,11 +1232,11 @@
         {
           "name": "offsets",
           "ioValue": [
-            "2.7",
+            "2.4",
             "4.7",
             "6.5",
             "6.42",
-            "5.44"
+            "5.3"
           ]
         },
         {
@@ -1300,11 +1300,11 @@
             {
               "name": "offsets",
               "ioValue": [
-                "2.7",
+                "2.4",
                 "4.7",
                 "6.5",
                 "6.42",
-                "5.44"
+                "5.3"
               ]
             },
             {
@@ -2546,11 +2546,6 @@
       "ap2ID": "id-1123"
     },
     {
-      "ap2Name": "Wires",
-      "ap1ID": "id-1512",
-      "ap2ID": "id-3834"
-    },
-    {
       "ap2Name": "Shape 1",
       "ap1ID": "id-999",
       "ap2ID": "id-1090"
@@ -2639,11 +2634,6 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-3539",
       "ap2ID": "id-1512"
-    },
-    {
-      "ap2Name": "number or geometry",
-      "ap1ID": "id-3834",
-      "ap2ID": "id-997"
     }
   ],
   "unitsKey": "Inches",
