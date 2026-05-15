@@ -105,30 +105,6 @@
       "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(wires, thickness = 1) {\n    const wireList = [];\n    wires.onLeafs((leaf) => {\n        if (leaf.isWire()) {\n            if (leaf.geometry.isClosed) {\n                throw new Error(\"Only open wires allowed for this loft operation\");\n            }\n            wireList.push(leaf.geometry);\n        }\n        return leaf;\n    });\n    const result = [];\n    for (let i = 0; i < wireList.length - 1; i++) {\n        const surf = replicad.loft(wireList.slice(i, i + 2), {}, true);\n        const offset = replicad.makeOffset(surf.faces[0], thickness);\n        const w1 = replicad.assembleWire(surf.edges);\n        const w2 = replicad.assembleWire(offset.edges);\n        const boundary = replicad.loft([w2, w1], {}, true);\n        result.push(replicad.weldShellsAndFaces([surf, offset, boundary], true));\n    }\n    return result;\n}\n"
     },
     {
-      "atomType": "Move",
-      "x": 0.43033854166666663,
-      "y": 0.7828571428571428,
-      "uniqueID": "id-3247",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "xDist",
-          "ioValue": 0
-        },
-        {
-          "name": "yDist",
-          "ioValue": 0
-        },
-        {
-          "name": "zDist",
-          "ioValue": 0
-        }
-      ]
-    },
-    {
       "atomType": "Molecule",
       "x": 0.6569010416666666,
       "y": 0.35714285714285715,
@@ -682,11 +658,11 @@
         {
           "name": "offsets",
           "ioValue": [
-            "10.625",
+            "10",
             "18.9",
             "22.22",
             "21.5",
-            "19.4"
+            "19"
           ]
         },
         {
@@ -750,11 +726,11 @@
             {
               "name": "offsets",
               "ioValue": [
-                "10.625",
+                "10",
                 "18.9",
                 "22.22",
                 "21.5",
-                "19.4"
+                "19"
               ]
             },
             {
@@ -957,11 +933,11 @@
         {
           "name": "offsets",
           "ioValue": [
-            "16.5",
+            "12.5",
             "18.825",
             "21.825",
             "21",
-            "18.75"
+            "16.5"
           ]
         },
         {
@@ -1025,11 +1001,11 @@
             {
               "name": "offsets",
               "ioValue": [
-                "16.5",
+                "12.5",
                 "18.825",
                 "21.825",
                 "21",
-                "18.75"
+                "16.5"
               ]
             },
             {
@@ -1232,7 +1208,7 @@
         {
           "name": "offsets",
           "ioValue": [
-            "2.4",
+            "2",
             "4.7",
             "6.5",
             "6.42",
@@ -1300,7 +1276,7 @@
             {
               "name": "offsets",
               "ioValue": [
-                "2.4",
+                "2",
                 "4.7",
                 "6.5",
                 "6.42",
@@ -1507,11 +1483,11 @@
         {
           "name": "offsets",
           "ioValue": [
-            "12.25",
+            "10",
             "15.125",
             "18.25",
             "17.5",
-            "14.5"
+            "13.5"
           ]
         },
         {
@@ -1575,11 +1551,11 @@
             {
               "name": "offsets",
               "ioValue": [
-                "12.25",
+                "10",
                 "15.125",
                 "18.25",
                 "17.5",
-                "14.5"
+                "13.5"
               ]
             },
             {
@@ -1782,11 +1758,11 @@
         {
           "name": "offsets",
           "ioValue": [
-            "9.075",
+            "7",
             "15.125",
             "19.25",
             "19.075",
-            "17.5"
+            "16"
           ]
         },
         {
@@ -1850,11 +1826,11 @@
             {
               "name": "offsets",
               "ioValue": [
-                "9.075",
+                "7",
                 "15.125",
                 "19.25",
                 "19.075",
-                "17.5"
+                "16"
               ]
             },
             {
@@ -2546,6 +2522,11 @@
       "ap2ID": "id-1123"
     },
     {
+      "ap2Name": "Wires",
+      "ap1ID": "id-1512",
+      "ap2ID": "id-3834"
+    },
+    {
       "ap2Name": "Shape 1",
       "ap1ID": "id-999",
       "ap2ID": "id-1090"
@@ -2579,11 +2560,6 @@
       "ap2Name": "Input",
       "ap1ID": "id-2752",
       "ap2ID": "id-2402"
-    },
-    {
-      "ap2Name": "geometry",
-      "ap1ID": "id-2752",
-      "ap2ID": "id-3247"
     },
     {
       "ap2Name": "Shape 1",
@@ -2634,6 +2610,11 @@
       "ap2Name": "Shape 2",
       "ap1ID": "id-3539",
       "ap2ID": "id-1512"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-3834",
+      "ap2ID": "id-997"
     }
   ],
   "unitsKey": "Inches",
