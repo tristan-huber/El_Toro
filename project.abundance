@@ -2725,8 +2725,8 @@
         },
         {
           "name": "y length",
-          "ioValue": 21,
-          "currentEquation": "21"
+          "ioValue": 20,
+          "currentEquation": "20"
         }
       ]
     },
@@ -2836,6 +2836,22 @@
           "ioValue": 0
         }
       ]
+    },
+    {
+      "atomType": "Difference",
+      "x": 0.5032552083333334,
+      "y": 0.7228571428571429,
+      "uniqueID": "id-4732",
+      "ioValues": [
+        {
+          "name": "retain",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "remove",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ]
     }
   ],
   "allConnectors": [
@@ -2875,6 +2891,11 @@
       "ap2ID": "id-4683"
     },
     {
+      "ap2Name": "remove",
+      "ap1ID": "id-4683",
+      "ap2ID": "id-4732"
+    },
+    {
       "ap2Name": "geometry",
       "ap1ID": "id-4688",
       "ap2ID": "id-4704"
@@ -2888,6 +2909,11 @@
       "ap2Name": "geometry",
       "ap1ID": "id-4716",
       "ap2ID": "id-4720"
+    },
+    {
+      "ap2Name": "retain",
+      "ap1ID": "id-4720",
+      "ap2ID": "id-4732"
     },
     {
       "ap2Name": "geometry",
