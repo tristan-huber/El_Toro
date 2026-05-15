@@ -5431,7 +5431,7 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.24615384615384617,
+          "y": 0.36,
           "uniqueID": "id-5869",
           "name": "Length"
         },
@@ -5454,7 +5454,7 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.3384615384615385,
+          "y": 0.6028571428571429,
           "uniqueID": "id-5876",
           "name": "PlyThickness"
         },
@@ -5587,15 +5587,11 @@
         },
         {
           "atomType": "Molecule",
-          "x": 0.3307291666666667,
-          "y": 0.6571428571428571,
+          "x": 0.36588541666666663,
+          "y": 0.5314285714285714,
           "uniqueID": "id-5883",
           "name": "Station",
           "ioValues": [
-            {
-              "name": "FootWidth",
-              "ioValue": 5
-            },
             {
               "name": "Beam",
               "ioValue": 48
@@ -5623,13 +5619,6 @@
             {
               "atomType": "Input",
               "x": 0.025384615384615384,
-              "y": 0.3485714285714286,
-              "uniqueID": "id-5887",
-              "name": "FootWidth"
-            },
-            {
-              "atomType": "Input",
-              "x": 0.025384615384615384,
               "y": 0.5085714285714286,
               "uniqueID": "id-5890",
               "name": "Beam"
@@ -5653,7 +5642,8 @@
                 },
                 {
                   "name": "y length",
-                  "ioValue": 5
+                  "ioValue": 7,
+                  "currentEquation": "FootThickness"
                 }
               ]
             },
@@ -5740,7 +5730,7 @@
                 {
                   "name": "Shape 1",
                   "ioValue": {
-                    "geometry": "move-rectangle-10-5-5-0-0",
+                    "geometry": "move-rectangle-10-7-5-0-0",
                     "dimension": "2D",
                     "plane": {
                       "origin": [
@@ -5840,11 +5830,6 @@
           "allConnectors": [
             {
               "ap2Name": "y length",
-              "ap1ID": "id-5887",
-              "ap2ID": "id-6553"
-            },
-            {
-              "ap2Name": "y length",
               "ap1ID": "id-5890",
               "ap2ID": "id-6557"
             },
@@ -5895,6 +5880,14 @@
             }
           ],
           "fileTypeVersion": 1
+        },
+        {
+          "atomType": "Constant",
+          "x": 0.17317708333333334,
+          "y": 0.40571428571428575,
+          "uniqueID": "id-6590",
+          "name": "FootThickness",
+          "value": 7
         }
       ],
       "allConnectors": [
