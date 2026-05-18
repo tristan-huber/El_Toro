@@ -3036,7 +3036,8 @@
         },
         {
           "name": "Length",
-          "ioValue": 95
+          "ioValue": 112,
+          "currentEquation": "112"
         },
         {
           "name": "PlyThickness",
@@ -3150,7 +3151,7 @@
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 95,
+              "ioValue": 112,
               "currentEquation": "Length"
             },
             {
@@ -3184,7 +3185,7 @@
             {
               "name": "Shape 1",
               "ioValue": {
-                "geometry": "extrude-rectangle-95-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
+                "geometry": "extrude-rectangle-112-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
                 "dimension": "3D",
                 "plane": {
                   "origin": [
@@ -3404,7 +3405,7 @@
               "ioValues": [
                 {
                   "name": "x length",
-                  "ioValue": 95,
+                  "ioValue": 112,
                   "currentEquation": "Length"
                 },
                 {
@@ -3438,7 +3439,7 @@
               "ioValues": [
                 {
                   "name": "x length",
-                  "ioValue": 95,
+                  "ioValue": 112,
                   "currentEquation": "Length"
                 },
                 {
@@ -3552,11 +3553,11 @@
                   "ioValue": null
                 },
                 {
-                  "name": "Shape 3",
+                  "name": "Shape 5",
                   "ioValue": null
                 },
                 {
-                  "name": "Shape 4",
+                  "name": "Shape 6",
                   "ioValue": null
                 }
               ]
@@ -3629,14 +3630,14 @@
               "ap2ID": "id-6597"
             },
             {
-              "ap2Name": "Shape 3",
-              "ap1ID": "id-6597",
-              "ap2ID": "id-6635"
-            },
-            {
               "ap2Name": "geometry",
               "ap1ID": "id-6597",
               "ap2ID": "id-6641"
+            },
+            {
+              "ap2Name": "Shape 6",
+              "ap1ID": "id-6597",
+              "ap2ID": "id-6635"
             },
             {
               "ap2Name": "geometry",
@@ -3684,7 +3685,7 @@
               "ap2ID": "id-10365"
             },
             {
-              "ap2Name": "Shape 4",
+              "ap2Name": "Shape 5",
               "ap1ID": "id-6641",
               "ap2ID": "id-6635"
             },
