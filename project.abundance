@@ -3541,8 +3541,8 @@
         },
         {
           "atomType": "Assembly",
-          "x": 0.703125,
-          "y": 0.5885714285714286,
+          "x": 0.6412760416666666,
+          "y": 0.6742857142857143,
           "uniqueID": "id-13267",
           "ioValues": [
             {
@@ -3557,8 +3557,8 @@
         },
         {
           "atomType": "Move",
-          "x": 0.8138020833333334,
-          "y": 0.6228571428571429,
+          "x": 0.7408854166666666,
+          "y": 0.8057142857142858,
           "uniqueID": "id-13271",
           "ioValues": [
             {
@@ -5004,6 +5004,36 @@
             }
           ],
           "fileTypeVersion": 1
+        },
+        {
+          "atomType": "CutLayout",
+          "x": 0.7916666666666667,
+          "y": 0.2571428571428572,
+          "uniqueID": "id-14806",
+          "name": "Cut Layout",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "Sheet Width",
+              "ioValue": 96
+            },
+            {
+              "name": "Sheet Height",
+              "ioValue": 48
+            },
+            {
+              "name": "Part Padding",
+              "ioValue": 0.4
+            },
+            {
+              "name": "Orientations",
+              "ioValue": 4
+            }
+          ],
+          "placements": []
         }
       ],
       "allConnectors": [
@@ -5061,6 +5091,11 @@
           "ap2Name": "geometry",
           "ap1ID": "id-13267",
           "ap2ID": "id-13271"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-13267",
+          "ap2ID": "id-14806"
         },
         {
           "ap2Name": "number or geometry",
