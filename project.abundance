@@ -3210,30 +3210,7 @@
             },
             {
               "name": "Shape 2",
-              "ioValue": {
-                "geometry": "move-8e691ec7-0-0-0-5",
-                "color": "#aad7f2",
-                "tags": [],
-                "bom": [],
-                "plane": {
-                  "origin": [
-                    0,
-                    0,
-                    0
-                  ],
-                  "xDir": [
-                    1,
-                    0,
-                    0
-                  ],
-                  "normal": [
-                    0,
-                    0,
-                    1
-                  ]
-                },
-                "dimension": "3D"
-              }
+              "ioValue": null
             }
           ],
           "unionType": "Fusion"
@@ -3952,6 +3929,32 @@
               "tagIndex": 0
             },
             {
+              "atomType": "Move",
+              "x": 0.2721354166666667,
+              "y": 0.8542857142857142,
+              "uniqueID": "id-16853",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 47.125,
+                  "currentEquation": "StationPositions[-1]"
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": -47.25,
+                  "currentEquation": "StationPositions[0]"
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 0
+                }
+              ]
+            },
+            {
               "atomType": "GitHubMolecule",
               "x": 0.38476562500000006,
               "y": 0.16285714285714284,
@@ -4238,7 +4241,7 @@
                 {
                   "name": "PivotPoint",
                   "ioValue": [
-                    "StationPositions[0]",
+                    "-47.125",
                     "0",
                     "5"
                   ]
@@ -4285,7 +4288,7 @@
                     {
                       "name": "pivotPoint",
                       "ioValue": [
-                        "StationPositions[0]",
+                        "-47.125",
                         "0",
                         "5"
                       ]
@@ -5264,33 +5267,6 @@
               "unitsKey": "Unitless",
               "fileTypeVersion": 1,
               "lastReloadedFromGithubAt": 1779130434483
-            },
-            {
-              "atomType": "Move",
-              "x": 0.2721354166666667,
-              "y": 0.8542857142857142,
-              "uniqueID": "id-16853",
-              "ioValues": [
-                {
-                  "name": "geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "xDist",
-                  "ioValue": 47.125,
-                  "currentEquation": "StationPositions[-1]"
-                },
-                {
-                  "name": "yDist",
-                  "ioValue": -47.25,
-                  "currentEquation": "StationPositions[0]"
-                },
-                {
-                  "name": "zDist",
-                  "ioValue": 0,
-                  "currentEquation": "0"
-                }
-              ]
             }
           ],
           "allConnectors": [
