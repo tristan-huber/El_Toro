@@ -3036,8 +3036,7 @@
         },
         {
           "name": "Length",
-          "ioValue": 112,
-          "currentEquation": "112"
+          "ioValue": 112
         },
         {
           "name": "PlyThickness",
@@ -4239,14 +4238,15 @@
                 {
                   "name": "PivotPoint",
                   "ioValue": [
-                    "47.125",
+                    "StationPositions[0]",
                     "0",
                     "5"
                   ]
                 },
                 {
                   "name": "X",
-                  "ioValue": 0
+                  "ioValue": 0,
+                  "currentEquation": "0"
                 },
                 {
                   "name": "Y",
@@ -4285,7 +4285,7 @@
                     {
                       "name": "pivotPoint",
                       "ioValue": [
-                        "47.125",
+                        "StationPositions[0]",
                         "0",
                         "5"
                       ]
@@ -5264,6 +5264,33 @@
               "unitsKey": "Unitless",
               "fileTypeVersion": 1,
               "lastReloadedFromGithubAt": 1779130434483
+            },
+            {
+              "atomType": "Move",
+              "x": 0.2721354166666667,
+              "y": 0.8542857142857142,
+              "uniqueID": "id-16853",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 47.125,
+                  "currentEquation": "StationPositions[-1]"
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": -47.25,
+                  "currentEquation": "StationPositions[0]"
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 0,
+                  "currentEquation": "0"
+                }
+              ]
             }
           ],
           "allConnectors": [
@@ -5276,6 +5303,11 @@
               "ap2Name": "geometry",
               "ap1ID": "id-9280",
               "ap2ID": "id-9281"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-9280",
+              "ap2ID": "id-16853"
             },
             {
               "ap2Name": "geometry",
