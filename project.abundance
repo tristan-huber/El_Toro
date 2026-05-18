@@ -3964,8 +3964,8 @@
                 },
                 {
                   "name": "xDist",
-                  "ioValue": 47.125,
-                  "currentEquation": "StationPositions[-1]"
+                  "ioValue": -47.25,
+                  "currentEquation": "StationPositions[0]"
                 },
                 {
                   "name": "yDist",
@@ -5455,6 +5455,11 @@
           "ap2ID": "id-5825"
         },
         {
+          "ap2Name": "StationPositions",
+          "ap1ID": "id-14085",
+          "ap2ID": "id-9275"
+        },
+        {
           "ap2Name": "geometry",
           "ap1ID": "id-6592",
           "ap2ID": "id-6648"
@@ -5463,6 +5468,11 @@
           "ap2Name": "toMove",
           "ap1ID": "id-9275",
           "ap2ID": "id-14141"
+        },
+        {
+          "ap2Name": "geometry1",
+          "ap1ID": "id-9275",
+          "ap2ID": "id-9267"
         }
       ],
       "fileTypeVersion": 1
