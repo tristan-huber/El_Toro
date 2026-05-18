@@ -3036,7 +3036,8 @@
         },
         {
           "name": "Length",
-          "ioValue": 112
+          "ioValue": 95,
+          "currentEquation": "95"
         },
         {
           "name": "PlyThickness",
@@ -3150,7 +3151,7 @@
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 112,
+              "ioValue": 95,
               "currentEquation": "Length"
             },
             {
@@ -3184,7 +3185,7 @@
             {
               "name": "Shape 1",
               "ioValue": {
-                "geometry": "extrude-rectangle-112-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
+                "geometry": "extrude-rectangle-95-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
                 "dimension": "3D",
                 "plane": {
                   "origin": [
@@ -3210,7 +3211,30 @@
             },
             {
               "name": "Shape 2",
-              "ioValue": null
+              "ioValue": {
+                "geometry": "move-8e691ec7-0-0-0-5",
+                "color": "#aad7f2",
+                "tags": [],
+                "bom": [],
+                "plane": {
+                  "origin": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "xDir": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "dimension": "3D"
+              }
             }
           ],
           "unionType": "Fusion"
@@ -3381,7 +3405,7 @@
               "ioValues": [
                 {
                   "name": "x length",
-                  "ioValue": 112,
+                  "ioValue": 95,
                   "currentEquation": "Length"
                 },
                 {
@@ -3415,7 +3439,7 @@
               "ioValues": [
                 {
                   "name": "x length",
-                  "ioValue": 112,
+                  "ioValue": 95,
                   "currentEquation": "Length"
                 },
                 {
