@@ -3929,6 +3929,10 @@
                 {
                   "name": "Shape 3",
                   "ioValue": null
+                },
+                {
+                  "name": "Shape 4",
+                  "ioValue": null
                 }
               ]
             },
@@ -4241,8 +4245,7 @@
                 },
                 {
                   "name": "X",
-                  "ioValue": 0,
-                  "currentEquation": "0"
+                  "ioValue": 0
                 },
                 {
                   "name": "Y",
@@ -4760,8 +4763,7 @@
                 },
                 {
                   "name": "X",
-                  "ioValue": 0,
-                  "currentEquation": "0"
+                  "ioValue": 0
                 },
                 {
                   "name": "Y",
@@ -5328,6 +5330,11 @@
               "ap2Name": "number or geometry",
               "ap1ID": "id-14779",
               "ap2ID": "id-9277"
+            },
+            {
+              "ap2Name": "Shape 4",
+              "ap1ID": "id-14784",
+              "ap2ID": "id-14779"
             },
             {
               "ap2Name": "shape",
