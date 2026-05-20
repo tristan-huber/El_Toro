@@ -3596,8 +3596,8 @@
                 },
                 {
                   "name": "zDist",
-                  "ioValue": 4.25,
-                  "currentEquation": "BoxHeight - PlyThickness"
+                  "ioValue": 5.25,
+                  "currentEquation": "BoxHeight - PlyThickness + 1"
                 }
               ]
             },
