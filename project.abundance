@@ -3186,8 +3186,7 @@
             },
             {
               "name": "height",
-              "ioValue": 14,
-              "currentEquation": "14"
+              "ioValue": 15
             }
           ]
         },
@@ -3200,7 +3199,7 @@
             {
               "name": "Shape 1",
               "ioValue": {
-                "geometry": "extrude-rectangle-112-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-14",
+                "geometry": "extrude-rectangle-112-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
                 "dimension": "3D",
                 "plane": {
                   "origin": [
@@ -3597,8 +3596,8 @@
                 },
                 {
                   "name": "zDist",
-                  "ioValue": 5.25,
-                  "currentEquation": "BoxHeight - PlyThickness + 1"
+                  "ioValue": 4.25,
+                  "currentEquation": "BoxHeight - PlyThickness"
                 }
               ]
             },
