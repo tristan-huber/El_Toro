@@ -3704,14 +3704,14 @@
               "ap2ID": "id-6635"
             },
             {
-              "ap2Name": "number or geometry",
-              "ap1ID": "id-9437",
-              "ap2ID": "id-6594"
-            },
-            {
               "ap2Name": "Shape 1",
               "ap1ID": "id-10365",
               "ap2ID": "id-9437"
+            },
+            {
+              "ap2Name": "number or geometry",
+              "ap1ID": "id-10365",
+              "ap2ID": "id-6594"
             },
             {
               "ap2Name": "y length",
