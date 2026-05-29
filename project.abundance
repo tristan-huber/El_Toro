@@ -95,15 +95,15 @@
     },
     {
       "atomType": "Input",
-      "x": 0.0231,
-      "y": 0.14,
+      "x": 0.025384615384615384,
+      "y": 0.15384615384615385,
       "uniqueID": "id-4692",
       "name": "BowDist"
     },
     {
       "atomType": "Input",
-      "x": 0.0231,
-      "y": 0.22400000000000003,
+      "x": 0.025384615384615384,
+      "y": 0.24615384615384617,
       "uniqueID": "id-4695",
       "name": "SternDist"
     },
@@ -214,8 +214,8 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-1044",
           "type": "array"
         },
@@ -309,16 +309,16 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-1121",
           "name": "geometry",
           "type": "geometry"
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.22400000000000003,
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
           "uniqueID": "id-1122",
           "name": "i",
           "type": "number"
@@ -421,16 +421,16 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-14820",
           "name": "Wires",
           "type": "geometry"
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.22400000000000003,
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
           "uniqueID": "id-14821",
           "name": "Thickness",
           "type": "number"
@@ -569,8 +569,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5499",
               "name": "X"
             },
@@ -599,15 +599,15 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5501",
               "name": "Y"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5502",
               "name": "Z"
             }
@@ -698,8 +698,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5506",
               "type": "number"
             }
@@ -780,8 +780,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5510",
               "type": "number"
             }
@@ -871,24 +871,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5513",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5514",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5515",
               "name": "direction",
               "type": "point3d",
@@ -1102,285 +1102,6 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.3046875,
-          "y": 0.2714285714285714,
-          "uniqueID": "id-5522",
-          "name": "crv.PolyMove",
-          "ioValues": [
-            {
-              "name": "toMove",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "offsets",
-              "ioValue": [
-                "0",
-                "-0.03",
-                "-2.51",
-                "-3.16",
-                "-3.58",
-                "-3.8",
-                "-3.93",
-                "-3.67",
-                "-3.31",
-                "-2.64",
-                "0"
-              ]
-            },
-            {
-              "name": "direction",
-              "ioValue": 10
-            }
-          ],
-          "topLevel": false,
-          "allAtoms": [
-            {
-              "atomType": "Output",
-              "x": 0.98,
-              "y": 0.5,
-              "uniqueID": "id-5523",
-              "ioValues": [
-                {
-                  "name": "number or geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                }
-              ]
-            },
-            {
-              "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
-              "uniqueID": "id-5524",
-              "name": "toMove",
-              "type": "geometry"
-            },
-            {
-              "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
-              "uniqueID": "id-5525",
-              "name": "offsets",
-              "type": "array"
-            },
-            {
-              "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
-              "uniqueID": "id-5526",
-              "name": "direction",
-              "type": "point3d",
-              "pointValue": null
-            },
-            {
-              "atomType": "Code",
-              "x": 0.39583333333333337,
-              "y": 0.43714285714285717,
-              "uniqueID": "id-5527",
-              "ioValues": [
-                {
-                  "name": "toMove",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "offsets",
-                  "ioValue": [
-                    "0",
-                    "-0.03",
-                    "-2.51",
-                    "-3.16",
-                    "-3.58",
-                    "-3.8",
-                    "-3.93",
-                    "-3.67",
-                    "-3.31",
-                    "-2.64",
-                    "0"
-                  ]
-                },
-                {
-                  "name": "direction",
-                  "ioValue": 10
-                }
-              ],
-              "interpreterVersion": 1,
-              "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
-              "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
-            },
-            {
-              "atomType": "Circle",
-              "x": 0.177734375,
-              "y": 0.6799999999999999,
-              "uniqueID": "id-5528",
-              "ioValues": [
-                {
-                  "name": "diameter",
-                  "ioValue": 10
-                }
-              ]
-            },
-            {
-              "atomType": "Move",
-              "x": 0.2532552083333333,
-              "y": 0.8514285714285714,
-              "uniqueID": "id-5529",
-              "ioValues": [
-                {
-                  "name": "geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "xDist",
-                  "ioValue": 0
-                },
-                {
-                  "name": "yDist",
-                  "ioValue": 20
-                },
-                {
-                  "name": "zDist",
-                  "ioValue": 0
-                }
-              ]
-            },
-            {
-              "atomType": "Assembly",
-              "x": 0.2903645833333333,
-              "y": 0.7171428571428571,
-              "uniqueID": "id-5530",
-              "ioValues": [
-                {
-                  "name": "Shape 1",
-                  "ioValue": null
-                },
-                {
-                  "name": "Shape 2",
-                  "ioValue": null
-                }
-              ]
-            },
-            {
-              "atomType": "Extrude",
-              "x": 0.36588541666666663,
-              "y": 0.8057142857142858,
-              "uniqueID": "id-5531",
-              "ioValues": [
-                {
-                  "name": "geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "height",
-                  "ioValue": 10
-                }
-              ]
-            },
-            {
-              "atomType": "Code",
-              "x": 0.49544270833333337,
-              "y": 0.6799999999999999,
-              "uniqueID": "id-5532",
-              "ioValues": [
-                {
-                  "name": "toMove",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "offsets",
-                  "ioValue": [
-                    2,
-                    3
-                  ]
-                },
-                {
-                  "name": "direction",
-                  "ioValue": [
-                    1,
-                    0,
-                    0
-                  ]
-                }
-              ],
-              "interpreterVersion": 1,
-              "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
-              "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
-            }
-          ],
-          "allConnectors": [
-            {
-              "ap2Name": "toMove",
-              "ap1ID": "id-5524",
-              "ap2ID": "id-5527"
-            },
-            {
-              "ap2Name": "offsets",
-              "ap1ID": "id-5525",
-              "ap2ID": "id-5527"
-            },
-            {
-              "ap2Name": "direction",
-              "ap1ID": "id-5526",
-              "ap2ID": "id-5527"
-            },
-            {
-              "ap2Name": "number or geometry",
-              "ap1ID": "id-5527",
-              "ap2ID": "id-5523"
-            },
-            {
-              "ap2Name": "geometry",
-              "ap1ID": "id-5528",
-              "ap2ID": "id-5529"
-            },
-            {
-              "ap2Name": "Shape 1",
-              "ap1ID": "id-5528",
-              "ap2ID": "id-5530"
-            },
-            {
-              "ap2Name": "Shape 2",
-              "ap1ID": "id-5529",
-              "ap2ID": "id-5530"
-            },
-            {
-              "ap2Name": "geometry",
-              "ap1ID": "id-5530",
-              "ap2ID": "id-5531"
-            },
-            {
-              "ap2Name": "toMove",
-              "ap1ID": "id-5531",
-              "ap2ID": "id-5532"
-            }
-          ],
-          "parentRepo": {
-            "privateRepo": false,
-            "repoName": "crv.PolyMove",
-            "dateCreated": "2026-05-08T22:28:49Z",
-            "readMe": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/README.md?sanitize=true",
-            "yyyy": 2026,
-            "topMoleculeID": "id-23",
-            "githubMoleculesUsed": [],
-            "html_url": "https://github.com/tristan-huber/crv.PolyMove",
-            "topics": [
-              "abundance-tool"
-            ],
-            "parentRepo": null,
-            "forks": 0,
-            "dateModified": "739744",
-            "ranking": 0,
-            "searchField": "crv.polymove tristan-huber move one thing n times and return an assembly of the results. or move n things by n different distances. default direction is x+ abundance-tool",
-            "owner": "tristan-huber",
-            "description": "Move one thing n times and return an assembly of the results. Or move n things by n different distances. Default direction is X+",
-            "contentURL": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/project.abundance?sanitize=true",
-            "svgURL": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/project.svg?sanitize=true",
-            "isLocal": false
-          },
-          "unitsKey": "Unitless",
-          "fileTypeVersion": 1,
-          "lastReloadedFromGithubAt": 1778703526021
-        },
-        {
-          "atomType": "GitHubMolecule",
           "x": 0.27513020833333335,
           "y": 0.4114285714285715,
           "uniqueID": "id-5533",
@@ -1425,24 +1146,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5535",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5536",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5537",
               "name": "direction",
               "type": "point3d",
@@ -1700,24 +1421,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5546",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5547",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5548",
               "name": "direction",
               "type": "point3d",
@@ -1975,24 +1696,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5557",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5558",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5559",
               "name": "direction",
               "type": "point3d",
@@ -2244,24 +1965,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5568",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5569",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-5570",
               "name": "direction",
               "type": "point3d",
@@ -2518,16 +2239,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-5580",
               "name": "Points",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-5581",
               "name": "close",
               "type": "boolean"
@@ -2637,40 +2358,40 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-19251",
               "name": "Number",
               "type": "number"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-19252",
               "name": "Geometry",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-19253",
               "name": "distX",
               "type": "number"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.39200000000000007,
+              "x": 0.025384615384615384,
+              "y": 0.4307692307692308,
               "uniqueID": "id-19254",
               "name": "distY",
               "type": "number"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.4760000000000001,
+              "x": 0.025384615384615384,
+              "y": 0.5230769230769231,
               "uniqueID": "id-19255",
               "name": "distZ",
               "type": "number"
@@ -2902,6 +2623,285 @@
           "unitsKey": "MM",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1780093328560
+        },
+        {
+          "atomType": "GitHubMolecule",
+          "x": 0.2884114583333333,
+          "y": 0.13142857142857142,
+          "uniqueID": "id-20268",
+          "name": "crv.PolyMove",
+          "ioValues": [
+            {
+              "name": "toMove",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "offsets",
+              "ioValue": [
+                "0",
+                "-0.03",
+                "-2.51",
+                "-3.16",
+                "-3.58",
+                "-3.8",
+                "-3.93",
+                "-3.67",
+                "-3.31",
+                "-2.64",
+                "0"
+              ]
+            },
+            {
+              "name": "direction",
+              "ioValue": 10
+            }
+          ],
+          "topLevel": false,
+          "allAtoms": [
+            {
+              "atomType": "Output",
+              "x": 0.98,
+              "y": 0.5,
+              "uniqueID": "id-20258",
+              "ioValues": [
+                {
+                  "name": "number or geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                }
+              ]
+            },
+            {
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
+              "uniqueID": "id-20259",
+              "name": "toMove",
+              "type": "geometry"
+            },
+            {
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
+              "uniqueID": "id-20260",
+              "name": "offsets",
+              "type": "array"
+            },
+            {
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
+              "uniqueID": "id-20261",
+              "name": "direction",
+              "type": "point3d",
+              "pointValue": null
+            },
+            {
+              "atomType": "Code",
+              "x": 0.39583333333333337,
+              "y": 0.43714285714285717,
+              "uniqueID": "id-20262",
+              "ioValues": [
+                {
+                  "name": "toMove",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "offsets",
+                  "ioValue": [
+                    "0",
+                    "-0.03",
+                    "-2.51",
+                    "-3.16",
+                    "-3.58",
+                    "-3.8",
+                    "-3.93",
+                    "-3.67",
+                    "-3.31",
+                    "-2.64",
+                    "0"
+                  ]
+                },
+                {
+                  "name": "direction",
+                  "ioValue": 10
+                }
+              ],
+              "interpreterVersion": 1,
+              "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
+              "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+            },
+            {
+              "atomType": "Circle",
+              "x": 0.177734375,
+              "y": 0.6799999999999999,
+              "uniqueID": "id-20263",
+              "ioValues": [
+                {
+                  "name": "diameter",
+                  "ioValue": 10
+                }
+              ]
+            },
+            {
+              "atomType": "Move",
+              "x": 0.2532552083333333,
+              "y": 0.8514285714285714,
+              "uniqueID": "id-20264",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "xDist",
+                  "ioValue": 0
+                },
+                {
+                  "name": "yDist",
+                  "ioValue": 20
+                },
+                {
+                  "name": "zDist",
+                  "ioValue": 0
+                }
+              ]
+            },
+            {
+              "atomType": "Assembly",
+              "x": 0.2903645833333333,
+              "y": 0.7171428571428571,
+              "uniqueID": "id-20265",
+              "ioValues": [
+                {
+                  "name": "Shape 1",
+                  "ioValue": null
+                },
+                {
+                  "name": "Shape 2",
+                  "ioValue": null
+                }
+              ]
+            },
+            {
+              "atomType": "Extrude",
+              "x": 0.36588541666666663,
+              "y": 0.8057142857142858,
+              "uniqueID": "id-20266",
+              "ioValues": [
+                {
+                  "name": "geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "height",
+                  "ioValue": 10
+                }
+              ]
+            },
+            {
+              "atomType": "Code",
+              "x": 0.49544270833333337,
+              "y": 0.6799999999999999,
+              "uniqueID": "id-20267",
+              "ioValues": [
+                {
+                  "name": "toMove",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "offsets",
+                  "ioValue": [
+                    2,
+                    3
+                  ]
+                },
+                {
+                  "name": "direction",
+                  "ioValue": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ],
+              "interpreterVersion": 1,
+              "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape: Assembly, v: [number, number, number]): Assembly | null {\n  return shape.onLeafs((l: Assembly<LeafGeom>) => {\n    const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n    return new Assembly({ ...l, geometry: mvd })\n  })\n}\n\nfunction run(toMove: Assembly, offsets: number[], direction: number[]) {\n  if (!offsets.length || offsets.length == 0) {\n    throw new Error(\"Missing offsets list\")\n  }\n  if (direction.length != 3) {\n    throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction)\n  }\n  const vec = new replicad.Vector(direction as [number, number, number]).normalize()\n  let leafCount = 0;\n  toMove.onLeafs((l) => {\n    leafCount++;\n    return l;\n  })\n\n  if (leafCount == 1) {\n    console.log(\"moving single object n times\")\n    const result: (Assembly | null)[] = []\n    offsets.forEach((magnitude) => {\n      result.push(move(toMove, vec.multiply(magnitude).toTuple()))\n    });\n    console.log(result.length)\n    console.log(result)\n    return result;\n  } else if (leafCount === offsets.length) {\n    console.log(\"moving batch of objects by independent amounts\")\n    let index = 0;\n    let result: Assembly<AnyGeom>[] = []\n    toMove.onLeafs((l: Assembly<LeafGeom>) => {\n      const v = vec.multiply(offsets[index]).toTuple()\n      console.log(v)\n      index += 1\n      const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v)\n      const res = new Assembly({ ...l, geometry: mvd })\n      result.push(res)\n      return res;\n    })\n    return result;\n  } else {\n    throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length)\n  }\n}\n",
+              "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction move(shape, v) {\n    return shape.onLeafs((l) => {\n        const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n        return new Assembly({ ...l, geometry: mvd });\n    });\n}\nfunction run(toMove, offsets, direction) {\n    if (!offsets.length || offsets.length == 0) {\n        throw new Error(\"Missing offsets list\");\n    }\n    if (direction.length != 3) {\n        throw new Error(\"Direction needs to be an [x,y,z] vector. Was: \" + direction);\n    }\n    const vec = new replicad.Vector(direction).normalize();\n    let leafCount = 0;\n    toMove.onLeafs((l) => {\n        leafCount++;\n        return l;\n    });\n    if (leafCount == 1) {\n        console.log(\"moving single object n times\");\n        const result = [];\n        offsets.forEach((magnitude) => {\n            result.push(move(toMove, vec.multiply(magnitude).toTuple()));\n        });\n        console.log(result.length);\n        console.log(result);\n        return result;\n    }\n    else if (leafCount === offsets.length) {\n        console.log(\"moving batch of objects by independent amounts\");\n        let index = 0;\n        let result = [];\n        toMove.onLeafs((l) => {\n            const v = vec.multiply(offsets[index]).toTuple();\n            console.log(v);\n            index += 1;\n            const mvd = l.is2D() ? l.geometry.translate([v[0], v[1]]) : l.geometry.clone().translate(v);\n            const res = new Assembly({ ...l, geometry: mvd });\n            result.push(res);\n            return res;\n        });\n        return result;\n    }\n    else {\n        throw new Error(\"Assembly needs to be singleton or match offsets length. Was: \" + leafCount + \" offsets len: \" + offsets.length);\n    }\n}\n"
+            }
+          ],
+          "allConnectors": [
+            {
+              "ap2Name": "toMove",
+              "ap1ID": "id-20259",
+              "ap2ID": "id-20262"
+            },
+            {
+              "ap2Name": "offsets",
+              "ap1ID": "id-20260",
+              "ap2ID": "id-20262"
+            },
+            {
+              "ap2Name": "direction",
+              "ap1ID": "id-20261",
+              "ap2ID": "id-20262"
+            },
+            {
+              "ap2Name": "number or geometry",
+              "ap1ID": "id-20262",
+              "ap2ID": "id-20258"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-20263",
+              "ap2ID": "id-20264"
+            },
+            {
+              "ap2Name": "Shape 1",
+              "ap1ID": "id-20263",
+              "ap2ID": "id-20265"
+            },
+            {
+              "ap2Name": "Shape 2",
+              "ap1ID": "id-20264",
+              "ap2ID": "id-20265"
+            },
+            {
+              "ap2Name": "geometry",
+              "ap1ID": "id-20265",
+              "ap2ID": "id-20266"
+            },
+            {
+              "ap2Name": "toMove",
+              "ap1ID": "id-20266",
+              "ap2ID": "id-20267"
+            }
+          ],
+          "parentRepo": {
+            "privateRepo": false,
+            "repoName": "crv.PolyMove",
+            "dateCreated": "2026-05-08T22:28:49Z",
+            "readMe": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/README.md?sanitize=true",
+            "yyyy": 2026,
+            "topMoleculeID": "id-23",
+            "githubMoleculesUsed": [],
+            "html_url": "https://github.com/tristan-huber/crv.PolyMove",
+            "topics": [
+              "abundance-tool"
+            ],
+            "parentRepo": null,
+            "forks": 0,
+            "dateModified": "739744",
+            "ranking": 0,
+            "searchField": "crv.polymove tristan-huber move one thing n times and return an assembly of the results. or move n things by n different distances. default direction is x+ abundance-tool",
+            "owner": "tristan-huber",
+            "description": "Move one thing n times and return an assembly of the results. Or move n things by n different distances. Default direction is X+",
+            "contentURL": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/project.abundance?sanitize=true",
+            "svgURL": "https://raw.githubusercontent.com/tristan-huber/crv.PolyMove/master/project.svg?sanitize=true",
+            "isLocal": false
+          },
+          "unitsKey": "Unitless",
+          "fileTypeVersion": 1,
+          "lastReloadedFromGithubAt": 1780094574015
         }
       ],
       "allConnectors": [
@@ -2941,16 +2941,6 @@
           "ap2ID": "id-5503"
         },
         {
-          "ap2Name": "Shape 1",
-          "ap1ID": "id-5522",
-          "ap2ID": "id-5496"
-        },
-        {
-          "ap2Name": "Points",
-          "ap1ID": "id-5522",
-          "ap2ID": "id-5577"
-        },
-        {
           "ap2Name": "toMove",
           "ap1ID": "id-5533",
           "ap2ID": "id-5511"
@@ -2988,7 +2978,17 @@
         {
           "ap2Name": "toMove",
           "ap1ID": "id-19263",
-          "ap2ID": "id-5522"
+          "ap2ID": "id-20268"
+        },
+        {
+          "ap2Name": "Shape 1",
+          "ap1ID": "id-20268",
+          "ap2ID": "id-5496"
+        },
+        {
+          "ap2Name": "Points",
+          "ap1ID": "id-20268",
+          "ap2ID": "id-5577"
         }
       ],
       "fileTypeVersion": 1
@@ -3021,8 +3021,8 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-12251",
           "name": "Lines",
           "type": "geometry"
@@ -3139,16 +3139,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-12259",
               "name": "geometry",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-12260",
               "name": "i",
               "type": "number"
@@ -3250,16 +3250,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-12264",
               "name": "geometry",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-12265",
               "name": "i",
               "type": "number"
@@ -3389,8 +3389,8 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-18189",
           "name": "Lines",
           "type": "geometry"
@@ -3537,16 +3537,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18198",
               "name": "geometry",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18199",
               "name": "i",
               "type": "number"
@@ -3648,16 +3648,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18203",
               "name": "geometry",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18204",
               "name": "i",
               "type": "number"
@@ -3840,8 +3840,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18210",
               "name": "X"
             },
@@ -3870,15 +3870,15 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18212",
               "name": "Y"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18213",
               "name": "Z"
             }
@@ -3969,8 +3969,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18217",
               "type": "number"
             }
@@ -4051,8 +4051,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18221",
               "type": "number"
             }
@@ -4142,24 +4142,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18224",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18225",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18226",
               "name": "direction",
               "type": "point3d",
@@ -4417,24 +4417,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18235",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18236",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18237",
               "name": "direction",
               "type": "point3d",
@@ -4692,24 +4692,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18246",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18247",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18248",
               "name": "direction",
               "type": "point3d",
@@ -4967,24 +4967,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18257",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18258",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18259",
               "name": "direction",
               "type": "point3d",
@@ -5242,24 +5242,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18268",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18269",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18270",
               "name": "direction",
               "type": "point3d",
@@ -5517,24 +5517,24 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18279",
               "name": "toMove",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18280",
               "name": "offsets",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-18281",
               "name": "direction",
               "type": "point3d",
@@ -5797,16 +5797,16 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-18291",
               "name": "Points",
               "type": "geometry"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-18292",
               "name": "close",
               "type": "boolean"
@@ -5976,23 +5976,23 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.14,
+          "x": 0.025384615384615384,
+          "y": 0.15384615384615385,
           "uniqueID": "id-5827",
           "name": "HullVolume",
           "type": "geometry"
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.22400000000000003,
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
           "uniqueID": "id-5869",
           "name": "Length"
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.30800000000000005,
+          "x": 0.025384615384615384,
+          "y": 0.3384615384615385,
           "uniqueID": "id-5876",
           "name": "PlyThickness"
         },
@@ -6120,8 +6120,8 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.39200000000000007,
+          "x": 0.025384615384615384,
+          "y": 0.4307692307692308,
           "uniqueID": "id-13250",
           "name": "StationCount"
         },
@@ -6191,8 +6191,8 @@
         },
         {
           "atomType": "Input",
-          "x": 0.0231,
-          "y": 0.4760000000000001,
+          "x": 0.025384615384615384,
+          "y": 0.5230769230769231,
           "uniqueID": "id-14085",
           "name": "StationPositions",
           "type": "array"
@@ -6396,8 +6396,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-6628",
               "name": "BoxHeight"
             },
@@ -6496,8 +6496,8 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-11295",
               "name": "BoxWidth"
             }
@@ -6717,23 +6717,23 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.14,
+              "x": 0.025384615384615384,
+              "y": 0.15384615384615385,
               "uniqueID": "id-14088",
               "name": "StationPositions",
               "type": "array"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.22400000000000003,
+              "x": 0.025384615384615384,
+              "y": 0.24615384615384617,
               "uniqueID": "id-14135",
               "name": "Beam"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.30800000000000005,
+              "x": 0.025384615384615384,
+              "y": 0.3384615384615385,
               "uniqueID": "id-14138",
               "name": "KeelHeight"
             },
@@ -6769,15 +6769,15 @@
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.39200000000000007,
+              "x": 0.025384615384615384,
+              "y": 0.4307692307692308,
               "uniqueID": "id-14711",
               "name": "BowAngle"
             },
             {
               "atomType": "Input",
-              "x": 0.0231,
-              "y": 0.4760000000000001,
+              "x": 0.025384615384615384,
+              "y": 0.5230769230769231,
               "uniqueID": "id-14714",
               "name": "TransamAngle"
             },
@@ -6901,24 +6901,24 @@
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.14,
+                  "x": 0.025384615384615384,
+                  "y": 0.15384615384615385,
                   "uniqueID": "id-14093",
                   "name": "toMove",
                   "type": "geometry"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.22400000000000003,
+                  "x": 0.025384615384615384,
+                  "y": 0.24615384615384617,
                   "uniqueID": "id-14094",
                   "name": "offsets",
                   "type": "array"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.30800000000000005,
+                  "x": 0.025384615384615384,
+                  "y": 0.3384615384615385,
                   "uniqueID": "id-14095",
                   "name": "direction",
                   "type": "point3d",
@@ -7212,30 +7212,30 @@
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.14,
+                  "x": 0.025384615384615384,
+                  "y": 0.15384615384615385,
                   "uniqueID": "id-16080",
                   "name": "PivotPoint",
                   "type": "array"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.22400000000000003,
+                  "x": 0.025384615384615384,
+                  "y": 0.24615384615384617,
                   "uniqueID": "id-16081",
                   "name": "X"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.30800000000000005,
+                  "x": 0.025384615384615384,
+                  "y": 0.3384615384615385,
                   "uniqueID": "id-16082",
                   "name": "Y"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.39200000000000007,
+                  "x": 0.025384615384615384,
+                  "y": 0.4307692307692308,
                   "uniqueID": "id-16083",
                   "name": "Z"
                 },
@@ -7361,8 +7361,8 @@
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.4760000000000001,
+                  "x": 0.025384615384615384,
+                  "y": 0.5230769230769231,
                   "uniqueID": "id-16090",
                   "name": "Geometry"
                 },
@@ -7450,8 +7450,8 @@
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.14,
+                      "x": 0.025384615384615384,
+                      "y": 0.15384615384615385,
                       "uniqueID": "id-16095",
                       "name": "X"
                     },
@@ -7480,15 +7480,15 @@
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.22400000000000003,
+                      "x": 0.025384615384615384,
+                      "y": 0.24615384615384617,
                       "uniqueID": "id-16097",
                       "name": "Y"
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.30800000000000005,
+                      "x": 0.025384615384615384,
+                      "y": 0.3384615384615385,
                       "uniqueID": "id-16098",
                       "name": "Z"
                     }
@@ -7730,30 +7730,30 @@
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.14,
+                  "x": 0.025384615384615384,
+                  "y": 0.15384615384615385,
                   "uniqueID": "id-16172",
                   "name": "PivotPoint",
                   "type": "array"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.22400000000000003,
+                  "x": 0.025384615384615384,
+                  "y": 0.24615384615384617,
                   "uniqueID": "id-16173",
                   "name": "X"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.30800000000000005,
+                  "x": 0.025384615384615384,
+                  "y": 0.3384615384615385,
                   "uniqueID": "id-16174",
                   "name": "Y"
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.39200000000000007,
+                  "x": 0.025384615384615384,
+                  "y": 0.4307692307692308,
                   "uniqueID": "id-16175",
                   "name": "Z"
                 },
@@ -7879,8 +7879,8 @@
                 },
                 {
                   "atomType": "Input",
-                  "x": 0.0231,
-                  "y": 0.4760000000000001,
+                  "x": 0.025384615384615384,
+                  "y": 0.5230769230769231,
                   "uniqueID": "id-16182",
                   "name": "Geometry"
                 },
@@ -7968,8 +7968,8 @@
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.14,
+                      "x": 0.025384615384615384,
+                      "y": 0.15384615384615385,
                       "uniqueID": "id-16187",
                       "name": "X"
                     },
@@ -7998,15 +7998,15 @@
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.22400000000000003,
+                      "x": 0.025384615384615384,
+                      "y": 0.24615384615384617,
                       "uniqueID": "id-16189",
                       "name": "Y"
                     },
                     {
                       "atomType": "Input",
-                      "x": 0.0231,
-                      "y": 0.30800000000000005,
+                      "x": 0.025384615384615384,
+                      "y": 0.3384615384615385,
                       "uniqueID": "id-16190",
                       "name": "Z"
                     }
