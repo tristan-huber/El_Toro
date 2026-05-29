@@ -1113,20 +1113,14 @@
             },
             {
               "name": "offsets",
-              "ioValue": [
-                "2",
-                "4.7",
-                "6.5",
-                "6.42",
-                "5.3"
-              ]
+              "ioValue": []
             },
             {
               "name": "direction",
               "ioValue": [
                 0,
-                0,
-                1
+                1,
+                0
               ]
             }
           ],
@@ -1181,20 +1175,14 @@
                 },
                 {
                   "name": "offsets",
-                  "ioValue": [
-                    "2",
-                    "4.7",
-                    "6.5",
-                    "6.42",
-                    "5.3"
-                  ]
+                  "ioValue": []
                 },
                 {
                   "name": "direction",
                   "ioValue": [
                     0,
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 }
               ],
@@ -2626,8 +2614,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.2884114583333333,
-          "y": 0.13142857142857142,
+          "x": 0.259765625,
+          "y": 0.24571428571428572,
           "uniqueID": "id-20268",
           "name": "crv.PolyMove",
           "ioValues": [
@@ -2638,7 +2626,6 @@
             {
               "name": "offsets",
               "ioValue": [
-                "0",
                 "-0.03",
                 "-2.51",
                 "-3.16",
@@ -2653,7 +2640,11 @@
             },
             {
               "name": "direction",
-              "ioValue": 10
+              "ioValue": [
+                0,
+                0,
+                1
+              ]
             }
           ],
           "topLevel": false,
@@ -2708,7 +2699,6 @@
                 {
                   "name": "offsets",
                   "ioValue": [
-                    "0",
                     "-0.03",
                     "-2.51",
                     "-3.16",
@@ -2723,7 +2713,11 @@
                 },
                 {
                   "name": "direction",
-                  "ioValue": 10
+                  "ioValue": [
+                    0,
+                    0,
+                    1
+                  ]
                 }
               ],
               "interpreterVersion": 1,
@@ -2963,11 +2957,6 @@
         {
           "ap2Name": "toMove",
           "ap1ID": "id-5566",
-          "ap2ID": "id-5533"
-        },
-        {
-          "ap2Name": "toMove",
-          "ap1ID": "id-5566",
           "ap2ID": "id-5544"
         },
         {
@@ -2979,6 +2968,11 @@
           "ap2Name": "toMove",
           "ap1ID": "id-19263",
           "ap2ID": "id-20268"
+        },
+        {
+          "ap2Name": "toMove",
+          "ap1ID": "id-19263",
+          "ap2ID": "id-5533"
         },
         {
           "ap2Name": "Shape 1",
