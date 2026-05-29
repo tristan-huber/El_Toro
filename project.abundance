@@ -8774,6 +8774,86 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Rotate",
+      "x": 0.203125,
+      "y": 0.8685714285714285,
+      "uniqueID": "id-22322",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "x-axis degrees",
+          "ioValue": 180,
+          "currentEquation": "180"
+        },
+        {
+          "name": "y-axis degrees",
+          "ioValue": 0
+        },
+        {
+          "name": "z-axis degrees",
+          "ioValue": 0
+        }
+      ]
+    },
+    {
+      "atomType": "Move",
+      "x": 0.47786458333333337,
+      "y": 0.9114285714285715,
+      "uniqueID": "id-22329",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": 0
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 10,
+          "currentEquation": "10"
+        }
+      ]
+    },
+    {
+      "atomType": "Export",
+      "x": 0.619140625,
+      "y": 0.72,
+      "uniqueID": "id-22335",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "File Type",
+          "ioValue": "STEP",
+          "currentEquation": "STEP"
+        },
+        {
+          "name": "Resolution (dpi)",
+          "ioValue": 96
+        },
+        {
+          "name": "Part Name",
+          "ioValue": "Kayak",
+          "currentEquation": "Kayak"
+        }
+      ],
+      "type": "STEP",
+      "resolution": 96,
+      "importIndex": 0,
+      "partName": "Kayak"
     }
   ],
   "allConnectors": [
@@ -8811,6 +8891,21 @@
       "ap2Name": "Lines",
       "ap1ID": "id-18205",
       "ap2ID": "id-18187"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-21266",
+      "ap2ID": "id-22322"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-22322",
+      "ap2ID": "id-22329"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-22329",
+      "ap2ID": "id-22335"
     }
   ],
   "unitsKey": "Inches",
