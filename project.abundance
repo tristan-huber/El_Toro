@@ -123,6 +123,84 @@
       "compiledCode": "import Module from 'https://esm.sh/manifold-3d';\n/**\n * =========================================================================\n *  ABUNDANCE CODE ATOM — Quick Reference\n * =========================================================================\n *\n *  HOW INPUTS WORK\n *  ---------------\n *  Every parameter of run() becomes an input port on this atom.\n *  Four types are supported:\n *\n *    number   -> numeric input / slider\n *    string   -> text input  (great for hex color codes, labels, etc.)\n *    boolean  -> true/false toggle\n *    Assembly -> geometry -- wire this to the output of another atom\n *\n *  Give a parameter a default value ( = x ) to make it optional.\n *  Mark it with ? (name?: Assembly) to make it optional with no default.\n *  Parameters without a default must be connected before the atom runs.\n *\n *  RETURN VALUE\n *  ------------\n *  Return an Assembly, an Assembly[], or a primitive (number/string/boolean).\n *  Returning an Assembly[] lets downstream atoms (BOM, cut layout...)\n *  see each piece independently.\n *\n *  GEOMETRY API  (replicad is available as a global)\n *  -------------------------------------------------\n *  Create 2-D sketches\n *    replicad.drawCircle(radius)\n *    replicad.drawRectangle(width, height)\n *    replicad.drawRoundedRectangle(width, height, cornerRadius)\n *\n *  Turn a 2-D sketch into a 3-D solid\n *    sketch.sketchOnPlane().extrude(distance)\n *    sketch.sketchOnPlane().revolve()          // rotate 360 deg around Z\n *\n *  Create 3-D primitives directly\n *    replicad.makeBaseBox(width, depth, height)\n *    replicad.makeSphere(radius)\n *    replicad.makeCylinder(radius, height)\n *\n *  Boolean operations\n *    solidA.fuse(solidB)                       // union\n *    solidA.cut(solidB)                        // difference (cut a hole)\n *    solidA.intersect(solidB)                  // intersection\n *\n *  Post-processing\n *    solid.fillet(radius)                      // round ALL edges\n *    solid.fillet(r, e => e.inPlane(\"XY\", z))  // round only top-face edges\n *    solid.chamfer(distance)                   // bevel ALL edges\n *    solid.translate(x, y, z)                  // move the solid\n *    solid.rotate(angle, [0, 0, 1])            // rotate around Z axis\n *\n *  ASSEMBLY CLASS\n *  --------------\n *  Wrap any replicad solid in an Assembly to attach display metadata:\n *    new Assembly({ geometry, color, tags, bom })\n *      geometry -> replicad solid / drawing returned by the API above\n *      color    -> hex string shown in the 3-D viewport  (\"#A3CE5B\")\n *      tags     -> string[] used for filtering in cut layout / BOM\n *      bom      -> string[] lines added to the Bill of Materials panel\n *\n *  AI PROMPT TIP\n *  -------------\n *  Copy the code in this editor into ChatGPT / Claude and say something like:\n *    \"Modify this Abundance Code Atom to create a gear with 12 teeth\"\n *    \"Change this to make a hexagonal nut instead of a round plate\"\n *  The comments above give the AI all the context it needs to produce\n *  valid, working Abundance TypeScript code.\n * =========================================================================\n */\n/**\n * A rectangular mounting plate with a circular hole in the centre.\n * All parameters have defaults so the atom produces geometry immediately\n * after creation — no connections required to get started.\n */\nasync function run(geom) {\n    await Module();\n    if (!geom.isLeaf()) {\n        throw new Error(\"Just leafs plz\");\n    }\n    if (!geom.is3D()) {\n        throw new Error(\"3ds only for now\");\n    }\n    const meshy = geom.geometry.meshShape();\n    console.log(meshy);\n    console.log(meshy._wrapped);\n    return geom;\n}\n"
     },
     {
+      "atomType": "Rotate",
+      "x": 0.203125,
+      "y": 0.8685714285714285,
+      "uniqueID": "id-22322",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "x-axis degrees",
+          "ioValue": 180
+        },
+        {
+          "name": "y-axis degrees",
+          "ioValue": 0
+        },
+        {
+          "name": "z-axis degrees",
+          "ioValue": 0
+        }
+      ]
+    },
+    {
+      "atomType": "Move",
+      "x": 0.47786458333333337,
+      "y": 0.9114285714285715,
+      "uniqueID": "id-22329",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": 0
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 10
+        }
+      ]
+    },
+    {
+      "atomType": "Export",
+      "x": 0.619140625,
+      "y": 0.72,
+      "uniqueID": "id-22335",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "File Type",
+          "ioValue": "STEP",
+          "currentEquation": "STEP"
+        },
+        {
+          "name": "Resolution (dpi)",
+          "ioValue": 96
+        },
+        {
+          "name": "Part Name",
+          "ioValue": "Kayak",
+          "currentEquation": "Kayak"
+        }
+      ],
+      "type": "STEP",
+      "resolution": 96,
+      "importIndex": 0,
+      "partName": "Kayak"
+    },
+    {
       "atomType": "Molecule",
       "x": 0.6569010416666666,
       "y": 0.35714285714285715,
@@ -137,6 +215,10 @@
             "5",
             "6"
           ]
+        },
+        {
+          "name": "input",
+          "ioValue": "__GEOMETRY_INPUT__"
         }
       ],
       "topLevel": false,
@@ -233,6 +315,14 @@
           "interpreterVersion": 1,
           "code": "\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n * \n * Notice that defaults are set for both count and offset.\n */\nfunction run(interval: number, offsets: number[]) {\n  const points: [number, number, number][] = []\n  let x = 0;\n  offsets.forEach((offset) => {\n    points.push([x, offset, 0])\n    x += interval\n  })\n\n  return replicad.assembleWire([replicad.makeBSplineApproximation(points, {\n    degMax: 3,\n    degMin: 3,\n    tolerance: 0.0001,\n  })])\n\n}",
           "compiledCode": "\"use strict\";\n/**\n * This code atom implements a simple linear layout funtion which repeats\n * shape count times in the positive X direction with offset space\n * between each. Works for either 2D or 3D shapes. Negative offset\n * and negative counts invert the direction.\n *\n * Notice that defaults are set for both count and offset.\n */\nfunction run(interval, offsets) {\n    const points = [];\n    let x = 0;\n    offsets.forEach((offset) => {\n        points.push([x, offset, 0]);\n        x += interval;\n    });\n    return replicad.assembleWire([replicad.makeBSplineApproximation(points, {\n            degMax: 3,\n            degMin: 3,\n            tolerance: 0.0001,\n        })]);\n}\n"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.24615384615384617,
+          "uniqueID": "id-23358",
+          "name": "input",
+          "type": "geometry"
         }
       ],
       "allConnectors": [
@@ -8774,89 +8864,19 @@
         }
       ],
       "fileTypeVersion": 1
-    },
-    {
-      "atomType": "Rotate",
-      "x": 0.203125,
-      "y": 0.8685714285714285,
-      "uniqueID": "id-22322",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "x-axis degrees",
-          "ioValue": 180,
-          "currentEquation": "180"
-        },
-        {
-          "name": "y-axis degrees",
-          "ioValue": 0
-        },
-        {
-          "name": "z-axis degrees",
-          "ioValue": 0
-        }
-      ]
-    },
-    {
-      "atomType": "Move",
-      "x": 0.47786458333333337,
-      "y": 0.9114285714285715,
-      "uniqueID": "id-22329",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "xDist",
-          "ioValue": 0
-        },
-        {
-          "name": "yDist",
-          "ioValue": 0
-        },
-        {
-          "name": "zDist",
-          "ioValue": 10,
-          "currentEquation": "10"
-        }
-      ]
-    },
-    {
-      "atomType": "Export",
-      "x": 0.619140625,
-      "y": 0.72,
-      "uniqueID": "id-22335",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "File Type",
-          "ioValue": "STEP",
-          "currentEquation": "STEP"
-        },
-        {
-          "name": "Resolution (dpi)",
-          "ioValue": 96
-        },
-        {
-          "name": "Part Name",
-          "ioValue": "Kayak",
-          "currentEquation": "Kayak"
-        }
-      ],
-      "type": "STEP",
-      "resolution": 96,
-      "importIndex": 0,
-      "partName": "Kayak"
     }
   ],
   "allConnectors": [
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-22322",
+      "ap2ID": "id-22329"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-22329",
+      "ap2ID": "id-22335"
+    },
     {
       "ap2Name": "Shape 1",
       "ap1ID": "id-999",
@@ -8871,11 +8891,6 @@
       "ap2Name": "geometry",
       "ap1ID": "id-14822",
       "ap2ID": "id-1123"
-    },
-    {
-      "ap2Name": "number or geometry",
-      "ap1ID": "id-5492",
-      "ap2ID": "id-997"
     },
     {
       "ap2Name": "Lines",
@@ -8898,14 +8913,9 @@
       "ap2ID": "id-22322"
     },
     {
-      "ap2Name": "geometry",
-      "ap1ID": "id-22322",
-      "ap2ID": "id-22329"
-    },
-    {
-      "ap2Name": "geometry",
-      "ap1ID": "id-22329",
-      "ap2ID": "id-22335"
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-21266",
+      "ap2ID": "id-997"
     }
   ],
   "unitsKey": "Inches",
