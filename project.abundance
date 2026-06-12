@@ -100,7 +100,7 @@
         },
         {
           "name": "y",
-          "ioValue": 94.44163577243947
+          "ioValue": 94.44103316489173
         }
       ],
       "currentEquation": "x + y"
@@ -155,8 +155,8 @@
     },
     {
       "atomType": "Assembly",
-      "x": 0.8037109375000001,
-      "y": 0.35208333333333336,
+      "x": 0.80224609375,
+      "y": 0.35416666666666663,
       "uniqueID": "id-24674",
       "ioValues": [
         {
@@ -310,8 +310,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.4951171875,
-      "y": 0.23541666666666664,
+      "x": 0.49169921875,
+      "y": 0.25416666666666665,
       "uniqueID": "id-24523",
       "name": "crv.Unroll",
       "ioValues": [
@@ -321,7 +321,7 @@
         },
         {
           "name": "NumRulings",
-          "ioValue": 180
+          "ioValue": 60
         },
         {
           "name": "RulingAxis(U,V,auto)",
@@ -355,7 +355,7 @@
             },
             {
               "name": "numRulings",
-              "ioValue": 180
+              "ioValue": 60
             },
             {
               "name": "rulingAxis",
@@ -574,7 +574,8 @@
         },
         {
           "name": "NumRulings",
-          "ioValue": 220
+          "ioValue": 50,
+          "currentEquation": "50"
         },
         {
           "name": "RulingAxis(U,V,auto)",
@@ -608,7 +609,7 @@
             },
             {
               "name": "numRulings",
-              "ioValue": 220
+              "ioValue": 50
             },
             {
               "name": "rulingAxis",
