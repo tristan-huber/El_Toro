@@ -2562,7 +2562,8 @@
         },
         {
           "name": "bowAngle",
-          "ioValue": 10
+          "ioValue": 61,
+          "currentEquation": "61"
         },
         {
           "name": "sternAngle",
@@ -2957,8 +2958,8 @@
         },
         {
           "atomType": "Rotate",
-          "x": 0.2841796875,
-          "y": 0.8624999999999999,
+          "x": 0.31298828125,
+          "y": 0.7875000000000001,
           "uniqueID": "id-24447",
           "ioValues": [
             {
@@ -3070,8 +3071,8 @@
         },
         {
           "atomType": "Equation",
-          "x": 0.5400390625,
-          "y": 0.5416666666666666,
+          "x": 0.5126953125,
+          "y": 0.76875,
           "uniqueID": "id-24466",
           "name": "x / 2",
           "ioValues": [
@@ -3084,9 +3085,72 @@
         },
         {
           "atomType": "Move",
-          "x": 0.61328125,
-          "y": 0.8708333333333333,
+          "x": 0.6181640625,
+          "y": 0.5541666666666667,
           "uniqueID": "id-24470",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "xDist",
+              "ioValue": -47.1875001
+            },
+            {
+              "name": "yDist",
+              "ioValue": 0
+            },
+            {
+              "name": "zDist",
+              "ioValue": 0
+            }
+          ]
+        },
+        {
+          "atomType": "Equation",
+          "x": 0.5595703125,
+          "y": 0.5041666666666667,
+          "uniqueID": "id-24476",
+          "name": "-1 * x",
+          "ioValues": [
+            {
+              "name": "x",
+              "ioValue": 47.1875001
+            }
+          ],
+          "currentEquation": "-1 * x"
+        },
+        {
+          "atomType": "Rotate",
+          "x": 0.3798828125,
+          "y": 0.8958333333333334,
+          "uniqueID": "id-24479",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "x-axis degrees",
+              "ioValue": 0
+            },
+            {
+              "name": "y-axis degrees",
+              "ioValue": 61,
+              "currentEquation": "bowAngle"
+            },
+            {
+              "name": "z-axis degrees",
+              "ioValue": 0
+            }
+          ]
+        },
+        {
+          "atomType": "Move",
+          "x": 0.61279296875,
+          "y": 0.7895833333333333,
+          "uniqueID": "id-24485",
           "ioValues": [
             {
               "name": "geometry",
@@ -3107,18 +3171,36 @@
           ]
         },
         {
-          "atomType": "Equation",
-          "x": 0.552734375,
-          "y": 0.75,
-          "uniqueID": "id-24476",
-          "name": "x / 2",
+          "atomType": "Assembly",
+          "x": 0.6767578125,
+          "y": 0.8,
+          "uniqueID": "id-24491",
           "ioValues": [
             {
-              "name": "x",
-              "ioValue": 94.3750002
+              "name": "Shape 1",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 2",
+              "ioValue": null
             }
-          ],
-          "currentEquation": "x / 2"
+          ]
+        },
+        {
+          "atomType": "Difference",
+          "x": 0.8017578125,
+          "y": 0.6791666666666667,
+          "uniqueID": "id-24496",
+          "ioValues": [
+            {
+              "name": "retain",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "remove",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
         }
       ],
       "allConnectors": [
@@ -3163,6 +3245,11 @@
           "ap2ID": "id-18194"
         },
         {
+          "ap2Name": "retain",
+          "ap1ID": "id-18192",
+          "ap2ID": "id-24496"
+        },
+        {
           "ap2Name": "Shape 1",
           "ap1ID": "id-18193",
           "ap2ID": "id-18191"
@@ -3189,6 +3276,11 @@
         },
         {
           "ap2Name": "geometry",
+          "ap1ID": "id-24443",
+          "ap2ID": "id-24479"
+        },
+        {
+          "ap2Name": "geometry",
           "ap1ID": "id-24447",
           "ap2ID": "id-24470"
         },
@@ -3199,13 +3291,38 @@
         },
         {
           "ap2Name": "x",
-          "ap1ID": "id-24457",
+          "ap1ID": "id-24466",
           "ap2ID": "id-24476"
         },
         {
           "ap2Name": "xDist",
           "ap1ID": "id-24466",
+          "ap2ID": "id-24485"
+        },
+        {
+          "ap2Name": "Shape 1",
+          "ap1ID": "id-24470",
+          "ap2ID": "id-24491"
+        },
+        {
+          "ap2Name": "xDist",
+          "ap1ID": "id-24476",
           "ap2ID": "id-24470"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-24479",
+          "ap2ID": "id-24485"
+        },
+        {
+          "ap2Name": "Shape 2",
+          "ap1ID": "id-24485",
+          "ap2ID": "id-24491"
+        },
+        {
+          "ap2Name": "remove",
+          "ap1ID": "id-24491",
+          "ap2ID": "id-24496"
         }
       ],
       "fileTypeVersion": 1
