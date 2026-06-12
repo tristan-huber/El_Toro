@@ -4,12 +4,6 @@
 
 ![](/project.svg)
 
-## Inputs
-
-- **BowDist** (number)
-- **SternDist** (number)
-
-
 
 
  
