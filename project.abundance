@@ -6387,7 +6387,8 @@
         },
         {
           "name": "NumRulings",
-          "ioValue": 250
+          "ioValue": 250,
+          "currentEquation": "250"
         },
         {
           "name": "RulingAxis(U,V,auto)",
@@ -7005,12 +7006,13 @@
         },
         {
           "name": "RulingAxis(U,V,auto)",
-          "ioValue": "auto",
-          "currentEquation": "auto"
+          "ioValue": "V",
+          "currentEquation": "V"
         },
         {
           "name": "NumRulings",
-          "ioValue": 50
+          "ioValue": 50,
+          "currentEquation": "50"
         }
       ],
       "topLevel": false,
@@ -7051,7 +7053,7 @@
             },
             {
               "name": "rulingAxis",
-              "ioValue": "auto",
+              "ioValue": "V",
               "currentEquation": "auto"
             }
           ],
