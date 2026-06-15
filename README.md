@@ -7,6 +7,7 @@
 ## Inputs
 
 - **hullThickness** (number)
+- **StructuralThickness** (number)
 
 
 
