@@ -3226,8 +3226,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.61328125,
-          "y": 0.33714285714285713,
+          "x": 0.55859375,
+          "y": 0.2742857142857143,
           "uniqueID": "id-28498",
           "name": "crv.OpenWireLoft",
           "ioValues": [
@@ -3339,8 +3339,8 @@
         },
         {
           "atomType": "Difference",
-          "x": 0.7565104166666666,
-          "y": 0.7428571428571428,
+          "x": 0.80859375,
+          "y": 0.6914285714285714,
           "uniqueID": "id-29403",
           "ioValues": [
             {
@@ -3376,11 +3376,11 @@
           "uniqueID": "id-29423",
           "ioValues": [
             {
-              "name": "Shape 1",
+              "name": "Shape 3",
               "ioValue": null
             },
             {
-              "name": "Shape 3",
+              "name": "Shape 4",
               "ioValue": null
             }
           ]
@@ -3400,6 +3400,21 @@
           "tags": [
             "interior void"
           ]
+        },
+        {
+          "atomType": "ExtractTag",
+          "x": 0.90625,
+          "y": 0.31142857142857144,
+          "uniqueID": "id-29432",
+          "name": "Extract panels",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "tag": "panels",
+          "tagIndex": 0
         }
       ],
       "allConnectors": [
@@ -3524,24 +3539,29 @@
           "ap2ID": "id-24466"
         },
         {
-          "ap2Name": "retain",
-          "ap1ID": "id-28498",
-          "ap2ID": "id-29403"
-        },
-        {
           "ap2Name": "geometry",
           "ap1ID": "id-28498",
           "ap2ID": "id-29407"
         },
         {
           "ap2Name": "number or geometry",
-          "ap1ID": "id-28498",
+          "ap1ID": "id-29403",
           "ap2ID": "id-18188"
         },
         {
-          "ap2Name": "Shape 1",
+          "ap2Name": "Shape 4",
           "ap1ID": "id-29407",
           "ap2ID": "id-29423"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-29423",
+          "ap2ID": "id-29432"
+        },
+        {
+          "ap2Name": "retain",
+          "ap1ID": "id-29423",
+          "ap2ID": "id-29403"
         },
         {
           "ap2Name": "Shape 3",
