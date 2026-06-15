@@ -63,8 +63,8 @@
     },
     {
       "atomType": "ExtractTag",
-      "x": 0.24674479166666666,
-      "y": 0.3485714285714286,
+      "x": 0.2682291666666667,
+      "y": 0.2657142857142857,
       "uniqueID": "id-30349",
       "name": "Extract interior void",
       "ioValues": [
@@ -7406,8 +7406,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.2799479166666667,
-      "y": 0.6942857142857143,
+      "x": 0.2786458333333333,
+      "y": 0.8114285714285715,
       "uniqueID": "id-28374",
       "name": "TransomAndBow",
       "ioValues": [
@@ -8132,6 +8132,37 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "ExtractTag",
+      "x": 0.2734375,
+      "y": 0.48571428571428577,
+      "uniqueID": "id-31335",
+      "name": "Extract panels",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "tag": "panels",
+      "tagIndex": 0
+    },
+    {
+      "atomType": "Assembly",
+      "x": 0.4134114583333333,
+      "y": 0.4142857142857143,
+      "uniqueID": "id-31338",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": null
+        }
+      ]
     }
   ],
   "allConnectors": [
@@ -8161,9 +8192,24 @@
       "ap2ID": "id-30349"
     },
     {
+      "ap2Name": "geometry",
+      "ap1ID": "id-18187",
+      "ap2ID": "id-31335"
+    },
+    {
       "ap2Name": "Lines",
       "ap1ID": "id-18205",
       "ap2ID": "id-18187"
+    },
+    {
+      "ap2Name": "Shape 2",
+      "ap1ID": "id-28374",
+      "ap2ID": "id-31338"
+    },
+    {
+      "ap2Name": "Shape 1",
+      "ap1ID": "id-31335",
+      "ap2ID": "id-31338"
     }
   ],
   "unitsKey": "Inches",
