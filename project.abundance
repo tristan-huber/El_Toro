@@ -7557,14 +7557,39 @@
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 500
+              "ioValue": 20,
+              "currentEquation": "20"
             },
             {
               "name": "y length",
-              "ioValue": 500,
-              "currentEquation": "500"
+              "ioValue": 100,
+              "currentEquation": "100"
             }
           ]
+        },
+        {
+          "atomType": "Code",
+          "x": 0.35807291666666663,
+          "y": 0.5028571428571429,
+          "uniqueID": "id-30376",
+          "ioValues": [
+            {
+              "name": "color",
+              "ioValue": "#5B9BD5",
+              "currentEquation": "#5B9BD5"
+            },
+            {
+              "name": "faceAssembly",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "drawingsAssembly",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "interpreterVersion": 1,
+          "code": "function run(\n  faceAssembly: Assembly | undefined = undefined,\n  drawingsAssembly: Assembly | undefined = undefined,\n  color: string = \"#5B9BD5\"\n): Assembly {\n  // --- Validate inputs -----------------------------------------------\n  if (!faceAssembly) {\n    throw new Error(\"A face Assembly (input 1) is required.\");\n  }\n  if (!drawingsAssembly) {\n    throw new Error(\"A drawings Assembly (input 2) is required.\");\n  }\n  if (!/^#[0-9A-Fa-f]{6}$/.test(color)) {\n    throw new Error(`color must be a hex string like \"#RRGGBB\", got \"${color}\".`);\n  }\n\n  if (!faceAssembly.isLeaf || !faceAssembly.isLeaf()) {\n    throw new Error(\"Face input must be a single-leaf Assembly containing exactly one Face.\");\n  }\n  if (!drawingsAssembly.isLeaf || !drawingsAssembly.isLeaf()) {\n    throw new Error(\n      \"Drawings input must be a single-leaf Assembly. Merge multiple drawings into one geometry before passing them in.\"\n    );\n  }\n\n  const face: any = (faceAssembly as any).geometry;\n  if (!face || typeof face.pointOnSurface !== \"function\" || typeof face.normalAt !== \"function\") {\n    throw new Error(\"Face input geometry does not look like a replicad Face (missing pointOnSurface/normalAt).\");\n  }\n\n  const drawingGeom: any = (drawingsAssembly as any).geometry;\n  if (!drawingGeom || typeof drawingGeom.rotate !== \"function\" || typeof drawingGeom.translate !== \"function\") {\n    throw new Error(\"Drawings input geometry must support rotate() and translate() (expected a replicad Sketch/Shape).\");\n  }\n\n  // --- Locate the parametric center of the face ------------------------\n  // pointOnSurface expects NORMALIZED uv in [0,1]. The midpoint of the\n  // normalized range, (0.5, 0.5), is always the parametric center of the\n  // face regardless of its absolute UVBounds, so no UV remap is needed here.\n  const center = face.pointOnSurface(0.5, 0.5).toTuple();\n  if (!Array.isArray(center) || center.length !== 3 || !center.every(Number.isFinite)) {\n    throw new Error(\"face.pointOnSurface(0.5, 0.5) did not return a valid 3D point.\");\n  }\n\n  // --- Surface normal at that center point -----------------------------\n  const normal = face.normalAt(center).toTuple();\n  if (!Array.isArray(normal) || normal.length !== 3 || !normal.every(Number.isFinite)) {\n    throw new Error(\"face.normalAt(center) did not return a valid 3D normal vector.\");\n  }\n  const nLen = Math.hypot(normal[0], normal[1], normal[2]);\n  if (nLen < 1e-9) {\n    throw new Error(\"Face normal vector at the center has zero length.\");\n  }\n  const nz = [normal[0] / nLen, normal[1] / nLen, normal[2] / nLen];\n\n  // --- Rotation mapping the drawing plane (+Z = [0,0,1]) onto the -------\n  // face's tangent plane at the center (+Z = nz)\n  const z0 = [0, 0, 1];\n  const dot = Math.min(1, Math.max(-1, z0[0] * nz[0] + z0[1] * nz[1] + z0[2] * nz[2]));\n  const cross = [\n    z0[1] * nz[2] - z0[2] * nz[1],\n    z0[2] * nz[0] - z0[0] * nz[2],\n    z0[0] * nz[1] - z0[1] * nz[0],\n  ];\n  const crossLen = Math.hypot(cross[0], cross[1], cross[2]);\n\n  // --- Apply rotation about the world origin, then move origin to center\n  let placed = typeof drawingGeom.clone === \"function\" ? drawingGeom.clone() : drawingGeom;\n\n  if (crossLen < 1e-9) {\n    if (dot < 0) {\n      // Face normal points opposite the drawing's plane normal: flip 180deg\n      placed = placed.rotate(180, [0, 0, 0], [1, 0, 0]);\n    }\n    // else: already aligned, no rotation needed\n  } else {\n    const axis = [cross[0] / crossLen, cross[1] / crossLen, cross[2] / crossLen];\n    console.log(\"axis of rotation : \" + axis)\n    const angleDeg = (Math.acos(dot) * 180) / Math.PI;\n    placed = placed.rotate(angleDeg, [0, 0, 0], axis);\n  }\n\n  // Drawing's local (0,0) was at the world origin; after rotation it's\n  // still at the origin, so translating by `center` lands it exactly there.\n  placed = placed.translate(center[0], center[1], center[2]);\n\n  console.log(\"Placed drawing origin at face center:\", center, \"normal:\", nz);\n\n  return new Assembly({\n    geometry: placed,\n    color,\n    tags: [\"placed-on-face\", \"drawing\"],\n  });\n}",
+          "compiledCode": "\"use strict\";\nfunction run(faceAssembly = undefined, drawingsAssembly = undefined, color = \"#5B9BD5\") {\n    // --- Validate inputs -----------------------------------------------\n    if (!faceAssembly) {\n        throw new Error(\"A face Assembly (input 1) is required.\");\n    }\n    if (!drawingsAssembly) {\n        throw new Error(\"A drawings Assembly (input 2) is required.\");\n    }\n    if (!/^#[0-9A-Fa-f]{6}$/.test(color)) {\n        throw new Error(`color must be a hex string like \"#RRGGBB\", got \"${color}\".`);\n    }\n    if (!faceAssembly.isLeaf || !faceAssembly.isLeaf()) {\n        throw new Error(\"Face input must be a single-leaf Assembly containing exactly one Face.\");\n    }\n    if (!drawingsAssembly.isLeaf || !drawingsAssembly.isLeaf()) {\n        throw new Error(\"Drawings input must be a single-leaf Assembly. Merge multiple drawings into one geometry before passing them in.\");\n    }\n    const face = faceAssembly.geometry;\n    if (!face || typeof face.pointOnSurface !== \"function\" || typeof face.normalAt !== \"function\") {\n        throw new Error(\"Face input geometry does not look like a replicad Face (missing pointOnSurface/normalAt).\");\n    }\n    const drawingGeom = drawingsAssembly.geometry;\n    if (!drawingGeom || typeof drawingGeom.rotate !== \"function\" || typeof drawingGeom.translate !== \"function\") {\n        throw new Error(\"Drawings input geometry must support rotate() and translate() (expected a replicad Sketch/Shape).\");\n    }\n    // --- Locate the parametric center of the face ------------------------\n    // pointOnSurface expects NORMALIZED uv in [0,1]. The midpoint of the\n    // normalized range, (0.5, 0.5), is always the parametric center of the\n    // face regardless of its absolute UVBounds, so no UV remap is needed here.\n    const center = face.pointOnSurface(0.5, 0.5).toTuple();\n    if (!Array.isArray(center) || center.length !== 3 || !center.every(Number.isFinite)) {\n        throw new Error(\"face.pointOnSurface(0.5, 0.5) did not return a valid 3D point.\");\n    }\n    // --- Surface normal at that center point -----------------------------\n    const normal = face.normalAt(center).toTuple();\n    if (!Array.isArray(normal) || normal.length !== 3 || !normal.every(Number.isFinite)) {\n        throw new Error(\"face.normalAt(center) did not return a valid 3D normal vector.\");\n    }\n    const nLen = Math.hypot(normal[0], normal[1], normal[2]);\n    if (nLen < 1e-9) {\n        throw new Error(\"Face normal vector at the center has zero length.\");\n    }\n    const nz = [normal[0] / nLen, normal[1] / nLen, normal[2] / nLen];\n    // --- Rotation mapping the drawing plane (+Z = [0,0,1]) onto the -------\n    // face's tangent plane at the center (+Z = nz)\n    const z0 = [0, 0, 1];\n    const dot = Math.min(1, Math.max(-1, z0[0] * nz[0] + z0[1] * nz[1] + z0[2] * nz[2]));\n    const cross = [\n        z0[1] * nz[2] - z0[2] * nz[1],\n        z0[2] * nz[0] - z0[0] * nz[2],\n        z0[0] * nz[1] - z0[1] * nz[0],\n    ];\n    const crossLen = Math.hypot(cross[0], cross[1], cross[2]);\n    // --- Apply rotation about the world origin, then move origin to center\n    let placed = typeof drawingGeom.clone === \"function\" ? drawingGeom.clone() : drawingGeom;\n    if (crossLen < 1e-9) {\n        if (dot < 0) {\n            // Face normal points opposite the drawing's plane normal: flip 180deg\n            placed = placed.rotate(180, [0, 0, 0], [1, 0, 0]);\n        }\n        // else: already aligned, no rotation needed\n    }\n    else {\n        const axis = [cross[0] / crossLen, cross[1] / crossLen, cross[2] / crossLen];\n        console.log(\"axis of rotation : \" + axis);\n        const angleDeg = (Math.acos(dot) * 180) / Math.PI;\n        placed = placed.rotate(angleDeg, [0, 0, 0], axis);\n    }\n    // Drawing's local (0,0) was at the world origin; after rotation it's\n    // still at the origin, so translating by `center` lands it exactly there.\n    placed = placed.translate(center[0], center[1], center[2]);\n    console.log(\"Placed drawing origin at face center:\", center, \"normal:\", nz);\n    return new Assembly({\n        geometry: placed,\n        color,\n        tags: [\"placed-on-face\", \"drawing\"],\n    });\n}\n"
         }
       ],
       "allConnectors": [
@@ -7577,6 +7602,16 @@
           "ap2Name": "shape",
           "ap1ID": "id-30352",
           "ap2ID": "id-30360"
+        },
+        {
+          "ap2Name": "faceAssembly",
+          "ap1ID": "id-30360",
+          "ap2ID": "id-30376"
+        },
+        {
+          "ap2Name": "drawingsAssembly",
+          "ap1ID": "id-30372",
+          "ap2ID": "id-30376"
         }
       ],
       "fileTypeVersion": 1
