@@ -2915,6 +2915,85 @@
           ]
         },
         {
+          "atomType": "Difference",
+          "x": 0.80859375,
+          "y": 0.6914285714285714,
+          "uniqueID": "id-29403",
+          "ioValues": [
+            {
+              "name": "retain",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "remove",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Tag",
+          "x": 0.669921875,
+          "y": 0.3457142857142857,
+          "uniqueID": "id-29407",
+          "name": "panels",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "tags": [
+            "panels"
+          ]
+        },
+        {
+          "atomType": "Assembly",
+          "x": 0.7688802083333334,
+          "y": 0.3714285714285714,
+          "uniqueID": "id-29423",
+          "ioValues": [
+            {
+              "name": "Shape 3",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 4",
+              "ioValue": null
+            }
+          ]
+        },
+        {
+          "atomType": "Tag",
+          "x": 0.65625,
+          "y": 0.21142857142857144,
+          "uniqueID": "id-29426",
+          "name": "interior void",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "tags": [
+            "interior void"
+          ]
+        },
+        {
+          "atomType": "ExtractTag",
+          "x": 0.90625,
+          "y": 0.31142857142857144,
+          "uniqueID": "id-29432",
+          "name": "Extract panels",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "tag": "panels",
+          "tagIndex": 0
+        },
+        {
           "atomType": "GitHubMolecule",
           "x": 0.2936197916666667,
           "y": 0.34285714285714286,
@@ -3237,8 +3316,7 @@
             },
             {
               "name": "Thickness",
-              "ioValue": -0.25,
-              "currentEquation": "-0.25"
+              "ioValue": -0.25
             }
           ],
           "topLevel": false,
@@ -3336,85 +3414,6 @@
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1781555152574
-        },
-        {
-          "atomType": "Difference",
-          "x": 0.80859375,
-          "y": 0.6914285714285714,
-          "uniqueID": "id-29403",
-          "ioValues": [
-            {
-              "name": "retain",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "remove",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
-        },
-        {
-          "atomType": "Tag",
-          "x": 0.669921875,
-          "y": 0.3457142857142857,
-          "uniqueID": "id-29407",
-          "name": "panels",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "tags": [
-            "panels"
-          ]
-        },
-        {
-          "atomType": "Assembly",
-          "x": 0.7688802083333334,
-          "y": 0.3714285714285714,
-          "uniqueID": "id-29423",
-          "ioValues": [
-            {
-              "name": "Shape 3",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 4",
-              "ioValue": null
-            }
-          ]
-        },
-        {
-          "atomType": "Tag",
-          "x": 0.65625,
-          "y": 0.21142857142857144,
-          "uniqueID": "id-29426",
-          "name": "interior void",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "tags": [
-            "interior void"
-          ]
-        },
-        {
-          "atomType": "ExtractTag",
-          "x": 0.90625,
-          "y": 0.31142857142857144,
-          "uniqueID": "id-29432",
-          "name": "Extract panels",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "tag": "panels",
-          "tagIndex": 0
         }
       ],
       "allConnectors": [
@@ -3524,26 +3523,6 @@
           "ap2ID": "id-29403"
         },
         {
-          "ap2Name": "Shape 3",
-          "ap1ID": "id-18195",
-          "ap2ID": "id-18193"
-        },
-        {
-          "ap2Name": "Shape 2",
-          "ap1ID": "id-18200",
-          "ap2ID": "id-18193"
-        },
-        {
-          "ap2Name": "x",
-          "ap1ID": "id-24457",
-          "ap2ID": "id-24466"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-28498",
-          "ap2ID": "id-29407"
-        },
-        {
           "ap2Name": "number or geometry",
           "ap1ID": "id-29403",
           "ap2ID": "id-18188"
@@ -3567,6 +3546,26 @@
           "ap2Name": "Shape 3",
           "ap1ID": "id-29426",
           "ap2ID": "id-29423"
+        },
+        {
+          "ap2Name": "Shape 3",
+          "ap1ID": "id-18195",
+          "ap2ID": "id-18193"
+        },
+        {
+          "ap2Name": "Shape 2",
+          "ap1ID": "id-18200",
+          "ap2ID": "id-18193"
+        },
+        {
+          "ap2Name": "x",
+          "ap1ID": "id-24457",
+          "ap2ID": "id-24466"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-28498",
+          "ap2ID": "id-29407"
         }
       ],
       "fileTypeVersion": 1
@@ -6285,7 +6284,7 @@
             },
             {
               "name": "index",
-              "ioValue": 0
+              "ioValue": 5
             }
           ],
           "topLevel": false,
@@ -6329,7 +6328,7 @@
                 },
                 {
                   "name": "faceIndex",
-                  "ioValue": 0
+                  "ioValue": 5
                 }
               ],
               "interpreterVersion": 1,
@@ -7958,6 +7957,21 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "ExtractTag",
+      "x": 0.24674479166666666,
+      "y": 0.3485714285714286,
+      "uniqueID": "id-30349",
+      "name": "Extract interior void",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ],
+      "tag": "interior void",
+      "tagIndex": 0
     }
   ],
   "allConnectors": [
@@ -7972,19 +7986,24 @@
       "ap2ID": "id-21266"
     },
     {
-      "ap2Name": "HullForm",
-      "ap1ID": "id-18187",
-      "ap2ID": "id-28132"
-    },
-    {
       "ap2Name": "HullShape",
       "ap1ID": "id-18187",
       "ap2ID": "id-28374"
     },
     {
+      "ap2Name": "geometry",
+      "ap1ID": "id-18187",
+      "ap2ID": "id-30349"
+    },
+    {
       "ap2Name": "Lines",
       "ap1ID": "id-18205",
       "ap2ID": "id-18187"
+    },
+    {
+      "ap2Name": "HullForm",
+      "ap1ID": "id-30349",
+      "ap2ID": "id-28132"
     }
   ],
   "unitsKey": "Inches",
