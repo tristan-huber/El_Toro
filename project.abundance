@@ -8,6 +8,11 @@
     {
       "name": "hullThickness",
       "ioValue": 0.25
+    },
+    {
+      "name": "StructuralThickness",
+      "ioValue": 0.75,
+      "currentEquation": "0.75"
     }
   ],
   "topLevel": true,
@@ -8289,8 +8294,8 @@
         },
         {
           "atomType": "Difference",
-          "x": 0.36197916666666663,
-          "y": 0.7685714285714286,
+          "x": 0.3190104166666667,
+          "y": 0.8428571428571429,
           "uniqueID": "id-31378",
           "ioValues": [
             {
@@ -8316,8 +8321,8 @@
             },
             {
               "name": "Radius",
-              "ioValue": 1,
-              "currentEquation": "1"
+              "ioValue": 0.25,
+              "currentEquation": "0.25"
             },
             {
               "name": "Selection",
@@ -8350,7 +8355,7 @@
                 },
                 {
                   "name": "radius",
-                  "ioValue": 1
+                  "ioValue": 0.25
                 },
                 {
                   "name": "region",
@@ -8716,32 +8721,6 @@
           "lastReloadedFromGithubAt": 1781559793787
         },
         {
-          "atomType": "Move",
-          "x": 0.37109375,
-          "y": 0.48,
-          "uniqueID": "id-31454",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "xDist",
-              "ioValue": -0.1,
-              "currentEquation": "-0.1"
-            },
-            {
-              "name": "yDist",
-              "ioValue": -0.1,
-              "currentEquation": "-0.1"
-            },
-            {
-              "name": "zDist",
-              "ioValue": 0
-            }
-          ]
-        },
-        {
           "atomType": "Extrude",
           "x": 0.4427083333333333,
           "y": 0.7914285714285715,
@@ -8753,23 +8732,8 @@
             },
             {
               "name": "height",
-              "ioValue": 10
-            }
-          ]
-        },
-        {
-          "atomType": "Extrude",
-          "x": 0.44010416666666663,
-          "y": 0.3514285714285714,
-          "uniqueID": "id-31464",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "height",
-              "ioValue": 10
+              "ioValue": 0.75,
+              "currentEquation": "StructuralThickness"
             }
           ]
         }
@@ -8802,31 +8766,23 @@
         },
         {
           "ap2Name": "geometry",
-          "ap1ID": "id-31372",
-          "ap2ID": "id-31454"
-        },
-        {
-          "ap2Name": "geometry",
           "ap1ID": "id-31378",
           "ap2ID": "id-31460"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-31454",
-          "ap2ID": "id-31464"
         },
         {
           "ap2Name": "Shape",
           "ap1ID": "id-31460",
           "ap2ID": "id-31402"
-        },
-        {
-          "ap2Name": "Selection",
-          "ap1ID": "id-31464",
-          "ap2ID": "id-31402"
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Input",
+      "x": 0.0231,
+      "y": 0.3,
+      "uniqueID": "id-31468",
+      "name": "StructuralThickness"
     }
   ],
   "allConnectors": [
@@ -8884,6 +8840,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-31343",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "Thickness",
+      "ap1ID": "id-31468",
+      "ap2ID": "id-28374"
     }
   ],
   "unitsKey": "Inches",
