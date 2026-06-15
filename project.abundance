@@ -8187,6 +8187,125 @@
           "ioValue": 0
         }
       ]
+    },
+    {
+      "atomType": "Molecule",
+      "x": 0.5611979166666667,
+      "y": 0.47428571428571425,
+      "uniqueID": "id-31354",
+      "name": "Knees",
+      "ioValues": [
+        {
+          "name": "HullParts",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "width",
+          "ioValue": 6
+        },
+        {
+          "name": "len",
+          "ioValue": 8,
+          "currentEquation": "8"
+        }
+      ],
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 0.98,
+          "y": 0.5,
+          "uniqueID": "id-31356",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.3142857142857143,
+          "uniqueID": "id-31358",
+          "name": "HullParts",
+          "type": "geometry"
+        },
+        {
+          "atomType": "Rectangle",
+          "x": 0.17057291666666666,
+          "y": 0.8342857142857143,
+          "uniqueID": "id-31362",
+          "ioValues": [
+            {
+              "name": "x length",
+              "ioValue": 8
+            },
+            {
+              "name": "y length",
+              "ioValue": 6
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.5257142857142857,
+          "uniqueID": "id-31366",
+          "name": "width"
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.6799999999999999,
+          "uniqueID": "id-31369",
+          "name": "len"
+        },
+        {
+          "atomType": "Move",
+          "x": 0.2610677083333333,
+          "y": 0.6771428571428572,
+          "uniqueID": "id-31372",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "xDist",
+              "ioValue": 4,
+              "currentEquation": "len / 2"
+            },
+            {
+              "name": "yDist",
+              "ioValue": 3,
+              "currentEquation": "width / 2"
+            },
+            {
+              "name": "zDist",
+              "ioValue": 0
+            }
+          ]
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-31362",
+          "ap2ID": "id-31372"
+        },
+        {
+          "ap2Name": "y length",
+          "ap1ID": "id-31366",
+          "ap2ID": "id-31362"
+        },
+        {
+          "ap2Name": "x length",
+          "ap1ID": "id-31369",
+          "ap2ID": "id-31362"
+        }
+      ],
+      "fileTypeVersion": 1
     }
   ],
   "allConnectors": [
@@ -8239,6 +8358,11 @@
       "ap2Name": "geometry",
       "ap1ID": "id-31338",
       "ap2ID": "id-31343"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-31343",
+      "ap2ID": "id-997"
     }
   ],
   "unitsKey": "Inches",
