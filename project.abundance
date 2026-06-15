@@ -3226,8 +3226,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.6315104166666667,
-          "y": 0.37999999999999995,
+          "x": 0.61328125,
+          "y": 0.33714285714285713,
           "uniqueID": "id-28498",
           "name": "crv.OpenWireLoft",
           "ioValues": [
