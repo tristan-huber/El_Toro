@@ -8164,7 +8164,7 @@
           "ioValue": null
         },
         {
-          "name": "Shape 2",
+          "name": "Shape 3",
           "ioValue": null
         }
       ]
@@ -8754,7 +8754,7 @@
       "ap2ID": "id-18187"
     },
     {
-      "ap2Name": "Shape 2",
+      "ap2Name": "Shape 3",
       "ap1ID": "id-28374",
       "ap2ID": "id-31338"
     },
@@ -8772,6 +8772,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-31343",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "HullParts",
+      "ap1ID": "id-31343",
+      "ap2ID": "id-31354"
     },
     {
       "ap2Name": "Thickness",
