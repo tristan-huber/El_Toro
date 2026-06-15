@@ -7414,6 +7414,11 @@
         {
           "name": "HullShape",
           "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Thickness",
+          "ioValue": 0.75,
+          "currentEquation": "0.75"
         }
       ],
       "topLevel": false,
@@ -7455,13 +7460,14 @@
         },
         {
           "atomType": "Rectangle",
-          "x": 0.12174479166666666,
-          "y": 0.45142857142857146,
+          "x": 0.13020833333333334,
+          "y": 0.4971428571428571,
           "uniqueID": "id-30372",
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 20
+              "ioValue": 100,
+              "currentEquation": "100"
             },
             {
               "name": "y length",
@@ -7471,8 +7477,8 @@
         },
         {
           "atomType": "Code",
-          "x": 0.35807291666666663,
-          "y": 0.5028571428571429,
+          "x": 0.2649739583333333,
+          "y": 0.7714285714285715,
           "uniqueID": "id-30376",
           "ioValues": [
             {
@@ -7490,8 +7496,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.16145833333333334,
-          "y": 0.7171428571428571,
+          "x": 0.14192708333333331,
+          "y": 0.8628571428571429,
           "uniqueID": "id-30360",
           "name": "util.SelectFace",
           "ioValues": [
@@ -7598,6 +7604,46 @@
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1781556341213
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.36588541666666663,
+          "y": 0.7314285714285714,
+          "uniqueID": "id-31253",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": -0.75,
+              "currentEquation": "-Thickness"
+            }
+          ]
+        },
+        {
+          "atomType": "Input",
+          "x": 0.0231,
+          "y": 0.3457142857142857,
+          "uniqueID": "id-31260",
+          "name": "Thickness"
+        },
+        {
+          "atomType": "Intersection",
+          "x": 0.42447916666666663,
+          "y": 0.5599999999999999,
+          "uniqueID": "id-31263",
+          "ioValues": [
+            {
+              "name": "geometry1",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "geometry2",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
         }
       ],
       "allConnectors": [
@@ -7612,9 +7658,29 @@
           "ap2ID": "id-30360"
         },
         {
+          "ap2Name": "geometry2",
+          "ap1ID": "id-30352",
+          "ap2ID": "id-31263"
+        },
+        {
           "ap2Name": "drawingsAssembly",
           "ap1ID": "id-30372",
           "ap2ID": "id-30376"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-30376",
+          "ap2ID": "id-31253"
+        },
+        {
+          "ap2Name": "face",
+          "ap1ID": "id-30360",
+          "ap2ID": "id-30376"
+        },
+        {
+          "ap2Name": "geometry1",
+          "ap1ID": "id-31253",
+          "ap2ID": "id-31263"
         }
       ],
       "fileTypeVersion": 1
