@@ -388,7 +388,8 @@
         },
         {
           "name": "NumRulings",
-          "ioValue": 100
+          "ioValue": 100,
+          "currentEquation": "100"
         },
         {
           "name": "RulingAxis(U,V,auto)",
