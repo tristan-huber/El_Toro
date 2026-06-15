@@ -8205,13 +8205,13 @@
           "ioValue": "__GEOMETRY_INPUT__"
         },
         {
-          "name": "width",
+          "name": "short_side",
           "ioValue": 6
         },
         {
-          "name": "len",
-          "ioValue": 8,
-          "currentEquation": "8"
+          "name": "aspect_ratio",
+          "ioValue": 1.25,
+          "currentEquation": "1.25"
         }
       ],
       "topLevel": false,
@@ -8238,13 +8238,14 @@
         },
         {
           "atomType": "Rectangle",
-          "x": 0.17057291666666666,
-          "y": 0.8342857142857143,
+          "x": 0.13541666666666666,
+          "y": 0.8628571428571429,
           "uniqueID": "id-31362",
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 8
+              "ioValue": 7.5,
+              "currentEquation": "short_side * aspect_ratio"
             },
             {
               "name": "y length",
@@ -8257,19 +8258,19 @@
           "x": 0.0231,
           "y": 0.5257142857142857,
           "uniqueID": "id-31366",
-          "name": "width"
+          "name": "short_side"
         },
         {
           "atomType": "Input",
           "x": 0.0231,
           "y": 0.6799999999999999,
           "uniqueID": "id-31369",
-          "name": "len"
+          "name": "aspect_ratio"
         },
         {
           "atomType": "Move",
-          "x": 0.23502604166666666,
-          "y": 0.6371428571428571,
+          "x": 0.19140625000000003,
+          "y": 0.6942857142857143,
           "uniqueID": "id-31372",
           "ioValues": [
             {
@@ -8279,12 +8280,12 @@
             {
               "name": "xDist",
               "ioValue": 2.4000000000000004,
-              "currentEquation": "* 0.4"
+              "currentEquation": "short_side * 0.4"
             },
             {
               "name": "yDist",
               "ioValue": 2.4000000000000004,
-              "currentEquation": "width * 0.4"
+              "currentEquation": "short_side * 0.4"
             },
             {
               "name": "zDist",
@@ -8338,7 +8339,8 @@
             },
             {
               "name": "Radius",
-              "ioValue": 1.7000000000000002
+              "ioValue": 1.6999999999999997,
+              "currentEquation": "short_side * 0.6  / 2 - 0.1"
             },
             {
               "name": "Bounding_Box",
@@ -8436,7 +8438,7 @@
                 },
                 {
                   "name": "radius",
-                  "ioValue": 1.7000000000000002
+                  "ioValue": 1.6999999999999997
                 },
                 {
                   "name": "region",
@@ -8591,38 +8593,6 @@
               "currentEquation": "StructuralThickness"
             }
           ]
-        },
-        {
-          "atomType": "Equation",
-          "x": 0.14778645833333334,
-          "y": 0.5028571428571429,
-          "uniqueID": "id-31522",
-          "name": "0.4 * min(x,y)",
-          "ioValues": [
-            {
-              "name": "x",
-              "ioValue": 6
-            },
-            {
-              "name": "y",
-              "ioValue": 8
-            }
-          ],
-          "currentEquation": "0.4 * min(x,y)"
-        },
-        {
-          "atomType": "Equation",
-          "x": 0.5989583333333334,
-          "y": 0.4714285714285715,
-          "uniqueID": "id-31526",
-          "name": "i * 1.5 / 2 - 0.1",
-          "ioValues": [
-            {
-              "name": "i",
-              "ioValue": 2.4000000000000004
-            }
-          ],
-          "currentEquation": "i * 1.5 / 2 - 0.1"
         }
       ],
       "allConnectors": [
@@ -8640,21 +8610,6 @@
           "ap2Name": "y length",
           "ap1ID": "id-31366",
           "ap2ID": "id-31362"
-        },
-        {
-          "ap2Name": "x",
-          "ap1ID": "id-31366",
-          "ap2ID": "id-31522"
-        },
-        {
-          "ap2Name": "x length",
-          "ap1ID": "id-31369",
-          "ap2ID": "id-31362"
-        },
-        {
-          "ap2Name": "y",
-          "ap1ID": "id-31369",
-          "ap2ID": "id-31522"
         },
         {
           "ap2Name": "remove",
@@ -8684,26 +8639,6 @@
         {
           "ap2Name": "Bounding_Box",
           "ap1ID": "id-31518",
-          "ap2ID": "id-31483"
-        },
-        {
-          "ap2Name": "xDist",
-          "ap1ID": "id-31522",
-          "ap2ID": "id-31372"
-        },
-        {
-          "ap2Name": "yDist",
-          "ap1ID": "id-31522",
-          "ap2ID": "id-31372"
-        },
-        {
-          "ap2Name": "i",
-          "ap1ID": "id-31522",
-          "ap2ID": "id-31526"
-        },
-        {
-          "ap2Name": "Radius",
-          "ap1ID": "id-31526",
           "ap2ID": "id-31483"
         }
       ],
