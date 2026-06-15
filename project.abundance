@@ -388,7 +388,7 @@
         },
         {
           "name": "NumRulings",
-          "ioValue": 50
+          "ioValue": 100
         },
         {
           "name": "RulingAxis(U,V,auto)",
@@ -422,7 +422,7 @@
             },
             {
               "name": "numRulings",
-              "ioValue": 50
+              "ioValue": 100
             },
             {
               "name": "rulingAxis",
