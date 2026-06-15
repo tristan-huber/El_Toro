@@ -66,14 +66,14 @@
       "x": 0.2682291666666667,
       "y": 0.2657142857142857,
       "uniqueID": "id-30349",
-      "name": "Extract interior void",
+      "name": "Extract panels",
       "ioValues": [
         {
           "name": "geometry",
           "ioValue": "__GEOMETRY_INPUT__"
         }
       ],
-      "tag": "interior void",
+      "tag": "panels",
       "tagIndex": 0
     },
     {
@@ -6299,7 +6299,7 @@
             },
             {
               "name": "index",
-              "ioValue": 5
+              "ioValue": 15
             }
           ],
           "topLevel": false,
@@ -6343,7 +6343,7 @@
                 },
                 {
                   "name": "faceIndex",
-                  "ioValue": 5
+                  "ioValue": 15
                 }
               ],
               "interpreterVersion": 1,
@@ -6408,7 +6408,7 @@
             },
             {
               "name": "index",
-              "ioValue": 4
+              "ioValue": 7
             }
           ],
           "topLevel": false,
@@ -6452,7 +6452,7 @@
                 },
                 {
                   "name": "faceIndex",
-                  "ioValue": 4
+                  "ioValue": 7
                 }
               ],
               "interpreterVersion": 1,
