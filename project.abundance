@@ -6647,8 +6647,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.4516927083333333,
-          "y": 0.4528571428571429,
+          "x": 0.451171875,
+          "y": 0.4642857142857143,
           "uniqueID": "id-28157",
           "name": "crv.VisRuledRadius",
           "ioValues": [
@@ -6662,7 +6662,8 @@
             },
             {
               "name": "ThresholdRadius",
-              "ioValue": 100
+              "ioValue": 100,
+              "currentEquation": "100"
             },
             {
               "name": "RulingAxis(U,V,auto)",
@@ -7374,27 +7375,27 @@
         {
           "ap2Name": "Face",
           "ap1ID": "id-28141",
-          "ap2ID": "id-28151"
-        },
-        {
-          "ap2Name": "Face",
-          "ap1ID": "id-28141",
-          "ap2ID": "id-28157"
-        },
-        {
-          "ap2Name": "Face",
-          "ap1ID": "id-28141",
-          "ap2ID": "id-28164"
-        },
-        {
-          "ap2Name": "Face",
-          "ap1ID": "id-28141",
           "ap2ID": "id-28170"
         },
         {
           "ap2Name": "Face",
           "ap1ID": "id-28146",
           "ap2ID": "id-28178"
+        },
+        {
+          "ap2Name": "Face",
+          "ap1ID": "id-28146",
+          "ap2ID": "id-28164"
+        },
+        {
+          "ap2Name": "Face",
+          "ap1ID": "id-28146",
+          "ap2ID": "id-28157"
+        },
+        {
+          "ap2Name": "Face",
+          "ap1ID": "id-28146",
+          "ap2ID": "id-28151"
         },
         {
           "ap2Name": "Shape 3",
