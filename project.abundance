@@ -6354,8 +6354,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.3143229166666667,
-          "y": 0.6528571428571428,
+          "x": 0.267578125,
+          "y": 0.7416666666666667,
           "uniqueID": "id-28141",
           "name": "util.SelectFace",
           "ioValues": [
@@ -6583,7 +6583,8 @@
             },
             {
               "name": "NumRulings",
-              "ioValue": 100
+              "ioValue": 100,
+              "currentEquation": "100"
             },
             {
               "name": "RulingAxis(U,V,auto)",
@@ -6723,7 +6724,7 @@
             },
             {
               "name": "ThresholdRadius",
-              "ioValue": 100
+              "ioValue": 20
             },
             {
               "name": "RulingAxis(U,V,auto)",
@@ -6766,7 +6767,7 @@
                 },
                 {
                   "name": "thresholdRadius",
-                  "ioValue": 100
+                  "ioValue": 20
                 }
               ],
               "interpreterVersion": 1,
@@ -6995,8 +6996,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.4477864583333333,
-          "y": 0.7985714285714286,
+          "x": 0.4228515625,
+          "y": 0.7895833333333333,
           "uniqueID": "id-28170",
           "name": "crv.Unroll",
           "ioValues": [
