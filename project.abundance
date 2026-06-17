@@ -113,8 +113,8 @@
     },
     {
       "atomType": "Rotate",
-      "x": 0.42578125,
-      "y": 0.8114285714285715,
+      "x": 0.42919921875,
+      "y": 0.8229166666666666,
       "uniqueID": "id-31343",
       "ioValues": [
         {
@@ -7581,8 +7581,8 @@
         },
         {
           "atomType": "Extrude",
-          "x": 0.3346354166666667,
-          "y": 0.48571428571428577,
+          "x": 0.33984375,
+          "y": 0.48958333333333337,
           "uniqueID": "id-31289",
           "ioValues": [
             {
@@ -7614,8 +7614,8 @@
         },
         {
           "atomType": "Tag",
-          "x": 0.4908854166666667,
-          "y": 0.26285714285714284,
+          "x": 0.54541015625,
+          "y": 0.28750000000000003,
           "uniqueID": "id-31324",
           "name": "transom",
           "ioValues": [
@@ -8199,8 +8199,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.5611979166666667,
-      "y": 0.47428571428571425,
+      "x": 0.5654296875,
+      "y": 0.4395833333333333,
       "uniqueID": "id-31354",
       "name": "Knees",
       "ioValues": [
@@ -8210,11 +8210,12 @@
         },
         {
           "name": "short_side",
-          "ioValue": 6
+          "ioValue": 4
         },
         {
           "name": "aspect_ratio",
-          "ioValue": 1.25
+          "ioValue": 1,
+          "currentEquation": "1"
         }
       ],
       "topLevel": false,
@@ -8247,12 +8248,12 @@
           "ioValues": [
             {
               "name": "x length",
-              "ioValue": 7.5,
+              "ioValue": 4,
               "currentEquation": "short_side * aspect_ratio"
             },
             {
               "name": "y length",
-              "ioValue": 6
+              "ioValue": 4
             }
           ]
         },
@@ -8282,12 +8283,12 @@
             },
             {
               "name": "xDist",
-              "ioValue": 2.4000000000000004,
+              "ioValue": 1.6,
               "currentEquation": "short_side * 0.4"
             },
             {
               "name": "yDist",
-              "ioValue": 2.4000000000000004,
+              "ioValue": 1.6,
               "currentEquation": "short_side * 0.4"
             },
             {
@@ -8414,7 +8415,7 @@
             },
             {
               "name": "Radius",
-              "ioValue": 1.6999999999999997,
+              "ioValue": 1.0999999999999999,
               "currentEquation": "short_side * 0.6  / 2 - 0.1"
             },
             {
@@ -8513,7 +8514,7 @@
                 },
                 {
                   "name": "radius",
-                  "ioValue": 1.6999999999999997
+                  "ioValue": 1.0999999999999999
                 },
                 {
                   "name": "region",
