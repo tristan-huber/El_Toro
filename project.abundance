@@ -8630,8 +8630,8 @@
         },
         {
           "atomType": "Move",
-          "x": 0.5299479166666666,
-          "y": 0.3257142857142857,
+          "x": 0.52587890625,
+          "y": 0.6958333333333333,
           "uniqueID": "id-31565",
           "ioValues": [
             {
@@ -8640,22 +8640,25 @@
             },
             {
               "name": "xDist",
-              "ioValue": 0
+              "ioValue": -42,
+              "currentEquation": "-42"
             },
             {
               "name": "yDist",
-              "ioValue": 0
+              "ioValue": -16.7,
+              "currentEquation": "-16.7"
             },
             {
               "name": "zDist",
-              "ioValue": 0
+              "ioValue": -6.5,
+              "currentEquation": "-6.5"
             }
           ]
         },
         {
           "atomType": "Difference",
-          "x": 0.6484375,
-          "y": 0.40571428571428575,
+          "x": 0.6279296875,
+          "y": 0.2916666666666667,
           "uniqueID": "id-31578",
           "ioValues": [
             {
