@@ -2,7 +2,7 @@
 
 # El_Toro
 
-![](/project.svg)
+![](/project.png)
 
 ## Inputs
 
