@@ -6243,273 +6243,6 @@
           "selectedColor": "Default"
         },
         {
-          "atomType": "GitHubMolecule",
-          "x": 0.4,
-          "y": 0.2,
-          "uniqueID": "id-34081",
-          "name": "util.SelectEdge",
-          "ioValues": [
-            {
-              "name": "shape",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "index",
-              "ioValue": 13
-            }
-          ],
-          "topLevel": false,
-          "allAtoms": [
-            {
-              "atomType": "Output",
-              "x": 1,
-              "y": 0.5,
-              "uniqueID": "id-34070",
-              "ioValues": [
-                {
-                  "name": "number or geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                }
-              ]
-            },
-            {
-              "atomType": "Input",
-              "x": 0,
-              "y": 0.1,
-              "uniqueID": "id-34071",
-              "name": "shape",
-              "type": "geometry"
-            },
-            {
-              "atomType": "Input",
-              "x": 0,
-              "y": 0.2,
-              "uniqueID": "id-34072",
-              "name": "index"
-            },
-            {
-              "atomType": "Code",
-              "x": 0.4,
-              "y": 0.5,
-              "uniqueID": "id-34073",
-              "ioValues": [
-                {
-                  "name": "shape",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "edgeIndex",
-                  "ioValue": 13
-                }
-              ],
-              "interpreterVersion": 1,
-              "code": "\nfunction run(\n  shape: Assembly,\n  edgeIndex: number = 0\n) {\n  let result : replicad.Edge;\n  shape.onLeafs((leaf) => {\n    if (leaf.is3D() || leaf.geometry instanceof replicad.Face) {\n      const f = leaf.geometry.edges\n      if (f.length > edgeIndex && result == undefined) {\n        result = f[edgeIndex]\n      } else {\n        edgeIndex = edgeIndex - f.length\n      }\n      return leaf;\n    }\n  })\n  return replicad.assembleWire([result]);\n}\n",
-              "compiledCode": "\"use strict\";\nfunction run(shape, edgeIndex = 0) {\n    let result;\n    shape.onLeafs((leaf) => {\n        if (leaf.is3D() || leaf.geometry instanceof replicad.Face) {\n            const f = leaf.geometry.edges;\n            if (f.length > edgeIndex && result == undefined) {\n                result = f[edgeIndex];\n            }\n            else {\n                edgeIndex = edgeIndex - f.length;\n            }\n            return leaf;\n        }\n    });\n    return replicad.assembleWire([result]);\n}\n"
-            },
-            {
-              "atomType": "Rectangle",
-              "x": 0.1,
-              "y": 0.5,
-              "uniqueID": "id-34074",
-              "ioValues": [
-                {
-                  "name": "x length",
-                  "ioValue": 10
-                },
-                {
-                  "name": "y length",
-                  "ioValue": 10
-                }
-              ]
-            },
-            {
-              "atomType": "Extrude",
-              "x": 0.2,
-              "y": 0.5,
-              "uniqueID": "id-34075",
-              "ioValues": [
-                {
-                  "name": "geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "height",
-                  "ioValue": 10
-                }
-              ]
-            },
-            {
-              "atomType": "GitHubMolecule",
-              "x": 0.4,
-              "y": 0.8,
-              "uniqueID": "id-34076",
-              "name": "util.SelectFace",
-              "ioValues": [
-                {
-                  "name": "shape",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                },
-                {
-                  "name": "index",
-                  "ioValue": 0
-                }
-              ],
-              "topLevel": false,
-              "allAtoms": [
-                {
-                  "atomType": "Output",
-                  "x": 1,
-                  "y": 0.5,
-                  "uniqueID": "id-34077",
-                  "ioValues": [
-                    {
-                      "name": "number or geometry",
-                      "ioValue": "__GEOMETRY_INPUT__"
-                    }
-                  ]
-                },
-                {
-                  "atomType": "Input",
-                  "x": 0,
-                  "y": 0.1,
-                  "uniqueID": "id-34078",
-                  "name": "shape",
-                  "type": "geometry"
-                },
-                {
-                  "atomType": "Input",
-                  "x": 0,
-                  "y": 0.2,
-                  "uniqueID": "id-34079",
-                  "name": "index"
-                },
-                {
-                  "atomType": "Code",
-                  "x": 0.4,
-                  "y": 0.5,
-                  "uniqueID": "id-34080",
-                  "ioValues": [
-                    {
-                      "name": "shape",
-                      "ioValue": "__GEOMETRY_INPUT__"
-                    },
-                    {
-                      "name": "faceIndex",
-                      "ioValue": 0
-                    }
-                  ],
-                  "interpreterVersion": 1,
-                  "code": "\nfunction run(\n  shape: Assembly,\n  faceIndex: number = 0\n) {\n  let result = undefined;\n  shape.onLeafs((leaf) => {\n    if (leaf.is3D()) {\n      const f = leaf.geometry.faces\n      if (f.length > faceIndex && result == undefined) {\n        result = f[faceIndex]\n      } else {\n        faceIndex = faceIndex - f.length\n      }\n      return leaf;\n    }\n  })\n  return result;\n}\n",
-                  "compiledCode": "\"use strict\";\nfunction run(shape, faceIndex = 0) {\n    let result = undefined;\n    shape.onLeafs((leaf) => {\n        if (leaf.is3D()) {\n            const f = leaf.geometry.faces;\n            if (f.length > faceIndex && result == undefined) {\n                result = f[faceIndex];\n            }\n            else {\n                faceIndex = faceIndex - f.length;\n            }\n            return leaf;\n        }\n    });\n    return result;\n}\n"
-                }
-              ],
-              "allConnectors": [
-                {
-                  "ap2Name": "shape",
-                  "ap1ID": "id-34078",
-                  "ap2ID": "id-34080"
-                },
-                {
-                  "ap2Name": "faceIndex",
-                  "ap1ID": "id-34079",
-                  "ap2ID": "id-34080"
-                },
-                {
-                  "ap2Name": "number or geometry",
-                  "ap1ID": "id-34080",
-                  "ap2ID": "id-34077"
-                }
-              ],
-              "parentRepo": {
-                "lastFoundGit": "2026-06-18T10:23:39.209Z",
-                "privateRepo": false,
-                "repoName": "util.SelectFace",
-                "dateCreated": "2026-06-11T23:43:58Z",
-                "likes": 0,
-                "readMe": "https://raw.githubusercontent.com/tristan-huber/util.SelectFace/master/README.md?sanitize=true",
-                "yyyy": 2026,
-                "topMoleculeID": "id-1",
-                "githubMoleculesUsed": [],
-                "html_url": "https://github.com/tristan-huber/util.SelectFace",
-                "topics": [
-                  "abundance-tool"
-                ],
-                "parentRepo": null,
-                "forks": 0,
-                "dateModified": "739778",
-                "ranking": 1.5,
-                "searchField": "util.selectface tristan-huber gets a face by index from an assembly abundance-tool",
-                "owner": "tristan-huber",
-                "description": "Gets a face by index from an assembly",
-                "contentURL": "https://raw.githubusercontent.com/tristan-huber/util.SelectFace/master/project.abundance?sanitize=true",
-                "svgURL": "https://raw.githubusercontent.com/tristan-huber/util.SelectFace/master/project.svg?sanitize=true",
-                "isLocal": false
-              },
-              "unitsKey": "Unitless",
-              "fileTypeVersion": 1,
-              "lastReloadedFromGithubAt": 1781804440580
-            }
-          ],
-          "allConnectors": [
-            {
-              "ap2Name": "shape",
-              "ap1ID": "id-34071",
-              "ap2ID": "id-34073"
-            },
-            {
-              "ap2Name": "edgeIndex",
-              "ap1ID": "id-34072",
-              "ap2ID": "id-34073"
-            },
-            {
-              "ap2Name": "number or geometry",
-              "ap1ID": "id-34073",
-              "ap2ID": "id-34070"
-            },
-            {
-              "ap2Name": "geometry",
-              "ap1ID": "id-34074",
-              "ap2ID": "id-34075"
-            },
-            {
-              "ap2Name": "shape",
-              "ap1ID": "id-34075",
-              "ap2ID": "id-34076"
-            }
-          ],
-          "parentRepo": {
-            "privateRepo": false,
-            "repoName": "util.SelectEdge",
-            "dateCreated": "2026-06-18T17:36:33Z",
-            "readMe": "https://raw.githubusercontent.com/tristan-huber/util.SelectEdge/master/README.md?sanitize=true",
-            "yyyy": 2026,
-            "topMoleculeID": "id-1",
-            "githubMoleculesUsed": [
-              {
-                "owner": "tristan-huber",
-                "repoName": "util.SelectFace"
-              }
-            ],
-            "html_url": "https://github.com/tristan-huber/util.SelectEdge",
-            "topics": [
-              "abundance-tool"
-            ],
-            "parentRepo": null,
-            "forks": 0,
-            "dateModified": "739785",
-            "ranking": 0,
-            "searchField": "util.selectedge tristan-huber gets a face by index from an assembly abundance-tool",
-            "owner": "tristan-huber",
-            "description": "Gets a face by index from an assembly",
-            "contentURL": "https://raw.githubusercontent.com/tristan-huber/util.SelectEdge/master/project.abundance?sanitize=true",
-            "svgURL": "https://raw.githubusercontent.com/tristan-huber/util.SelectEdge/master/project.svg?sanitize=true",
-            "isLocal": false
-          },
-          "unitsKey": "Unitless",
-          "fileTypeVersion": 1,
-          "lastReloadedFromGithubAt": 1781804856300
-        },
-        {
           "atomType": "Code",
           "x": 0.4,
           "y": 0.8,
@@ -7012,7 +6745,7 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.5,
+          "x": 0.3,
           "y": 0.3,
           "uniqueID": "id-53957",
           "name": "ClosestEdge",
@@ -7152,12 +6885,12 @@
           "ioValues": [
             {
               "name": "X",
-              "ioValue": 47.4375
+              "ioValue": 10
             },
             {
               "name": "Y",
-              "ioValue": 0,
-              "currentEquation": "0"
+              "ioValue": -100,
+              "currentEquation": "-100"
             },
             {
               "name": "Z",
@@ -7193,11 +6926,11 @@
               "ioValues": [
                 {
                   "name": "x",
-                  "ioValue": 47.4375
+                  "ioValue": 10
                 },
                 {
                   "name": "y",
-                  "ioValue": 0
+                  "ioValue": -100
                 },
                 {
                   "name": "z",
@@ -7274,109 +7007,6 @@
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1789417797318
-        },
-        {
-          "atomType": "GitHubMolecule",
-          "x": 0.2,
-          "y": 0.2,
-          "uniqueID": "id-53997",
-          "name": "Width",
-          "ioValues": [
-            {
-              "name": "Shape",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "topLevel": false,
-          "allAtoms": [
-            {
-              "atomType": "Output",
-              "x": 1,
-              "y": 0.5,
-              "uniqueID": "id-53994",
-              "ioValues": [
-                {
-                  "name": "number or geometry",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                }
-              ]
-            },
-            {
-              "atomType": "Input",
-              "x": 0,
-              "y": 0.1,
-              "uniqueID": "id-53995",
-              "name": "Shape",
-              "type": "geometry"
-            },
-            {
-              "atomType": "Code",
-              "x": 0.4,
-              "y": 0.5,
-              "uniqueID": "id-53996",
-              "ioValues": [
-                {
-                  "name": "A",
-                  "ioValue": "__GEOMETRY_INPUT__"
-                }
-              ],
-              "interpreterVersion": 0,
-              "code": "/**\n Inputs for this Code Atom:\n - Takes a single geometry input \"A\" and returns its width (X size) as measured by the bounding box.\n*/\nInputs = [\n  { inputName: \"A\", type: \"geometry\", defaultValue: null }\n]\n\nif (!A) {\n  // No input provided — return null to indicate absence.\n  return null\n}\n\n// Get bounding box of A. boundsA.min and boundsA.max are arrays [x, y, z]\nlet boundsA = await GetBounds(A);\nlet min = boundsA.min;\nlet max = boundsA.max;\n\n// Compute width along X (maxX - minX)\nlet width = max[0] - min[0];\n\n// Ensure a non-negative numeric result\nwidth = typeof width === 'number' && isFinite(width) ? Math.max(0, width) : null;\n\nreturn width;"
-            }
-          ],
-          "allConnectors": [
-            {
-              "ap2Name": "A",
-              "ap1ID": "id-53995",
-              "ap2ID": "id-53996"
-            },
-            {
-              "ap2Name": "number or geometry",
-              "ap1ID": "id-53996",
-              "ap2ID": "id-53994"
-            }
-          ],
-          "parentRepo": {
-            "lastFoundGit": "2026-09-14T18:23:39.029Z",
-            "privateRepo": false,
-            "repoName": "Width",
-            "dateCreated": "2025-12-04T20:14:11Z",
-            "likes": 0,
-            "readMe": "https://raw.githubusercontent.com/BarbourSmith/Width/master/README.md?sanitize=true",
-            "yyyy": 2025,
-            "topMoleculeID": "id-386",
-            "githubMoleculesUsed": [],
-            "html_url": "https://github.com/BarbourSmith/Width",
-            "topics": [],
-            "pullRequests": [],
-            "parentRepo": null,
-            "forks": 0,
-            "dateModified": "739589",
-            "ranking": 9.3,
-            "searchField": "width barboursmith takes a shape and returns the width as measured by the shapes bounding box in the x direction ",
-            "owner": "BarbourSmith",
-            "description": "Takes a shape and returns the width as measured by the shapes bounding box in the X direction",
-            "contentURL": "https://raw.githubusercontent.com/BarbourSmith/Width/master/project.abundance?sanitize=true",
-            "svgURL": "https://raw.githubusercontent.com/BarbourSmith/Width/master/project.svg?sanitize=true",
-            "isLocal": false
-          },
-          "unitsKey": "MM",
-          "fileTypeVersion": 1,
-          "lastReloadedFromGithubAt": 1789417843153
-        },
-        {
-          "atomType": "Equation",
-          "x": 0.2,
-          "y": 0.1,
-          "uniqueID": "id-54006",
-          "name": "x  / 2",
-          "ioValues": [
-            {
-              "name": "x",
-              "ioValue": 94.875
-            }
-          ],
-          "currentEquation": "x  / 2"
         }
       ],
       "allConnectors": [
@@ -7384,11 +7014,6 @@
           "ap2Name": "geometry",
           "ap1ID": "id-32773",
           "ap2ID": "id-32801"
-        },
-        {
-          "ap2Name": "Shape",
-          "ap1ID": "id-32773",
-          "ap2ID": "id-53997"
         },
         {
           "ap2Name": "geometry",
@@ -7451,11 +7076,6 @@
           "ap2ID": "id-32824"
         },
         {
-          "ap2Name": "shape",
-          "ap1ID": "id-32801",
-          "ap2ID": "id-34081"
-        },
-        {
           "ap2Name": "remove",
           "ap1ID": "id-32801",
           "ap2ID": "id-34127"
@@ -7477,18 +7097,13 @@
         },
         {
           "ap2Name": "along",
-          "ap1ID": "id-34081",
+          "ap1ID": "id-53957",
           "ap2ID": "id-34110"
         },
         {
-          "ap2Name": "x",
-          "ap1ID": "id-53997",
-          "ap2ID": "id-54006"
-        },
-        {
-          "ap2Name": "X",
-          "ap1ID": "id-54006",
-          "ap2ID": "id-53978"
+          "ap2Name": "NearestTo",
+          "ap1ID": "id-53978",
+          "ap2ID": "id-53957"
         }
       ],
       "fileTypeVersion": 1
